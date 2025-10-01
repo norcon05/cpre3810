@@ -1,0 +1,28 @@
+U:/cpre381/Lab1/OnesComp/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/OnesComp/invg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} U:/cpre381/Lab1/OnesComp/onesComp_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/OnesComp/onesComp_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+
+} {} {}} U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Loading package ENV
+** Warning: U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd(17): (vcom-1516) Package "STD.ENV" does not exist in this language version.
+-- Compiling entity tb_onesComp_N
+-- Compiling architecture mixed of tb_onesComp_N
+
+} {} {}}

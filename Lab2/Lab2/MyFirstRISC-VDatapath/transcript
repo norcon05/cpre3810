@@ -1,0 +1,63 @@
+# Compile of adder.vhd was successful.
+# Compile of adder_N.vhd was successful.
+# Compile of addiSubi_N.vhd was successful.
+# Compile of addSub_N.vhd was successful.
+# Compile of andg2.vhd was successful.
+# Compile of datapath.vhd was successful.
+# Compile of decoder5t32.vhd was successful.
+# Compile of dffg.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of mux2t1.vhd was successful.
+# Compile of mux2t1_N.vhd was successful.
+# Compile of mux32t1_N.vhd was successful.
+# Compile of onesComp_N.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of reg_N.vhd was successful.
+# Compile of regFile.vhd was successful.
+# Compile of tb_datapath.vhd was successful.
+# Compile of xorg2.vhd was successful.
+# 18 compiles, 0 failed with no errors.
+vsim -gui work.tb_datapath -voptargs=+acc
+# vsim -gui work.tb_datapath -voptargs="+acc" 
+# Start time: 14:13:35 on Sep 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath(behavior)#1
+# Loading work.datapath(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_datapath/s_iCLK \
+sim:/tb_datapath/s_iRST \
+sim:/tb_datapath/s_iwrite_enable \
+sim:/tb_datapath/s_iALU_SRC \
+sim:/tb_datapath/s_inAdd_Sub \
+sim:/tb_datapath/s_irs1 \
+sim:/tb_datapath/s_irs2 \
+sim:/tb_datapath/s_ird \
+sim:/tb_datapath/s_iimm \
+sim:/tb_datapath/s_oALU_Result
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-01  ProcessID: 12996
+#           Attempting to use alternate WLF file "./wlft37myet".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft37myet
+run 4000

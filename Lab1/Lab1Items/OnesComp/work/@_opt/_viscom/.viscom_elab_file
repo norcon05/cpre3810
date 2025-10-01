@@ -1,0 +1,1 @@
+C:/questasim64_2025.1_2/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 10518816 work.tb_onescomp_n -quiet -auto_acc_if_foreign -work work +acc -allow_unnamed -o _opt -id 1-005056b65118-68bb2ba8-392-1b44 +__betafsm

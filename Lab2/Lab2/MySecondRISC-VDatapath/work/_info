@@ -1,0 +1,905 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s12c _opt1
+R1
+Z2 !s12c _opt
+R1
+R2
+R1
+R2
+R1
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1758691671
+Vk1eD[2Q[CNz7Q`2WcaRd42
+Z4 04 12 8 work tb_datapath2 behavior 1
+=1-005056b66f1e-68d38155-8-2470
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+Z9 o-quiet -auto_acc_if_foreign -work work +acc
+Z10 tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+Z11 OL;O;2025.1_2;82
+R3
+T_opt1
+!s110 1758741879
+Vg<a:OE0YIhEX[XN4>8LOS3
+R4
+=1-005056b6d2ed-68d44571-28f-2a88
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt1
+R11
+R3
+T_opt2
+!s110 1758750165
+V3Fk@2QVIRh^SX_MnGS?=L2
+R4
+=1-005056b60d05-68d465d2-13b-234c
+R1
+R5
+R6
+R7
+R8
+R9
+R10
+n@_opt2
+R11
+Eadder
+Z12 w1757108383
+Z13 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z14 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z15 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 46
+Z16 dU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath
+Z17 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd
+Z18 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd
+l0
+Z19 L20 1
+Vb^23S0D?hFncD<M8F4@Vn2
+!s100 ^T8;M0QX;@76HQH<^E6n61
+Z20 OL;C;2025.1_2;82
+32
+Z21 !s110 1758741720
+!i10b 1
+Z22 !s108 1758741719.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd|
+Z24 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd|
+!i113 0
+Z25 o-work work -2002 -explicit
+Z26 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Astructure
+R13
+R14
+R15
+DEx4 work 5 adder 0 22 b^23S0D?hFncD<M8F4@Vn2
+!i122 46
+l62
+L30 78
+VD]4>j19ce8?DE>zJaT>]:0
+!s100 PnS]h[kP8:G66>RTaD;IH2
+R20
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R25
+R26
+Eadder_n
+Z27 w1757278652
+R14
+R15
+!i122 47
+R16
+Z28 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd
+Z29 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd
+l0
+Z30 L21 1
+Vo>D>WNB]RGSRAdleD=lW_3
+!s100 iJZHbgFkeUQP4_hKion]E2
+R20
+32
+R21
+!i10b 1
+Z31 !s108 1758741720.000000
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd|
+Z33 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 7 adder_n 0 22 o>D>WNB]RGSRAdleD=lW_3
+!i122 47
+l43
+L32 28
+V9hF6>ZjSKk9JQLDjHGPWA2
+!s100 Q`ada`T:TAVc>Ro:;A4>;2
+R20
+32
+R21
+!i10b 1
+R31
+R32
+R33
+!i113 0
+R25
+R26
+Eaddisubi_n
+Z34 w1758502279
+R14
+R15
+!i122 48
+R16
+Z35 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd
+Z36 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd
+l0
+R30
+VT:hnZkUkU2N9z]kV5DWA10
+!s100 >PAZeP17aHK]>A9@91L=@1
+R20
+32
+Z37 !s110 1758741721
+!i10b 1
+R31
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd|
+Z39 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 10 addisubi_n 0 22 T:hnZkUkU2N9z]kV5DWA10
+!i122 48
+l58
+L32 63
+Vl6`R1BHz5PNnC1AGmGAC?1
+!s100 eDhdWOUcCkKmWgo;^fHg50
+R20
+32
+R37
+!i10b 1
+R31
+R38
+R39
+!i113 0
+R25
+R26
+Eaddsub_n
+Z40 w1757290127
+R14
+R15
+!i122 49
+R16
+Z41 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd
+Z42 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd
+l0
+R30
+VHf3QQEnS[032nIYMmBjI<1
+!s100 l:hK`aEJd2ShKoeYbN;<e1
+R20
+32
+R37
+!i10b 1
+Z43 !s108 1758741721.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd|
+Z45 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 8 addsub_n 0 22 Hf3QQEnS[032nIYMmBjI<1
+!i122 49
+l57
+L32 54
+VL@PRH9TmIPi_;7:6MFDo;2
+!s100 @;]g0M^mOJAFeVYj1XRV93
+R20
+32
+R37
+!i10b 1
+R43
+R44
+R45
+!i113 0
+R25
+R26
+Eandg2
+Z46 w1756784992
+R14
+R15
+!i122 50
+R16
+Z47 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd
+Z48 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd
+l0
+Z49 L23 1
+V3HzFlmB@@ELE:DVe6<;D]2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+R20
+32
+Z50 !s110 1758741722
+!i10b 1
+R43
+Z51 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd|
+Z52 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R14
+R15
+DEx4 work 5 andg2 0 22 3HzFlmB@@ELE:DVe6<;D]2
+!i122 50
+l32
+Z53 L31 6
+V]l8znTEkk2GDnOH<^DUMS2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R20
+32
+R50
+!i10b 1
+R43
+R51
+R52
+!i113 0
+R25
+R26
+Edatapath2
+Z54 w1758749681
+R14
+R15
+!i122 71
+R16
+Z55 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd
+Z56 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd
+l0
+R19
+V:fe1FT<CQWiBe_;D6kEKY2
+!s100 VM9=En9J[bKkALbYnOi[G0
+R20
+32
+Z57 !s110 1758749760
+!i10b 1
+Z58 !s108 1758749760.000000
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd|
+Z60 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 9 datapath2 0 22 :fe1FT<CQWiBe_;D6kEKY2
+!i122 71
+l93
+L37 114
+VXDGJIh?J7;:H2JDn36P<]2
+!s100 Thi8CNCZQW1RgoE=hW?451
+R20
+32
+R57
+!i10b 1
+R58
+R59
+R60
+!i113 0
+R25
+R26
+Edecoder5t32
+Z61 w1758421924
+R13
+R14
+R15
+!i122 52
+R16
+Z62 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd
+Z63 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd
+l0
+R19
+VgFFhkehTPX8:T9ak1c]l?2
+!s100 j8zC]n@eP41Y0aahh2oaM1
+R20
+32
+R50
+!i10b 1
+Z64 !s108 1758741722.000000
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd|
+Z66 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R13
+R14
+R15
+DEx4 work 11 decoder5t32 0 22 gFFhkehTPX8:T9ak1c]l?2
+!i122 52
+l30
+L28 42
+VXY70>5;HV@0TW=fa1QX[J0
+!s100 Qf2;JRf2ATZ;V[``@<ofh1
+R20
+32
+Z67 !s110 1758741723
+!i10b 1
+R64
+R65
+R66
+!i113 0
+R25
+R26
+Edffg
+Z68 w1757519385
+R14
+R15
+!i122 53
+R16
+Z69 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd
+Z70 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd
+l0
+R49
+V`UnEjli4BHInV8JLJn?aW0
+!s100 T4gcXQGMCgKJbn8XhBM;b0
+R20
+32
+R67
+!i10b 1
+Z71 !s108 1758741723.000000
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd|
+Z73 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd|
+!i113 0
+R25
+R26
+Amixed
+R14
+R15
+DEx4 work 4 dffg 0 22 `UnEjli4BHInV8JLJn?aW0
+!i122 53
+l37
+L33 29
+VCmzGZMIW@A[EPYL2Z@iz02
+!s100 iOdlTUid@@]UimFK_53^C1
+R20
+32
+R67
+!i10b 1
+R71
+R72
+R73
+!i113 0
+R25
+R26
+Eextender
+Z74 w1758600817
+R14
+R15
+!i122 54
+R16
+Z75 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd
+Z76 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd
+l0
+R19
+VNKSgBAVnV3=VlMV^I^KJ^3
+!s100 6zgeZ>@mS2e6HMki^a1?53
+R20
+32
+Z77 !s110 1758741724
+!i10b 1
+R71
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd|
+Z79 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R14
+R15
+DEx4 work 8 extender 0 22 NKSgBAVnV3=VlMV^I^KJ^3
+!i122 54
+l32
+L28 14
+V3R^1=>f_AGT02Bl^`W9fa3
+!s100 _LXFjj1XQo^DUJgE=5`6T2
+R20
+32
+R77
+!i10b 1
+R71
+R78
+R79
+!i113 0
+R25
+R26
+Einvg
+R46
+R14
+R15
+!i122 55
+R16
+Z80 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd
+Z81 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd
+l0
+R49
+VLz?:SG7hHQ@S>c;Dc6?dA3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R20
+32
+R77
+!i10b 1
+Z82 !s108 1758741724.000000
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd|
+Z84 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R14
+R15
+DEx4 work 4 invg 0 22 Lz?:SG7hHQ@S>c;Dc6?dA3
+!i122 55
+l31
+L30 6
+Vocml?BWU[I_`>T>W01ONf2
+!s100 bk7I76o8e1LURdoZEQb8H0
+R20
+32
+R77
+!i10b 1
+R82
+R83
+R84
+!i113 0
+R25
+R26
+Emem
+Z85 w1758669909
+R13
+R14
+R15
+!i122 56
+R16
+Z86 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd
+Z87 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd
+l0
+L8 1
+VAX<_7[EiWQKz<VNg64AfE1
+!s100 7[hDmkRVN5;9iob_eMb3]3
+R20
+32
+R77
+!i10b 1
+R82
+Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd|
+Z89 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd|
+!i113 0
+R25
+R26
+Artl
+R13
+R14
+R15
+DEx4 work 3 mem 0 22 AX<_7[EiWQKz<VNg64AfE1
+!i122 56
+l37
+L27 24
+VZV=;XL7=W=bm>nh@CH8Nd0
+!s100 OI8_3><BhDkT3l3n8`OXd3
+R20
+32
+R77
+!i10b 1
+R82
+R88
+R89
+!i113 0
+R25
+R26
+Emux2t1
+Z90 w1757045065
+R13
+R14
+R15
+!i122 57
+R16
+Z91 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd
+Z92 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd
+l0
+R19
+V3FjWoFFb_]iG@KXeXf[;00
+!s100 Gh>WHY06GGA>fHW>1<T]T3
+R20
+32
+Z93 !s110 1758741725
+!i10b 1
+Z94 !s108 1758741725.000000
+Z95 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd|
+Z96 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd|
+!i113 0
+R25
+R26
+Astructure
+R13
+R14
+R15
+DEx4 work 6 mux2t1 0 22 3FjWoFFb_]iG@KXeXf[;00
+!i122 57
+l56
+L29 61
+Vg2Sij;OEk_z?`jAiXM=`^2
+!s100 hh=N?T`k5U<7]eMZj8<`M3
+R20
+32
+R93
+!i10b 1
+R94
+R95
+R96
+!i113 0
+R25
+R26
+Emux2t1_n
+Z97 w1757291716
+R14
+R15
+!i122 58
+R16
+Z98 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd
+Z99 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd
+l0
+R30
+VGlkVIaMNZ2Ej=;53?CNGM0
+!s100 BKZeKCAB2i6lge3>7TA3d3
+R20
+32
+Z100 !s110 1758741726
+!i10b 1
+R94
+Z101 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd|
+Z102 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 8 mux2t1_n 0 22 GlkVIaMNZ2Ej=;53?CNGM0
+!i122 58
+l39
+L30 21
+VJ8n;R0DC]GFH8^U^H:zXH3
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R20
+32
+R100
+!i10b 1
+R94
+R101
+R102
+!i113 0
+R25
+R26
+Emux32t1_n
+Z103 w1758488407
+R13
+R14
+R15
+!i122 59
+R16
+Z104 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd
+Z105 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd
+l0
+R19
+V7oo7lD>0[9V?0Mh[95EGP0
+!s100 HD@TXk40WDe8Ga4X^i=hE2
+R20
+32
+R100
+!i10b 1
+Z106 !s108 1758741726.000000
+Z107 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd|
+Z108 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R13
+R14
+R15
+DEx4 work 9 mux32t1_n 0 22 7oo7lD>0[9V?0Mh[95EGP0
+!i122 59
+l63
+L61 46
+VKkK[FHkgRafV@O5NXNo0a0
+!s100 O=o:8;kL@[h53EVno;A[21
+R20
+32
+R100
+!i10b 1
+R106
+R107
+R108
+!i113 0
+R25
+R26
+Eonescomp_n
+Z109 w1757095791
+R14
+R15
+!i122 60
+R16
+Z110 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd
+Z111 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd
+l0
+R30
+VSm;jHe^:z5hkzck3cI`b72
+!s100 =dZD?9VPgTFo<^=353lGS0
+R20
+32
+Z112 !s110 1758741727
+!i10b 1
+R106
+Z113 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd|
+Z114 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 10 onescomp_n 0 22 Sm;jHe^:z5hkzck3cI`b72
+!i122 60
+l35
+L28 17
+Vgg=d8LGQz1RLH<f7;[Q662
+!s100 `@2RT`nk7U2;:mNDO6TZ_2
+R20
+32
+R112
+!i10b 1
+R106
+R113
+R114
+!i113 0
+R25
+R26
+Eorg2
+R46
+R14
+R15
+!i122 61
+R16
+Z115 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd
+Z116 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd
+l0
+R49
+Vg[9jF>Y9L53>bbNkeLT@]1
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R20
+32
+R112
+!i10b 1
+Z117 !s108 1758741727.000000
+Z118 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd|
+Z119 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R14
+R15
+DEx4 work 4 org2 0 22 g[9jF>Y9L53>bbNkeLT@]1
+!i122 61
+l32
+R53
+VN:VmSbhGlNK1cO>WaCCNU1
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R20
+32
+R112
+!i10b 1
+R117
+R118
+R119
+!i113 0
+R25
+R26
+Ereg_n
+Z120 w1758404836
+R14
+R15
+!i122 62
+R16
+Z121 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd
+Z122 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd
+l0
+R30
+VR4S;<WcMlEZF=^hVh]Wo02
+!s100 OD_eeLQMeaAWf`_X5]do02
+R20
+32
+Z123 !s110 1758741728
+!i10b 1
+Z124 !s108 1758741728.000000
+Z125 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd|
+Z126 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 5 reg_n 0 22 R4S;<WcMlEZF=^hVh]Wo02
+!i122 62
+l41
+L31 23
+Vi4OXLb8:VO^LYjM_f8[P^3
+!s100 jP?k;lAK^ceNG=XHbAbk`2
+R20
+32
+R123
+!i10b 1
+R124
+R125
+R126
+!i113 0
+R25
+R26
+Eregfile
+Z127 w1758482369
+R14
+R15
+!i122 63
+R16
+Z128 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd
+Z129 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd
+l0
+R30
+VT;5;E6BW=`HGi[P>gUJ1[1
+!s100 25CE:gd8>;[_R>]JcPDzV3
+R20
+32
+Z130 !s110 1758741729
+!i10b 1
+Z131 !s108 1758741729.000000
+Z132 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd|
+Z133 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd|
+!i113 0
+R25
+R26
+Astructural
+R14
+R15
+DEx4 work 7 regfile 0 22 T;5;E6BW=`HGi[P>gUJ1[1
+!i122 63
+l156
+L34 549
+V2AR2jT8>8PB@R`[o85BIg0
+!s100 09i>IR8IMG>4L1HmY=K;R1
+R20
+32
+R130
+!i10b 1
+R131
+R132
+R133
+!i113 0
+R25
+R26
+Etb_datapath2
+Z134 w1758750116
+R14
+R15
+!i122 73
+R16
+Z135 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/tb_datapath2.vhd
+Z136 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/tb_datapath2.vhd
+l0
+R30
+VCk5_[F>eTfiG:hGLzd^3:0
+!s100 hDdFlJMX1K<adoF1E=zi@0
+R20
+32
+Z137 !s110 1758750153
+!i10b 1
+Z138 !s108 1758750152.000000
+Z139 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/tb_datapath2.vhd|
+Z140 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/tb_datapath2.vhd|
+!i113 0
+R25
+R26
+Abehavior
+R14
+R15
+DEx4 work 12 tb_datapath2 0 22 Ck5_[F>eTfiG:hGLzd^3:0
+!i122 73
+l55
+L25 429
+V7V:bJ5:nE_]DXjcLRnc:m2
+!s100 @BHCA462eBAANg;<=UgbF0
+R20
+32
+R137
+!i10b 1
+R138
+R139
+R140
+!i113 0
+R25
+R26
+Exorg2
+R46
+R14
+R15
+!i122 65
+R16
+Z141 8U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd
+Z142 FU:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd
+l0
+R49
+VokUkmIkG1Zl_Qn_OQIL7H2
+!s100 [hI[mXFH4_j16U;>U1Lfn2
+R20
+32
+Z143 !s110 1758741731
+!i10b 1
+Z144 !s108 1758741730.000000
+Z145 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd|
+Z146 !s107 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd|
+!i113 0
+R25
+R26
+Adataflow
+R14
+R15
+DEx4 work 5 xorg2 0 22 okUkmIkG1Zl_Qn_OQIL7H2
+!i122 65
+l32
+R53
+V:68lB?DjDIUd9JjH[M;nM2
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R20
+32
+R143
+!i10b 1
+R144
+R145
+R146
+!i113 0
+R25
+R26

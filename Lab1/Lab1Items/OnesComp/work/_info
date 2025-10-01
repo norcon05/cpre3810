@@ -1,0 +1,173 @@
+m255
+K4
+z2
+!s12c _opt1
+Z0 !s99 nomlopt
+Z1 !s12c _opt
+R0
+R1
+R0
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1757096875
+VcMbT;[g30[f1<h_lNTmK>1
+Z3 04 13 5 work tb_onescomp_n mixed 1
+=1-005056b65118-68bb2ba8-392-1b44
+R0
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+Z10 OL;O;2025.1_2;82
+R2
+T_opt1
+!s110 1757282617
+V49eUaLEJ3:Ge34i995M;Y2
+R3
+=1-005056b6a1a3-68be0136-3c4-1acc
+R0
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt1
+R10
+Einvg
+Z11 w1756784992
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 3
+Z14 dU:/cpre381/Lab1/OnesComp
+Z15 8U:/cpre381/Lab1/OnesComp/invg.vhd
+Z16 FU:/cpre381/Lab1/OnesComp/invg.vhd
+l0
+L23 1
+VLz?:SG7hHQ@S>c;Dc6?dA3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+Z17 OL;C;2025.1_2;82
+32
+Z18 !s110 1757096669
+!i10b 1
+Z19 !s108 1757096669.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab1/OnesComp/invg.vhd|
+Z21 !s107 U:/cpre381/Lab1/OnesComp/invg.vhd|
+!i113 0
+Z22 o-work work -2002 -explicit
+Z23 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Adataflow
+R12
+R13
+DEx4 work 4 invg 0 22 Lz?:SG7hHQ@S>c;Dc6?dA3
+!i122 3
+l31
+L30 6
+Vocml?BWU[I_`>T>W01ONf2
+!s100 bk7I76o8e1LURdoZEQb8H0
+R17
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Eonescomp_n
+Z24 w1757095791
+R12
+R13
+!i122 4
+R14
+Z25 8U:/cpre381/Lab1/OnesComp/onesComp_N.vhd
+Z26 FU:/cpre381/Lab1/OnesComp/onesComp_N.vhd
+l0
+Z27 L21 1
+VSm;jHe^:z5hkzck3cI`b72
+!s100 =dZD?9VPgTFo<^=353lGS0
+R17
+32
+Z28 !s110 1757096670
+!i10b 1
+R19
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab1/OnesComp/onesComp_N.vhd|
+Z30 !s107 U:/cpre381/Lab1/OnesComp/onesComp_N.vhd|
+!i113 0
+R22
+R23
+Astructural
+R12
+R13
+DEx4 work 10 onescomp_n 0 22 Sm;jHe^:z5hkzck3cI`b72
+!i122 4
+l35
+L28 17
+Vgg=d8LGQz1RLH<f7;[Q662
+!s100 `@2RT`nk7U2;:mNDO6TZ_2
+R17
+32
+R28
+!i10b 1
+R19
+R29
+R30
+!i113 0
+R22
+R23
+Etb_onescomp_n
+Z31 w1757096855
+Z32 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z33 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R12
+R13
+!i122 8
+R14
+Z34 8U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd
+Z35 FU:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd
+l0
+R27
+Vfe92AaC3Ah7Nb;kaFE9]:1
+!s100 N?bAi@DBKZec=D?C<SCb73
+R17
+32
+Z36 !s110 1757282590
+!i10b 1
+Z37 !s108 1757282590.000000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd|
+Z39 !s107 U:/cpre381/Lab1/OnesComp/tb_onesComp_N.vhd|
+!i113 0
+R22
+R23
+Amixed
+R32
+R33
+R12
+R13
+DEx4 work 13 tb_onescomp_n 0 22 fe92AaC3Ah7Nb;kaFE9]:1
+!i122 8
+l47
+L25 92
+VaVi30>J1Pj_QDHLLhK34A0
+!s100 HX]4NVz@OcIhdX>lX;eY22
+R17
+32
+R36
+!i10b 1
+R37
+R38
+R39
+!i113 0
+R22
+R23

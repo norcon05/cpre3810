@@ -1,0 +1,26 @@
+# Compile of tb_onesComp_N.vhd was successful with warnings.
+vsim -gui work.tb_onescomp_n -voptargs=+acc
+# vsim -gui work.tb_onescomp_n -voptargs="+acc" 
+# Start time: 17:03:34 on Sep 07,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_onescomp_n(mixed)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.invg(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_onescomp_n/s_iI \
+sim:/tb_onescomp_n/s_oO
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-08  ProcessID: 6980
+#           Attempting to use alternate WLF file "./wlft48ycii".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft48ycii
+run 100
+# End time: 19:30:23 on Sep 07,2025, Elapsed time: 2:26:49
+# Errors: 0, Warnings: 5

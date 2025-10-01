@@ -1,0 +1,21 @@
+# Compile of extender.vhd was successful.
+# Compile of tb_extender.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_extender -voptargs=+acc
+# vsim -gui work.tb_extender -voptargs="+acc" 
+# Start time: 23:18:48 on Sep 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_extender(behavior)#1
+# Loading work.extender(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_extender/s_iin \
+sim:/tb_extender/s_isel \
+sim:/tb_extender/s_oout
+run 500
+# End time: 23:25:58 on Sep 22,2025, Elapsed time: 0:07:10
+# Errors: 0, Warnings: 7

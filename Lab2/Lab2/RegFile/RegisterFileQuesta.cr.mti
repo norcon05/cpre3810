@@ -1,0 +1,75 @@
+U:/cpre381/Lab2/Lab2/RegFile/decoder5t32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/decoder5t32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity decoder5t32
+-- Compiling architecture dataflow of decoder5t32
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/tb_reg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/tb_reg_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_reg_N
+-- Compiling architecture behavior of tb_reg_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/tb_dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/tb_dffg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_dffg
+-- Compiling architecture behavior of tb_dffg
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/mux32t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/mux32t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux32t1_N
+-- Compiling architecture dataflow of mux32t1_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/tb_decoder5t32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/tb_decoder5t32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_decoder5t32
+-- Compiling architecture behavior of tb_decoder5t32
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/regFile.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/regFile.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity regFile
+-- Compiling architecture structural of regFile
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/tb_mux32t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/tb_mux32t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_mux32t1_N
+-- Compiling architecture behavior of tb_mux32t1_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/reg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/reg_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structural of reg_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/RegFile/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/RegFile/dffg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}}

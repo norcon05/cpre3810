@@ -1,0 +1,143 @@
+# Compile of andg2.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of mux2t1.vhd failed with 14 errors.
+# Compile of org2.vhd was successful.
+# Compile of tb_mux2t1.vhd was successful with warnings.
+# Compile of mux2t1dataflow.vhd was successful.
+# Compile of tb_mux2t1dataflow.vhd was successful with warnings.
+# Compile of tb_mux2t1_N.vhd failed with 3 errors.
+# Compile of mux2t1_N.vhd was successful.
+# 9 compiles, 2 failed with 17 errors.
+# Compile of mux2t1.vhd was successful.
+# Compile of tb_mux2t1_N.vhd was successful with warnings.
+vsim -gui work.tb_mux2t1 -voptargs=+acc
+# vsim -gui work.tb_mux2t1 -voptargs="+acc" 
+# Start time: 23:10:43 on Sep 04,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_mux2t1(mixed)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave  \
+sim:/tb_mux2t1/s_iS \
+sim:/tb_mux2t1/s_iD0 \
+sim:/tb_mux2t1/s_iD1 \
+sim:/tb_mux2t1/s_oO
+run 200
+quit -sim
+# End time: 23:14:13 on Sep 04,2025, Elapsed time: 0:03:30
+# Errors: 0, Warnings: 7
+vsim -gui -voptargs=+acc work.tb_mux2t1dataflow
+# vsim -gui -voptargs="+acc" work.tb_mux2t1dataflow 
+# Start time: 23:15:47 on Sep 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_mux2t1dataflow(mixed)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mux2t1dataflow(dataflow)#1
+add wave  \
+sim:/tb_mux2t1dataflow/s_iS \
+sim:/tb_mux2t1dataflow/s_iD0 \
+sim:/tb_mux2t1dataflow/s_iD1 \
+sim:/tb_mux2t1dataflow/s_oO
+run 200
+quit -sim
+# End time: 23:19:29 on Sep 04,2025, Elapsed time: 0:03:42
+# Errors: 0, Warnings: 2
+vsim -gui -voptargs=+acc work.tb_mux2t1_n
+# vsim -gui -voptargs="+acc" work.tb_mux2t1_n 
+# Start time: 23:19:45 on Sep 04,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_mux2t1_n(mixed)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave  \
+sim:/tb_mux2t1_n/s_iS \
+sim:/tb_mux2t1_n/s_iD0 \
+sim:/tb_mux2t1_n/s_iD1 \
+sim:/tb_mux2t1_n/s_oO
+run 100
+quit -sim
+# End time: 23:24:31 on Sep 04,2025, Elapsed time: 0:04:46
+# Errors: 0, Warnings: 2
+# Compile of tb_mux2t1_N.vhd was successful with warnings.
+vsim -gui -voptargs=+acc work.tb_mux2t1_n
+# vsim -gui -voptargs="+acc" work.tb_mux2t1_n 
+# Start time: 23:24:59 on Sep 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_mux2t1_n(mixed)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_mux2t1_n/s_iS \
+sim:/tb_mux2t1_n/s_iD0 \
+sim:/tb_mux2t1_n/s_iD1 \
+sim:/tb_mux2t1_n/s_oO
+run 100
+quit -sim
+# End time: 23:27:02 on Sep 04,2025, Elapsed time: 0:02:03
+# Errors: 0, Warnings: 3
+# Compile of tb_mux2t1_N.vhd was successful with warnings.
+vsim -gui -voptargs=+acc work.tb_mux2t1_n
+# vsim -gui -voptargs="+acc" work.tb_mux2t1_n 
+# Start time: 23:27:24 on Sep 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_mux2t1_n(mixed)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_mux2t1_n/s_iS \
+sim:/tb_mux2t1_n/s_iD0 \
+sim:/tb_mux2t1_n/s_iD1 \
+sim:/tb_mux2t1_n/s_oO
+run 100
+# End time: 23:29:19 on Sep 04,2025, Elapsed time: 0:01:55
+# Errors: 0, Warnings: 3

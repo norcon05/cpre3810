@@ -1,0 +1,373 @@
+# Compile of dffg.vhd was successful.
+# Compile of reg_N.vhd was successful.
+# Compile of tb_dffg.vhd was successful.
+# Compile of tb_reg_N.vhd was successful.
+# Compile of decoder5t32.vhd was successful.
+# Compile of tb_decoder5t32.vhd was successful.
+# Compile of mux32t1_N.vhd was successful.
+# Compile of tb_mux32t1_N.vhd was successful.
+# Compile of regFile.vhd failed with 31 errors.
+# Compile of tb_regFile.vhd was successful.
+# 10 compiles, 1 failed with 31 errors.
+# Compile of regFile.vhd was successful.
+vsim -gui work.tb_regfile -voptargs=+acc
+# vsim -gui work.tb_regfile -voptargs="+acc" 
+# Start time: 14:21:09 on Sep 21,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlft3ywxv2".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft3ywxv2
+run 400
+run 400
+run 400
+quit -sim
+# End time: 14:29:30 on Sep 21,2025, Elapsed time: 0:08:21
+# Errors: 0, Warnings: 7
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 14:29:57 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlftennmkw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftennmkw
+run 1000
+quit -sim
+# End time: 14:33:23 on Sep 21,2025, Elapsed time: 0:03:26
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 14:33:48 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlftj1tmse".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftj1tmse
+run 1000
+quit -sim
+# End time: 14:40:41 on Sep 21,2025, Elapsed time: 0:06:53
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 14:41:53 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlftcnemhm".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftcnemhm
+run 1000
+run 100
+quit -sim
+# End time: 15:21:30 on Sep 21,2025, Elapsed time: 0:39:37
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 15:21:52 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlft2145fk".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2145fk
+run 2000
+quit -sim
+# End time: 15:24:38 on Sep 21,2025, Elapsed time: 0:02:46
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 15:24:56 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlftkrrii1".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftkrrii1
+run 2000
+quit -sim
+# End time: 15:28:59 on Sep 21,2025, Elapsed time: 0:04:03
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 15:29:18 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlftdtnjcn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdtnjcn
+run 2000
+quit -sim
+# End time: 15:43:38 on Sep 21,2025, Elapsed time: 0:14:20
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 15:44:12 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlft3a19x7".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft3a19x7
+run 2000
+quit -sim
+# End time: 16:00:54 on Sep 21,2025, Elapsed time: 0:16:42
+# Errors: 0, Warnings: 5
+# Compile of mux32t1_N.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 16:01:17 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlft70d843".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft70d843
+run 2000
+quit -sim
+# End time: 16:05:17 on Sep 21,2025, Elapsed time: 0:04:00
+# Errors: 0, Warnings: 5
+# Compile of tb_regFile.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_regfile
+# vsim -gui -voptargs="+acc" work.tb_regfile 
+# Start time: 16:08:11 on Sep 21,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_regfile(behavior)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_regfile/s_iCLK \
+sim:/tb_regfile/s_iRST \
+sim:/tb_regfile/s_iWE \
+sim:/tb_regfile/s_irs1_addr \
+sim:/tb_regfile/s_irs2_addr \
+sim:/tb_regfile/s_ird_addr \
+sim:/tb_regfile/s_ird_data \
+sim:/tb_regfile/s_ors1_data \
+sim:/tb_regfile/s_ors2_data
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-05  ProcessID: 15132
+#           Attempting to use alternate WLF file "./wlft6jd8gt".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6jd8gt
+run 1200
+run 300
+# Causality operation skipped due to absence of debug database file

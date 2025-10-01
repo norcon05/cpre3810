@@ -1,0 +1,33 @@
+[N
+4
+1
+33 U:/cpre381/Lab2/Lab2/RegFile/work
+3
+8 behavior
+4
+9 gCLK_HPER
+2
+14 tb_decoder5t32
+]
+[G
+1
+2
+3
+1
+4
+0
+0
+0
+0
+8 8
+-128
+-106
+-104
+0
+0
+0
+0
+0
+0
+0
+]

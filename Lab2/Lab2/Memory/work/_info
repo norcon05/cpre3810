@@ -1,0 +1,111 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1758588910
+VAigD0S:nhg4da0cNWLdXa0
+04 7 8 work tb_dmem behavior 1
+=1-005056b649fe-68d1efe9-213-2ecc
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+OL;O;2025.1_2;82
+Emem
+Z1 w1757519387
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+Z5 dU:/cpre381/Lab2/Lab2/Memory
+Z6 8U:/cpre381/Lab2/Lab2/Memory/mem.vhd
+Z7 FU:/cpre381/Lab2/Lab2/Memory/mem.vhd
+l0
+L8 1
+VVJZ2j=WezBNbLe7Dl3bTG3
+!s100 fRlcaiTJZJ1H;nZh;8=LI3
+Z8 OL;C;2025.1_2;82
+32
+Z9 !s110 1758588555
+!i10b 1
+Z10 !s108 1758588555.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/Memory/mem.vhd|
+Z12 !s107 U:/cpre381/Lab2/Lab2/Memory/mem.vhd|
+!i113 0
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Artl
+R2
+R3
+R4
+DEx4 work 3 mem 0 22 VJZ2j=WezBNbLe7Dl3bTG3
+!i122 0
+l37
+L27 24
+VZV=;XL7=W=bm>nh@CH8Nd0
+!s100 OI8_3><BhDkT3l3n8`OXd3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Etb_dmem
+Z15 w1758588854
+R3
+R4
+!i122 2
+R5
+Z16 8U:/cpre381/Lab2/Lab2/Memory/tb_dmem.vhd
+Z17 FU:/cpre381/Lab2/Lab2/Memory/tb_dmem.vhd
+l0
+L21 1
+VJ>aY=4z3=CQ>;naH4NV]@3
+!s100 [F4`Zn=oV^2[N1bLL`F8Y1
+R8
+32
+Z18 !s110 1758588863
+!i10b 1
+Z19 !s108 1758588863.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Lab2/Lab2/Memory/tb_dmem.vhd|
+Z21 !s107 U:/cpre381/Lab2/Lab2/Memory/tb_dmem.vhd|
+!i113 0
+R13
+R14
+Abehavior
+R3
+R4
+DEx4 work 7 tb_dmem 0 22 J>aY=4z3=CQ>;naH4NV]@3
+!i122 2
+l49
+L25 250
+VOQOo3]]TY9XE;0`FcSLNl1
+!s100 e`KbL^Rf3`VNz9Q?GIi;z2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14

@@ -1,0 +1,33 @@
+[N
+4
+3
+8 behavior
+1
+48 U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/work
+2
+12 tb_datapath2
+4
+9 gCLK_HPER
+]
+[G
+1
+2
+3
+1
+4
+0
+0
+0
+0
+8 8
+-128
+-16
+-6
+2
+0
+0
+0
+0
+0
+0
+]

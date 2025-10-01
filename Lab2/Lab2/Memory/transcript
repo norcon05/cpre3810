@@ -1,0 +1,36 @@
+# Compile of mem.vhd was successful.
+# Compile of tb_dmem.vhd failed with 30 errors.
+# 2 compiles, 1 failed with 30 errors.
+# Compile of tb_dmem.vhd was successful.
+vsim -gui work.tb_dmem -voptargs=+acc
+# vsim -gui work.tb_dmem -voptargs="+acc" 
+# Start time: 19:55:04 on Sep 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_dmem(behavior)#1
+# Loading ieee.numeric_std(body)
+# Loading work.mem(rtl)#1
+infile dmem.hex -format hex /tb_dmem/dmem/ram
+# invalid command name "infile"
+tcl command memload -infile dmem.hex -format hex /tb_dmem/dmem/ram
+# ambiguous command name "tcl": tclInit tclLog tclPkgSetup tclPkgUnknown tcl_endOfWord tcl_findLibrary tcl_startOfNextWord tcl_startOfPreviousWord tcl_unknown tcl_wordBreakAfter tcl_wordBreakBefore tclfeather_image tcllogo16_image
+memload -infile dmem.hex -format hex /tb_dmem/dmem/ram
+# invalid command name "memload"
+tcl command memload -infile dmem.hex -format hex /tb_dmem/dmem/ram
+# ambiguous command name "tcl": tclInit tclLog tclPkgSetup tclPkgUnknown tcl_endOfWord tcl_findLibrary tcl_startOfNextWord tcl_startOfPreviousWord tcl_unknown tcl_wordBreakAfter tcl_wordBreakBefore tclfeather_image tcllogo16_image
+mem load -infile dmem.hex -format hex /tb_dmem/dmem/ram
+add wave -position insertpoint  \
+sim:/tb_dmem/s_CLK \
+sim:/tb_dmem/s_WE \
+sim:/tb_dmem/s_addr \
+sim:/tb_dmem/s_data \
+sim:/tb_dmem/s_q
+run 1000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_dmem/dmem
+run 1000
+run 1000

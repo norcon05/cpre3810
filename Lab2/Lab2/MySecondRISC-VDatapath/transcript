@@ -1,0 +1,352 @@
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui work.tb_datapath2 -voptargs=+acc
+# vsim -gui work.tb_datapath2 -voptargs="+acc" 
+# Start time: 15:50:42 on Sep 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlft6gtns9".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6gtns9
+run 100
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+run 2000
+quit -sim
+# End time: 16:09:19 on Sep 24,2025, Elapsed time: 0:18:37
+# Errors: 0, Warnings: 6
+# Compile of datapath2.vhd was successful.
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 16:09:49 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_ors1 \
+sim:/tb_datapath2/s_ors2 \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlftdq7ej6".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdq7ej6
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+quit -sim
+# End time: 16:25:22 on Sep 24,2025, Elapsed time: 0:15:33
+# Errors: 0, Warnings: 7
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 16:25:41 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_ors1 \
+sim:/tb_datapath2/s_ors2 \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlft98hjmm".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft98hjmm
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+quit -sim
+# End time: 16:35:30 on Sep 24,2025, Elapsed time: 0:09:49
+# Errors: 0, Warnings: 6
+# Compile of tb_datapath2.vhd was successful.
+# Compile of datapath2.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 16:36:19 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlft7r9ytw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft7r9ytw
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+quit -sim
+# End time: 16:39:28 on Sep 24,2025, Elapsed time: 0:03:09
+# Errors: 0, Warnings: 7
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 16:39:58 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlft1szf9c".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft1szf9c
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+quit -sim
+# End time: 16:42:08 on Sep 24,2025, Elapsed time: 0:02:10
+# Errors: 0, Warnings: 6
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 16:42:41 on Sep 24,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_inAdd_Sub \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-10  ProcessID: 9328
+#           Attempting to use alternate WLF file "./wlft57wsbe".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft57wsbe
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000

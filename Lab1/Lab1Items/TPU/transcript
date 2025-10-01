@@ -1,0 +1,41 @@
+# Compile of Adder.vhd was successful.
+# Compile of andg2.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of Multiplier.vhd was successful.
+# Compile of mux2t1_N.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of RegLd.vhd was successful.
+# Compile of tb_TPU_MV_Element.vhd was successful with warnings.
+# Compile of TPU_MV_Element.vhd was successful.
+# Compile of xorg2.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.tb_tpu_mv_element -voptargs=+acc
+# vsim -gui work.tb_tpu_mv_element -voptargs="+acc" 
+# Start time: 14:17:59 on Sep 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_tpu_mv_element(mixed)#1
+# Loading ieee.numeric_std(body)
+# Loading work.tpu_mv_element(structure)#1
+# Loading work.regld(behavior)#1
+# Loading work.reg(behavior)#1
+# Loading work.multiplier(behavior)#1
+# Loading work.adder(behavior)#1
+add wave eim:/tb_tpu_mv_element/*
+# Unrecognized dataset prefix: eim
+add wave sim:/tb_tpu_mv_element/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-07  ProcessID: 12120
+#           Attempting to use alternate WLF file "./wlft927t6r".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft927t6r
+run 300
+# End time: 15:57:24 on Sep 03,2025, Elapsed time: 1:39:25
+# Errors: 0, Warnings: 5

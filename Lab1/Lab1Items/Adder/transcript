@@ -1,0 +1,36 @@
+# Compile of adder.vhd was successful.
+# Compile of andg2.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of tb_adder.vhd was successful with warnings.
+# Compile of xorg2.vhd was successful.
+# Compile of tb_adder_N.vhd failed with 1 errors.
+# Compile of adder_N.vhd was successful.
+# 7 compiles, 1 failed with 1 error.
+# Compile of tb_adder_N.vhd was successful with warnings.
+vsim -gui work.tb_adder_n -voptargs=+acc
+# vsim -gui work.tb_adder_n -voptargs="+acc" 
+# Start time: 16:23:27 on Sep 07,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_textio(body)
+# Loading std.env(body)
+# Loading work.tb_adder_n(mixed)#1
+# Loading work.adder_n(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.adder(structure)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.xorg2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_adder_n/s_iCin \
+sim:/tb_adder_n/s_iA \
+sim:/tb_adder_n/s_iB \
+sim:/tb_adder_n/s_oS \
+sim:/tb_adder_n/s_oCout
+run 200
+# End time: 17:02:33 on Sep 07,2025, Elapsed time: 0:39:06
+# Errors: 0, Warnings: 6

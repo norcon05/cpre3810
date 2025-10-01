@@ -1,0 +1,83 @@
+U:/cpre381/Lab1/AddSub/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/invg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} U:/cpre381/Lab1/AddSub/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/andg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} {U:/cpre381/Lab1/AddSub/addSub_N - Copy.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Lab1/AddSub/addSub_N - Copy.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addSub_N
+-- Compiling architecture structural of addSub_N
+
+} {} {}} U:/cpre381/Lab1/AddSub/adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/adder.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity adder
+-- Compiling architecture structure of adder
+
+} {} {}} U:/cpre381/Lab1/AddSub/onesComp_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/onesComp_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+
+} {} {}} U:/cpre381/Lab1/AddSub/mux2t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/mux2t1.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+
+} {} {}} U:/cpre381/Lab1/AddSub/adder_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/adder_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structural of adder_N
+
+} {} {}} U:/cpre381/Lab1/AddSub/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/mux2t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}} U:/cpre381/Lab1/AddSub/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/xorg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} U:/cpre381/Lab1/AddSub/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab1/AddSub/org2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}}

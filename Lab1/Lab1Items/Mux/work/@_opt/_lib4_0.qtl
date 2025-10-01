@@ -1,0 +1,870 @@
+X;CiM01V:2
+!s100 AT]<O8BfBml2X;CiM01V:2
+R6
+33
+R49
+!i10b 1
+!i113 1
+R50
+R9
+Pstd_logic_arith
+R15
+R14
+!i122 15
+Z51 w1744044120
+R3
+Z52 8vhdl_src/synopsys/mti_std_logic_arith.vhd
+Z53 Fvhdl_src/synopsys/mti_std_logic_arith.vhd
+l0
+L25 589
+V[G314=:2zXJ`VORJe1J@Z1
+!s100 [G314=:2zXJ`VORJe1J@Z1
+R6
+31
+b1
+R7
+!i10b 1
+!i113 1
+Z54 o-suppress 12110 -debuglib -93 -work ieee -dirpath {$QUESTASIM_DIR/..}
+R9
+Bbody
+DPx4 work 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R15
+R14
+!i122 15
+l0
+L620 2204
+VI912LAdWG2TBK=4W:l>dX2
+!s100 I912LAdWG2TBK=4W:l>dX2
+R6
+31
+R7
+!i10b 1
+!i113 1
+R54
+R9
+Pstd_logic_misc
+Z55 DPx8 synopsys 10 attributes 0 22 iThS5<O8gHDP?YiMiccE>3
+R15
+R14
+!i122 16
+R51
+R3
+Z56 8vhdl_src/synopsys/mti_std_logic_misc.vhd
+Z57 Fvhdl_src/synopsys/mti_std_logic_misc.vhd
+l0
+L24 184
+VT3<OAQk@7zOVj;_ZQ8ClU2
+!s100 T3<OAQk@7zOVj;_ZQ8ClU2
+R6
+31
+b1
+Z58 !s110 1744044916
+!i10b 1
+!i113 1
+R54
+R9
+Bbody
+DPx4 work 14 std_logic_misc 0 22 T3<OAQk@7zOVj;_ZQ8ClU2
+R55
+R15
+R14
+!i122 16
+l0
+L210 794
+VZ5n;hG3QUed1zL[3@1]_71
+!s100 Z5n;hG3QUed1zL[3@1]_71
+R6
+31
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Pstd_logic_signed
+Z59 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R15
+R14
+!i122 17
+Z60 w1744044121
+R3
+Z61 8vhdl_src/synopsys/mti_std_logic_signed.vhd
+Z62 Fvhdl_src/synopsys/mti_std_logic_signed.vhd
+l0
+L35 190
+VC<aanc0R`<LWPSe[JYRP^3
+!s100 C<aanc0R`<LWPSe[JYRP^3
+R6
+31
+b1
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Bbody
+DPx4 work 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+R59
+R15
+R14
+!i122 17
+l0
+L232 251
+VJBGRhj9PliKMlBAd_CnDE0
+!s100 JBGRhj9PliKMlBAd_CnDE0
+R6
+31
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Pstd_logic_textio
+R14
+R15
+!i122 18
+Z63 w1744044124
+R3
+Z64 8vhdl_src/synopsys/std_logic_textio.vhd
+Z65 Fvhdl_src/synopsys/std_logic_textio.vhd
+l0
+L22 47
+V8]8<fKiYoHe;_IDO3kmNH2
+!s100 8]8<fKiYoHe;_IDO3kmNH2
+R6
+31
+b1
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Bbody
+DPx4 work 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R14
+R15
+!i122 18
+l0
+L70 584
+VTfOQ?fR8RCzPRB>lTHd9^1
+!s100 TfOQ?fR8RCzPRB>lTHd9^1
+R6
+31
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Pstd_logic_unsigned
+R59
+R15
+R14
+!i122 19
+R60
+R3
+Z66 8vhdl_src/synopsys/mti_std_logic_unsigned.vhd
+Z67 Fvhdl_src/synopsys/mti_std_logic_unsigned.vhd
+l0
+L34 193
+V;eZjO2D4ZDz<]0>8AL<ne1
+!s100 ;eZjO2D4ZDz<]0>8AL<ne1
+R6
+31
+b1
+R58
+!i10b 1
+!i113 1
+R54
+R9
+Bbody
+DPx4 work 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+R59
+R15
+R14
+!i122 19
+l0
+L234 241
+Va7_YJ9iScHc86dAY^Thec1
+!s100 a7_YJ9iScHc86dAY^Thec1
+R6
+31
+R58
+!i10b 1
+!i113 1
+R54
+R9
+/thermal_systems
+R0
+R1
+!i122 14
+R2
+R3
+R4
+R5
+l0
+L578 36
+VC8=RhbEG^<IHD0l1zR;VE3
+!s100 C8=RhbEG^<IHD0l1zR;VE3
+R6
+35
+R7
+!i10b 1
+!i113 1
+R8
+R9
+Pupf
+R42
+R15
+R14
+!i122 13
+R21
+R3
+Z68 8vhdl_src/ieee/mti_upf.vhd
+Z69 Fvhdl_src/ieee/mti_upf.vhd
+l0
+L4 1096
+V^`^0mU?M`7KBkD>icAJCH2
+!s100 ^`^0mU?M`7KBkD>icAJCH2
+R6
+33
+b1
+R7
+!i10b 1
+!i113 1
+R11
+R9
+Bbody
+DPx4 work 3 upf 0 22 ^`^0mU?M`7KBkD>icAJCH2
+R42
+R15
+R14
+!i122 13
+l0
+L1101 957
+V]8Bkf1Y>dXVHfDF^OL[Gk2
+!s100 ]8Bkf1Y>dXVHfDF^OL[Gk2
+R6
+33
+R7
+!i10b 1
+!i113 1
+R11
+R9
+Pvital_memory
+Z70 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z71 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+R15
+R14
+!i122 22
+Z72 w1744044126
+R3
+8vhdl_src/vital2000/memory_p_2000.vhd
+Fvhdl_src/vital2000/memory_p_2000.vhd
+l0
+L238 1493
+VkaZ<]i`[HA8G2D_^LjE>g0
+!s100 kaZ<]i`[HA8G2D_^LjE>g0
+R6
+31
+b1
+R22
+!i10b 1
+!i113 1
+Z73 o-suppress 12110 -debuglib -93 -work ieee -novital -dirpath {$QUESTASIM_DIR/..}
+R9
+Bbody
+DPx4 work 12 vital_memory 0 22 kaZ<]i`[HA8G2D_^LjE>g0
+R70
+R71
+R15
+R14
+!i122 23
+8vhdl_src/vital2000/memory_b_2000.vhd
+Fvhdl_src/vital2000/memory_b_2000.vhd
+l0
+L239 6912
+VkaNX_m[=oB^B^InB7`L4L1
+!s100 kaNX_m[=oB^B^InB7`L4L1
+R6
+31
+R22
+!i10b 1
+!i113 1
+R73
+R9
+Pvital_primitives
+R71
+R15
+R14
+!i122 21
+w1744044130
+R3
+8vhdl_src/vital2000/prmtvs_p_2000.vhd
+Fvhdl_src/vital2000/prmtvs_p_2000.vhd
+l0
+L50 1364
+VG>kiXP8Q9dRClKfK1Zn7j1
+!s100 G>kiXP8Q9dRClKfK1Zn7j1
+R6
+31
+b1
+Z74 !s110 1744044917
+!i10b 1
+!i113 1
+R73
+R9
+Bbody
+DPx4 work 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+R71
+R15
+R14
+!i122 22
+Z75 w1744044127
+8vhdl_src/vital2000/prmtvs_b_2000.vhd
+Fvhdl_src/vital2000/prmtvs_b_2000.vhd
+l0
+L33 5589
+VL8@OL8nfVkLF;7TL8_DPa1
+!s100 L8@OL8nfVkLF;7TL8_DPa1
+R6
+31
+R74
+!i10b 1
+!i113 1
+R73
+R9
+Pvital_timing
+R15
+R14
+!i122 20
+w1744044128
+R3
+8vhdl_src/vital2000/timing_p_2000.vhd
+Fvhdl_src/vital2000/timing_p_2000.vhd
+l0
+L70 1133
+VJ>EBealN09f8GzldA[z2>3
+!s100 J>EBealN09f8GzldA[z2>3
+R6
+31
+b1
+R74
+!i10b 1
+!i113 1
+R73
+R9
+Bbody
+DPx4 work 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+R15
+R14
+!i122 21
+R75
+8vhdl_src/vital2000/timing_b_2000.vhd
+Fvhdl_src/vital2000/timing_b_2000.vhd
+l0
+L49 2161
+VKEim8d[eJ5dE^:mEG0P3S0
+!s100 KEim8d[eJ5dE^:mEG0P3S0
+R6
+31
+R74
+!i10b 1
+!i113 1
+R73
+R9
+m255
+K4
+z2
+!s8c locked
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+!s95 MTI
+cModel Technology Builtin Library
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+dD:/workdir/bata/job_data/jobid.2772450/modeltech
+Penv
+Z0 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+!i122 2
+Z1 w1744044120
+Z2 d$QUESTASIM_DIR/..
+Z3 8vhdl_src/std/env.vhd
+Z4 Fvhdl_src/std/env.vhd
+l0
+L3 400
+Vg[fj8WJKOa<0Y`zWY3UD70
+!s100 g[fj8WJKOa<0Y`zWY3UD70
+Z5 OL;C;2025.1_2;82
+37
+b1
+Z6 !s110 1744044900
+!i10b 1
+!i113 1
+Z7 o-suppress 12110 -debuglib -2019 -work std -dirpath {$QUESTASIM_DIR/..}
+Z8 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Bbody
+DPx4 work 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+R0
+!i122 2
+l0
+L406 725
+V2c8?5ZloY:5Z0D2X4SVl[2
+!s100 2c8?5ZloY:5Z0D2X4SVl[2
+R5
+37
+R6
+!i10b 1
+!i113 1
+R7
+R8
+Pstandard
+!i122 0
+w1744044119
+R2
+8vhdl_src/std/standard.vhd
+Fvhdl_src/std/standard.vhd
+l0
+L8 86
+VofRa6alAEoSE^5WcJ^O]C2
+!s100 ofRa6alAEoSE^5WcJ^O]C2
+R5
+33
+Z9 !s110 1744044899
+!i10b 1
+!i113 1
+o-suppress 12110 -debuglib -s -2008 -work std -dirpath {$QUESTASIM_DIR/..}
+R8
+Ptextio
+!i122 1
+Z10 w1742828875
+R2
+Z11 8vhdl_src/std/textio.vhd
+Z12 Fvhdl_src/std/textio.vhd
+l0
+L1 166
+VzE1`LPoLg^DX3Oz^4Fj1K3
+!s100 zE1`LPoLg^DX3Oz^4Fj1K3
+R5
+33
+b1
+R9
+!i10b 1
+!i113 1
+Z13 o-suppress 12110 -debuglib -2008 -work std -dirpath {$QUESTASIM_DIR/..}
+R8
+Bbody
+DPx4 work 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+!i122 1
+l0
+L188 428
+Vi7e8j^OJ=<e;`Z=oS6MV82
+!s100 i7e8j^OJ=<e;`Z=oS6MV82
+R5
+33
+R9
+!i10b 1
+!i113 1
+R13
+R8
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+Z2 !s12c _opt1
+R1
+R0
+R1
+!s12c _opt2
+R1
+R2
+R1
+R0
+R1
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1757045751
+VD>Q9F2DC0?]kg6;RIbmeY0
+04 17 5 work tb_mux2t1dataflow mixed 1
+=1-005056b6db31-68ba63f4-20b-2d00
+R1
+Z4 !s12f OEM100
+Z5 !s12b OEM100
+Z6 !s124 OEM100
+Z7 !s135 nogc
+Z8 o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+Z10 OL;O;2025.1_2;82
+T_opt1
+!s110 1757045450
+VTOIBB<<35C763A0=nMRg91
+04 9 5 work tb_mux2t1 mixed 1
+=1-005056b6db31-68ba62c4-2ec-2940
+R1
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt1
+R10
+R3
+T_opt2
+!s110 1757037041
+VG?3=b;GMl2zbWT?M@LK;23
+04 14 8 work mux2t1dataflow dataflow 1
+=1-005056b65224-68ba41ee-2b7-1120
+R1
+R4
+R5
+R6
+R7
+R8
+R9
+n@_opt2
+R10
+R3
+Eandg2
+Z11 w1756784992
+Z12 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z13 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 21
+Z14 dU:/cpre381/Lab1/Mux
+Z15 8U:/cpre381/Lab1/Mux/andg2.vhd
+Z16 FU:/cpre381/Lab1/Mux/andg2.vhd
+l0
+Z17 L23 1
+V3HzFlmB@@ELE:DVe6<;D]2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+Z18 OL;C;2025.1_2;82
+32
+Z19 !s110 1757044910
+!i10b 1
+!i113 0
+Z20 o-work work -2002 -explicit
+Z21 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Adataflow
+R12
+R13
+DEx4 work 5 andg2 0 22 3HzFlmB@@ELE:DVe6<;D]2
+!i122 21
+l32
+Z22 L31 6
+V]l8znTEkk2GDnOH<^DUMS2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R18
+32
+R19
+!i10b 1
+!i113 0
+R20
+R21
+Einvg
+R11
+R12
+R13
+!i122 22
+R14
+Z23 8U:/cpre381/Lab1/Mux/invg.vhd
+Z24 FU:/cpre381/Lab1/Mux/invg.vhd
+l0
+R17
+VLz?:SG7hHQ@S>c;Dc6?dA3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R18
+32
+Z25 !s110 1757044911
+!i10b 1
+!i113 0
+R20
+R21
+Adataflow
+R12
+R13
+DEx4 work 4 invg 0 22 Lz?:SG7hHQ@S>c;Dc6?dA3
+!i122 22
+l31
+L30 6
+Vocml?BWU[I_`>T>W01ONf2
+!s100 bk7I76o8e1LURdoZEQb8H0
+R18
+32
+R25
+!i10b 1
+!i113 0
+R20
+R21
+Emux2t1
+Z26 w1757045065
+Z27 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R12
+R13
+!i122 30
+R14
+Z28 8U:/cpre381/Lab1/Mux/mux2t1.vhd
+Z29 FU:/cpre381/Lab1/Mux/mux2t1.vhd
+l0
+Z30 L20 1
+V3FjWoFFb_]iG@KXeXf[;00
+!s100 Gh>WHY06GGA>fHW>1<T]T3
+R18
+32
+Z31 !s110 1757045074
+!i10b 1
+!i113 0
+R20
+R21
+Astructure
+R27
+R12
+R13
+DEx4 work 6 mux2t1 0 22 3FjWoFFb_]iG@KXeXf[;00
+!i122 30
+l56
+L29 61
+Vg2Sij;OEk_z?`jAiXM=`^2
+!s100 hh=N?T`k5U<7]eMZj8<`M3
+R18
+32
+R31
+!i10b 1
+!i113 0
+R20
+R21
+Emux2t1_n
+R11
+R12
+R13
+!i122 29
+R14
+Z32 8U:/cpre381/Lab1/Mux/mux2t1_N.vhd
+Z33 FU:/cpre381/Lab1/Mux/mux2t1_N.vhd
+l0
+Z34 L21 1
+V=8JPhEW]RjOoVP_Lf<;FT1
+!s100 a8b75l9QH119Si`4JcQ1J0
+R18
+32
+Z35 !s110 1757044915
+!i10b 1
+!i113 0
+R20
+R21
+Astructural
+R12
+R13
+DEx4 work 8 mux2t1_n 0 22 =8JPhEW]RjOoVP_Lf<;FT1
+!i122 29
+l39
+L30 21
+VJ8n;R0DC]GFH8^U^H:zXH3
+!s100 W>5MMWO2LBg`K8[P>h>Ye1
+R18
+32
+R35
+!i10b 1
+!i113 0
+R20
+R21
+Emux2t1dataflow
+Z36 w1757040202
+R27
+R12
+R13
+!i122 26
+R14
+Z37 8U:/cpre381/Lab1/Mux/mux2t1dataflow.vhd
+Z38 FU:/cpre381/Lab1/Mux/mux2t1dataflow.vhd
+l0
+R30
+VfV]EZ[Fi>ZF=JF?PjkBAF0
+!s100 dmz;VRgDGDaE@:I3mPEz@3
+R18
+32
+Z39 !s110 1757044913
+!i10b 1
+!i113 0
+R20
+R21
+Adataflow
+R27
+R12
+R13
+DEx4 work 14 mux2t1dataflow 0 22 fV]EZ[Fi>ZF=JF?PjkBAF0
+!i122 26
+l31
+L29 10
+VB6?mS7oTVXgD;fjJ;2nZL0
+!s100 i89bXO<klBhVfAWiO5`LQ1
+R18
+32
+R39
+!i10b 1
+!i113 0
+R20
+R21
+Eorg2
+R11
+R12
+R13
+!i122 24
+R14
+Z40 8U:/cpre381/Lab1/Mux/org2.vhd
+Z41 FU:/cpre381/Lab1/Mux/org2.vhd
+l0
+R17
+Vg[9jF>Y9L53>bbNkeLT@]1
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R18
+32
+Z42 !s110 1757044912
+!i10b 1
+!i113 0
+R20
+R21
+Adataflow
+R12
+R13
+DEx4 work 4 org2 0 22 g[9jF>Y9L53>bbNkeLT@]1
+!i122 24
+l32
+R22
+VN:VmSbhGlNK1cO>WaCCNU1
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R18
+32
+R42
+!i10b 1
+!i113 0
+R20
+R21
+Etb_mux2t1
+Z43 w1757043151
+Z44 DPx3 std 3 env 0 22 g[fj8WJKOa<0Y`zWY3UD70
+Z45 DPx4 ieee 16 std_logic_textio 0 22 8]8<fKiYoHe;_IDO3kmNH2
+R12
+R13
+!i122 25
+R14
+Z46 8U:/cpre381/Lab1/Mux/tb_mux2t1.vhd
+Z47 FU:/cpre381/Lab1/Mux/tb_mux2t1.vhd
+l0
+R34
+VHoW@7Sji5WJ=?DQFW?0=<1
+!s100 =mN6_nij_k63VJ<XT;e4g0
+R18
+32
+R42
+!i10b 1
+!i113 0
+R20
+R21
+Amixed
+R44
+R45
+R12
+R13
+DEx4 work 9 tb_mux2t1 0 22 HoW@7Sji5WJ=?DQFW?0=<1
+!i122 25
+l50
+Z48 L25 137
+Vzib=>Wcn1GOhfQ6B8^8C62
+!s100 ZAFJIQjXnY7OQZ7bMDD290
+R18
+32
+R42
+!i10b 1
+!i113 0
+R20
+R21
+Etb_mux2t1_n
+Z49 w1757045160
+R44
+R45
+R12
+R13
+!i122 31
+R14
+Z50 8U:\cpre381\Lab1\Mux\tb_mux2t1_N.vhd
+Z51 FU:\cpre381\Lab1\Mux\tb_mux2t1_N.vhd
+l0
+R34
+V=liHGELG>V7[]8jWmPhlk0
+!s100 4nkg01ffEI@GBlWjGDOBW1
+R18
+32
+Z52 !s110 1757045170
+!i10b 1
+!i113 0
+R20
+R21
+Amixed
+R44
+R45
+R12
+R13
+DEx4 work 11 tb_mux2t1_n 0 22 =liHGELG>V7[]8jWmPhlk0
+!i122 31
+l51
+L25 98
+V7PS_OaXRBGZUZkkh4FOhG3
+!s100 2Obfjde;oQkgYm7Wg^W`I2
+R18
+32
+R52
+!i10b 1
+!i113 0
+R20
+R21
+Etb_mux2t1dataflow
+Z53 w1757043164
+R44
+R45
+R12
+R13
+!i122 27
+R14
+Z54 8U:/cpre381/Lab1/Mux/tb_mux2t1dataflow.vhd
+Z55 FU:/cpre381/Lab1/Mux/tb_mux2t1dataflow.vhd
+l0
+R34
+VjUf^NAP^M4V@PPnz5_k:O0
+!s100 FE;8?h_@i<Q?kGdj^:GQe3
+R18
+32
+Z56 !s110 1757044914
+!i10b 1
+!i113 0
+R20
+R21
+Amixed
+R44
+R45
+R12
+R13
+DEx4 work 17 tb_mux2t1dataflow 0 22 jUf^NAP^M4V@PPnz5_k:O0
+!i122 27
+l50
+R48
+V<Ze:Qm@I6n1YKo>1;>YIl3
+!s100 Pke`B;d`neGzUcR8MeKVm3
+R18
+32
+R56
+!i10b 1
+!i113 0
+R20
+R21
+Û      ÿÿ›    =         j             ”           ÿÿ˜             ˜           ÿÿ›    %       ƒ     %       ƒ˜    x       ÿÿ›    æÿÿÿÿÿÿÿ  ‰    æÿÿÿÿÿÿÿ  ˆ    Ø      ûÿ            şÿ—             —    ¶       ÿÿ›    è      ûÿ           şÿ—             —    ¶       ÿÿ›    ø      ûÿ            şÿ—             —    ¶       ÿÿ›          ûÿ             “    åÿÿÿÿÿÿÿ  —    ?      ÿÿ›    &       ‚     &       ‚o                  A            Û      ÿÿ›    A         j             ”           ÿÿ˜             ˜           ÿÿ›    '       ƒ     '       ƒ˜    x       ÿÿ›    åÿÿÿÿÿÿÿ  ‰    åÿÿÿÿÿÿÿ  ˆ          ûÿ            şÿ—             —    ¶       ÿÿ›    (      ûÿ           şÿ—             —    ¶       ÿÿ›    8      ûÿ            şÿ—             —    ¶       ÿÿ›    H      ûÿ             “    äÿÿÿÿÿÿÿ  —    ?      ÿÿ›    (       ‚     (       ‚o                  E            Û      ÿÿ›    E         j             ”           ÿÿ˜             ˜           ÿÿ›    )       ƒ     )       ƒ˜    x       ÿÿ›    äÿÿÿÿÿÿÿ  ‰    äÿÿÿÿÿÿÿ  ˆ    X      ûÿ            şÿ—             —    ¶       ÿÿ›    h      ûÿ           şÿ—             —    ¶       ÿÿ›    x      ûÿ            şÿ—             —    ¶       ÿÿ›    ˆ      ûÿ             “    ãÿÿÿÿÿÿÿ  —    ?      ÿÿ›    *       ‚     *       ‚o                  I            Û      ÿÿ›    I         j             ”           ÿÿ˜             ˜           ÿÿ›    +       ƒ     +       ƒ˜    x       ÿÿ›    ãÿÿÿÿÿÿÿ  ‰    ãÿÿÿÿÿÿÿ  ˆ    ˜      ûÿ             “    âÿÿÿÿÿÿÿ  —    ?      ÿÿ›    ,       ‚     ,       ‚o                  J            Ú      ÿÿ›    J         j    âÿÿÿÿÿÿÿ  ‰    âÿÿÿÿÿÿÿ  ˆ    ¨      ûÿ    (         k    ôÿÿÿÿÿÿÿ‹    ìÿÿÿÿÿÿÿ j              «                  
+             gCLK_HPE     R LK_HPE     ^                                                            ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ                                           	             cCLK_PER      CLK_PER     ^                                                            ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ                                                        CLK          ]                                                             (            0                                                                                         reset        ]                                                8            @            H                                                                                         s_iS         ]                                                P            X            `                                                                                         s_iD0        ]                                                h            p            x                                                                                         s_iD1        ]                                                €            ˆ                                                                                                     s_oO         ]                                                ˜                         ¨                                                                                         DUT0         p                                    ÿÿÿÿÿÿÿÿ     °            ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ                  ÿÿÿÿÿÿÿÿ     ÿÿÿÿÿÿÿÿ     4R04R0                               T       #                  mixed        tb_mux2t     1dataflo     w            P_CLK        CLK          P_RST        reset        P_TEST_C     ASES         s_iS         s_iD1        s_iD0        e 3f9 {8 3f2 {20 42e { {} { 26} {0 66}} 2a 42e { {} { 30} {0 78}} 36 42e { {} { 43 48 4e} {0 90}} }}                @                                                                                         i_D1         ]                                                P            X            `                                                                                         o_O          ]                                                p            x            €                                                                            4R04R0                               ;       #                  dataflow                  mux2t1da     taflow       line__36                  i_D1         i_S          i_D0         o_O          11 3f9 {8 3f2 {20 42e {{ t29 t2e t32} { 37} {0 36}} }}         ğ       

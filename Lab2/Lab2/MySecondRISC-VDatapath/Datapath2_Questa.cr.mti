@@ -1,0 +1,158 @@
+U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux32t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux32t1_N
+-- Compiling architecture dataflow of mux32t1_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/reg_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structural of reg_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/decoder5t32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity decoder5t32
+-- Compiling architecture dataflow of decoder5t32
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structural of adder_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/dffg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addSub_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addSub_N
+-- Compiling architecture structural of addSub_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/datapath2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity datapath2
+-- Compiling architecture structural of datapath2
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/onesComp_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/xorg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/org2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/addiSubi_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addiSubi_N
+-- Compiling architecture structural of addiSubi_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/andg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/invg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/regFile.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity regFile
+-- Compiling architecture structural of regFile
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mux2t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/extender.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity extender
+-- Compiling architecture dataflow of extender
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/mem.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+
+} {} {}} U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Lab2/Lab2/MySecondRISC-VDatapath/adder.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity adder
+-- Compiling architecture structure of adder
+
+} {} {}}
