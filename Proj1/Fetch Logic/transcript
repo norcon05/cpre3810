@@ -1,0 +1,51 @@
+# Compile of adder.vhd was successful.
+# Compile of adder_N.vhd was successful.
+# Compile of andg2.vhd was successful.
+# Compile of dffg.vhd was successful.
+# Compile of mux4t1.vhd failed with 1 errors.
+# Compile of mux4t1_N.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of pcLogic.vhd failed with 1 errors.
+# Compile of reg_N.vhd was successful.
+# Compile of tb_pcLogic.vhd was successful.
+# Compile of xorg2.vhd was successful.
+# 11 compiles, 2 failed with 2 errors.
+# Compile of mux4t1.vhd was successful.
+# Compile of pcLogic.vhd failed with 1 errors.
+# Compile of pcLogic.vhd failed with 9 errors.
+# Compile of pcLogic.vhd failed with 9 errors.
+# Compile of pcLogic.vhd was successful with warnings.
+# Compile of pcLogic.vhd was successful.
+vsim -gui work.tb_pclogic -voptargs=+acc
+# vsim -gui work.tb_pclogic -voptargs="+acc" 
+# Start time: 18:41:16 on Oct 17,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_pclogic(behavior)#1
+# Loading work.pclogic(structural)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.adder_n(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.adder(structure)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.mux4t1_n(structural)#1
+# Loading work.mux4t1(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_pclogic/s_iCLK \
+sim:/tb_pclogic/s_iRST \
+sim:/tb_pclogic/s_iPC_WE \
+sim:/tb_pclogic/s_iPC_SEL \
+sim:/tb_pclogic/s_irs1 \
+sim:/tb_pclogic/s_iimm \
+sim:/tb_pclogic/s_oPC
+run 400
+run 100
+run 100
+run 100

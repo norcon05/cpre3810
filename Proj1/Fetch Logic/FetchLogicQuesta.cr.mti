@@ -1,0 +1,83 @@
+{U:/cpre381/Proj1/Fetch Logic/reg_N.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/reg_N.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structural of reg_N
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/mux4t1.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/mux4t1.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux4t1
+-- Compiling architecture dataflow of mux4t1
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/dffg.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/dffg.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/mux4t1_N.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/mux4t1_N.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux4t1_N
+-- Compiling architecture structural of mux4t1_N
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/andg2.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/andg2.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/adder.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/adder.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity adder
+-- Compiling architecture structure of adder
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/adder_N.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/adder_N.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structural of adder_N
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/xorg2.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/xorg2.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/tb_pcLogic.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/tb_pcLogic.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_pcLogic
+-- Compiling architecture behavior of tb_pcLogic
+
+} {} {}} {U:/cpre381/Proj1/Fetch Logic/org2.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {U:/cpre381/Proj1/Fetch Logic/org2.vhd}
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}}
