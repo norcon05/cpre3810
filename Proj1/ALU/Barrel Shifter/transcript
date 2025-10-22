@@ -1,0 +1,37 @@
+# Compile of andg2.vhd was successful.
+# Compile of barrelShifter.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of mux2t1.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of shiftBinary.vhd was successful.
+# Compile of tb_barrelShifter.vhd was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -gui work.tb_barrelshifter -voptargs=+acc
+# vsim -gui work.tb_barrelshifter -voptargs="+acc" 
+# Start time: 14:34:03 on Oct 22,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_barrelshifter(behavior)#1
+# Loading ieee.numeric_std(body)
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+add wave -position insertpoint  \
+sim:/tb_barrelshifter/s_iarith \
+sim:/tb_barrelshifter/s_dir \
+sim:/tb_barrelshifter/s_ishiftAmnt \
+sim:/tb_barrelshifter/s_idata \
+sim:/tb_barrelshifter/s_odata
+run 500
+run 500
