@@ -11,6 +11,7 @@
 -- implementation.
 
 -- 01/29/2019 by H3::Design created.
+-- 04/10/2025 by AP::Coverted to RISC-V.
 -------------------------------------------------------------------------
 
 
@@ -51,7 +52,7 @@ architecture structure of RISCV_Processor is
   signal s_Inst         : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the instruction signal 
 
   -- Required halt signal -- for simulation
-  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. (Opcode: 01 0100)
+  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. (Use WFI with Opcode: 111 0011)
 
   -- Required overflow signal -- for overflow exception detection
   signal s_Ovfl         : std_logic;  -- TODO: this signal indicates an overflow exception would have been initiated
