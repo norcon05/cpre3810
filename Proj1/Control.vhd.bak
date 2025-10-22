@@ -1,0 +1,118 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Control is
+
+   port(
+       i_opcode         : in std_logic_vector(6 downto 0);
+       o_ALUControl	: out std_logic_vector(3 downto 0);
+       o_ImmType        : out std_logic_vector(1 downto 0);
+       o_ALUSRC	 	: out std_logic;
+       o_MemReg		: out std_logic;
+       o_RegWr          : out std_logic;
+       o_MemRd	 	: out std_logic;
+       o_MemWr		: out std_logic;
+       o_Branch		: out std_logic);
+
+   end Control;
+
+architecture dataflow of Control is
+
+begin
+    process(i_opcode)
+
+    begin
+        case i_opcode is 
+            when "0000011" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '1';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "0001000" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "0010011" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "0100011" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "0110011" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "1100011" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "1100111" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when "1101111" => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+
+            when others => 
+                o_ALUControl 	<= "0000";
+                o_ImmType 	<= "00";
+                o_ALUSRC 	<= '0';
+                o_MemReg 	<= '0';
+                o_RegWr 	<= '0';
+                o_MemRd 	<= '0';
+                o_MemWr 	<= '0';
+                o_Branch 	<= '0';
+        end case;
+    end process;
+end dataflow;
