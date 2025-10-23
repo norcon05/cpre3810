@@ -12,4 +12,335 @@
 # // of the Customer's facilities without the express written permission of SISW,
 # // and may not be used in any way not expressly authorized by SISW.
 # //
-# Break key hit
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:04:21 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture dataflow of Control
+# End time: 13:04:21 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:05:26 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(69): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(73): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(77): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(81): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(85): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(89): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(93): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(97): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(101): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(105): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(109): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(113): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(117): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(121): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(125): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(129): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(133): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(137): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(141): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Note: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(147): VHDL Compiler exiting
+# End time: 13:05:26 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 19, Warnings: 0
+# Modified modelsim.ini
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:06:19 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(69): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(73): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(77): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(81): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(85): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(89): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(93): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(97): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(101): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(105): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(109): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(113): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(117): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(121): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(125): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(129): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(133): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(137): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(141): Type error resolving infix expression "&" as type std.STANDARD.STRING.
+# ** Note: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(147): VHDL Compiler exiting
+# End time: 13:06:19 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 19, Warnings: 0
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:09:39 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# ** Error: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(67): near "begin": syntax error
+# ** Note: /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(111): VHDL Compiler exiting
+# End time: 13:09:39 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:10:00 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:10:00 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_control -voptargs=+acc
+# vsim work.tb_control -voptargs="+acc" 
+# Start time: 13:10:15 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:10:15 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:12:07 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:12:07 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_control
+# vsim -voptargs="+acc" work.tb_control 
+# Start time: 13:12:15 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:12:16 on Oct 23,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:13:48 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture dataflow of Control
+# End time: 13:13:48 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:13:49 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:13:49 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_control
+# vsim -voptargs="+acc" work.tb_control 
+# Start time: 13:14:22 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:14:22 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# Modified modelsim.ini
+vcom -check_syntax Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# ** Error (suppressible): (vcom-1902) Option "-check_syntax" is not a valid option for this tool.
+# Use the -help option for complete vcom usage.
+# Errors: 1, Warnings: 0
+# /usr/local/mentor/questasim/linux_x86_64/vcom failed.
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:16:50 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture dataflow of Control
+# End time: 13:16:50 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:16:53 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:16:53 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_control
+# vsim -voptargs="+acc" work.tb_control 
+# Start time: 13:17:04 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:17:04 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vsim -vopt work.tb_control
+# vsim -vopt work.tb_control 
+# Start time: 13:17:07 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 13:17:07 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim -coverage work.tb_control
+# vsim -coverage work.tb_control 
+# Start time: 13:17:10 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 13:17:11 on Oct 23,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vsim -voptargs=+acc work.tb_control
+# vsim -voptargs="+acc" work.tb_control 
+# Start time: 13:17:15 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Error (suppressible): /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd(45): (vopt-1270) Bad default binding for component instance "uut: Control".
+#  (Component port "i_func7" is not on the entity "work.Control".)
+#  (Entity is selected because it is in the same library as the design unit that contains the component.)
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 13:17:15 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:18:09 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture dataflow of Control
+# End time: 13:18:09 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:19:18 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:19:18 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:19:55 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity tb_Control
+# -- Compiling architecture behavior of tb_Control
+# End time: 13:19:55 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+# QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+# Start time: 13:20:00 on Oct 23,2025
+# vcom -reportprogress 300 -work work /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Control
+# -- Compiling architecture dataflow of Control
+# End time: 13:20:00 on Oct 23,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -voptargs=+acc work.tb_control
+# vsim -voptargs="+acc" work.tb_control 
+# Start time: 13:20:03 on Oct 23,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb_control(behavior)#1
+# Loading work.control(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_control/i_func3 \
+sim:/tb_control/i_func7 \
+sim:/tb_control/i_opcode \
+sim:/tb_control/o_ALUControl \
+sim:/tb_control/o_ALUSRC \
+sim:/tb_control/o_Branch \
+sim:/tb_control/o_ImmType \
+sim:/tb_control/o_MemRd \
+sim:/tb_control/o_MemReg \
+sim:/tb_control/o_MemWr \
+sim:/tb_control/o_RegWr
+run 500

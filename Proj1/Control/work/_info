@@ -1,6 +1,8 @@
 m255
 K4
 z2
+!s12c _opt
+Z0 !s99 nomlopt
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -8,47 +10,104 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1
+d/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1
+T_opt
+!s110 1761243603
+VUI[OLfgGgzScbZNkSjZ1C2
+04 10 8 work tb_control behavior 1
+=1-000ae431a4f1-68fa71d3-70140-354c
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0
+n@_opt
+OL;O;2025.1_2;82
 Econtrol
-Z1 w1760729722
+Z1 w1761243591
 Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 3
-R0
-Z5 8/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control.vhd
-Z6 F/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control.vhd
+!i122 17
+Z5 d/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control
+Z6 8/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
+Z7 F/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd
 l0
 L5 1
-V:^EgHG8b]9;JQNM@WF6Y03
-!s100 Yg<?cM19eg6Dk<kAH00XJ1
-Z7 OL;C;2025.1_2;82
-32
-Z8 !s110 1760729726
+Vi2YNk:e6haF<hNfISEk@60
+!s100 ohLINhX=KPUfVUzzN5h212
+Z8 OL;C;2025.1_2;82
+33
+Z9 !s110 1761243600
 !i10b 1
-Z9 !s108 1760729726.000000
-Z10 !s90 -reportprogress|300|-work|work|/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control.vhd|
-!s107 /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control.vhd|
+Z10 !s108 1761243600.000000
+Z11 !s90 -reportprogress|300|-work|work|/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd|
+Z12 !s107 /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/Control.vhd|
 !i113 0
-Z11 o-work work
-Z12 tExplicit 1 CvgOpt 0
+Z13 o-work work
+Z14 tExplicit 1 NoCoverage 1 CvgOpt 0
 Adataflow
 R2
 R3
 R4
-DEx4 work 7 control 0 22 :^EgHG8b]9;JQNM@WF6Y03
-!i122 3
-l22
-L20 99
-V^C^If;]nA_`7hkO9Bz3?<0
-!s100 YQo`zgUB:nz]Q[WPWCZiI0
-R7
-32
+DEx4 work 7 control 0 22 i2YNk:e6haF<hNfISEk@60
+!i122 17
+l36
+L22 96
+V>Z]5^Sjn3hPN^JinG=IV22
+!s100 EHCK_K_:Pc^Q2HaZoZnzm1
 R8
-!i10b 1
+33
 R9
+!i10b 1
 R10
-Z13 !s107 /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control.vhd|
-!i113 0
 R11
 R12
+!i113 0
+R13
+R14
+Etb_control
+Z15 w1761243123
+R2
+R3
+R4
+!i122 16
+R5
+Z16 8/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+Z17 F/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd
+l0
+L5 1
+Vc9HS_2C19MKi]nfkFnA;V2
+!s100 @5CJ75S8<6EI5d:_c]ScF3
+R8
+33
+Z18 !s110 1761243595
+!i10b 1
+Z19 !s108 1761243595.000000
+Z20 !s90 -reportprogress|300|-work|work|/home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd|
+Z21 !s107 /home/owentg3/CPRE381Lab/GitRepoProject/cpre3810/Proj1/Control/tb_Control.vhd|
+!i113 0
+R13
+R14
+Abehavior
+R2
+R3
+R4
+DEx4 work 10 tb_control 0 22 c9HS_2C19MKi]nfkFnA;V2
+!i122 16
+l40
+L8 101
+V4fOlk?XzzOIn:GcbS=ijO1
+!s100 8h@^WPFDYClc[C3TbL29V3
+R8
+33
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14
