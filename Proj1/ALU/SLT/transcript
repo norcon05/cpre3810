@@ -1,0 +1,23 @@
+# Compile of slt_N.vhd failed with 3 errors.
+# Compile of tb_slt_N.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of slt_N.vhd was successful.
+vsim -gui work.tb_slt_n -voptargs=+acc
+# vsim -gui work.tb_slt_n -voptargs="+acc" 
+# Start time: 09:40:46 on Oct 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_slt_n(mixed)#1
+# Loading ieee.numeric_std(body)
+# Loading work.slt_n(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_slt_n/s_iA \
+sim:/tb_slt_n/s_iB \
+sim:/tb_slt_n/s_oF
+run 500
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_slt_n/DUT0

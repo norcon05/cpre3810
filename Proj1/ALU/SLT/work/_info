@@ -1,0 +1,111 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1761316849
+V6bRk>RAEVU6D7@4>M`FWB2
+04 8 5 work tb_slt_n mixed 1
+=1-005056b6cff4-68fb8fef-b0-27ac
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+OL;O;2025.1_2;82
+Eslt_n
+Z1 w1761316751
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+Z5 dU:/cpre381/Proj1/ALU/SLT
+Z6 8U:/cpre381/Proj1/ALU/SLT/slt_N.vhd
+Z7 FU:/cpre381/Proj1/ALU/SLT/slt_N.vhd
+l0
+L22 1
+V13]M49<;U1m_QS=MYM^Kc0
+!s100 WeCN9M`RA;QbdGa[I>FVh3
+Z8 OL;C;2025.1_2;82
+32
+Z9 !s110 1761316759
+!i10b 1
+Z10 !s108 1761316759.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/SLT/slt_N.vhd|
+Z12 !s107 U:/cpre381/Proj1/ALU/SLT/slt_N.vhd|
+!i113 0
+Z13 o-work work -2002 -explicit
+Z14 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Adataflow
+R2
+R3
+R4
+DEx4 work 5 slt_n 0 22 13]M49<;U1m_QS=MYM^Kc0
+!i122 2
+l32
+L31 12
+V:HF8_G9OS[Si_KYKbXOKZ3
+!s100 :f1g1iRD6m0oY;WAJ;XTo3
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Etb_slt_n
+Z15 w1761277177
+R3
+R4
+!i122 1
+R5
+Z16 8U:/cpre381/Proj1/ALU/SLT/tb_slt_N.vhd
+Z17 FU:/cpre381/Proj1/ALU/SLT/tb_slt_N.vhd
+l0
+L17 1
+VWl?ZhYm:BKEijjN[0MHoG0
+!s100 lzl3IRQShb4Zc@oIiMfb71
+R8
+32
+Z18 !s110 1761316413
+!i10b 1
+Z19 !s108 1761316413.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/SLT/tb_slt_N.vhd|
+Z21 !s107 U:/cpre381/Proj1/ALU/SLT/tb_slt_N.vhd|
+!i113 0
+R13
+R14
+Amixed
+R3
+R4
+DEx4 work 8 tb_slt_n 0 22 Wl?ZhYm:BKEijjN[0MHoG0
+!i122 1
+l38
+L21 65
+V_PIkQL@=lc;[lFObBRaHR2
+!s100 g;m2GooRf?PB0B<ggL8LK2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14

@@ -17,6 +17,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 entity slt_N is
   generic (N : integer := 32);   -- Generic of type integer for input/output data width. Default value is 32.

@@ -1,0 +1,555 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+!s12c _opt2
+R1
+!s12c _opt1
+R1
+R0
+R1
+!s11e vcom 2025.1_2 2025.04, Apr  7 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/questasim64_2025.1_2/examples
+T_opt
+!s110 1761316164
+VbQJdUDGnRm=ATXMUd6F`@3
+04 10 5 work tb_xorg2_n mixed 1
+=1-005056b6cff4-68fb8d42-101-1d58
+R1
+Z3 !s12f OEM100
+Z4 !s12b OEM100
+Z5 !s124 OEM100
+Z6 !s135 nogc
+Z7 o-quiet -auto_acc_if_foreign -work work +acc
+Z8 tCvgOpt 0 defaultOptions 1107178788
+n@_opt
+Z9 OL;O;2025.1_2;82
+T_opt1
+!s110 1761315819
+VCVne3cPzloBi:1[V^]fVb0
+04 9 5 work tb_invg_n mixed 1
+=1-005056b6cff4-68fb8be9-224-330c
+R1
+R3
+R4
+R5
+R6
+R7
+R8
+n@_opt1
+R9
+R2
+T_opt2
+!s110 1761315955
+VQX7HOUVW2MzlYkL:RkFd;0
+04 9 5 work tb_org2_n mixed 1
+=1-005056b6cff4-68fb8c70-352-e74
+R1
+R3
+R4
+R5
+R6
+R7
+R8
+n@_opt2
+R9
+R2
+Eandg2
+Z10 w1756784992
+Z11 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z12 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+Z13 dU:/cpre381/Proj1/ALU/Other Stuff
+Z14 8U:/cpre381/Proj1/ALU/Other Stuff/andg2.vhd
+Z15 FU:/cpre381/Proj1/ALU/Other Stuff/andg2.vhd
+l0
+Z16 L23 1
+V3HzFlmB@@ELE:DVe6<;D]2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+Z17 OL;C;2025.1_2;82
+32
+Z18 !s110 1761315471
+!i10b 1
+Z19 !s108 1761315471.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/andg2.vhd|
+Z21 !s107 U:/cpre381/Proj1/ALU/Other Stuff/andg2.vhd|
+!i113 0
+Z22 o-work work -2002 -explicit
+Z23 tExplicit 1 CvgOpt 0 defaultOptions 1082985408
+Adataflow
+R11
+R12
+DEx4 work 5 andg2 0 22 3HzFlmB@@ELE:DVe6<;D]2
+!i122 0
+l32
+Z24 L31 6
+V]l8znTEkk2GDnOH<^DUMS2
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R17
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R22
+R23
+Eandg2_n
+Z25 w1761180847
+R11
+R12
+!i122 1
+R13
+Z26 8U:/cpre381/Proj1/ALU/Other Stuff/andg2_N.vhd
+Z27 FU:/cpre381/Proj1/ALU/Other Stuff/andg2_N.vhd
+l0
+Z28 L21 1
+Vg<E^j4o?TaBHb[XEj;[EX3
+!s100 M2@XV9Q<HU35?EUAHfo1:2
+R17
+32
+R18
+!i10b 1
+R19
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/andg2_N.vhd|
+Z30 !s107 U:/cpre381/Proj1/ALU/Other Stuff/andg2_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R11
+R12
+DEx4 work 7 andg2_n 0 22 g<E^j4o?TaBHb[XEj;[EX3
+!i122 1
+l38
+Z31 L30 19
+V:<FUCHDW`7NSN?KJgT4_92
+!s100 5=dBTATTcoS;HcF?XAOSE1
+R17
+32
+R18
+!i10b 1
+R19
+R29
+R30
+!i113 0
+R22
+R23
+Einvg
+R10
+R11
+R12
+!i122 2
+R13
+Z32 8U:/cpre381/Proj1/ALU/Other Stuff/invg.vhd
+Z33 FU:/cpre381/Proj1/ALU/Other Stuff/invg.vhd
+l0
+R16
+VLz?:SG7hHQ@S>c;Dc6?dA3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R17
+32
+Z34 !s110 1761315472
+!i10b 1
+R19
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/invg.vhd|
+Z36 !s107 U:/cpre381/Proj1/ALU/Other Stuff/invg.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R11
+R12
+DEx4 work 4 invg 0 22 Lz?:SG7hHQ@S>c;Dc6?dA3
+!i122 2
+l31
+L30 6
+Vocml?BWU[I_`>T>W01ONf2
+!s100 bk7I76o8e1LURdoZEQb8H0
+R17
+32
+R34
+!i10b 1
+R19
+R35
+R36
+!i113 0
+R22
+R23
+Einvg_n
+Z37 w1761184079
+R11
+R12
+!i122 3
+R13
+Z38 8U:/cpre381/Proj1/ALU/Other Stuff/invg_N.vhd
+Z39 FU:/cpre381/Proj1/ALU/Other Stuff/invg_N.vhd
+l0
+R28
+V9MTkY`N=lNjSklehS9Fj13
+!s100 d4XH08m3H9;1MDj_bOVcH3
+R17
+32
+R34
+!i10b 1
+Z40 !s108 1761315472.000000
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/invg_N.vhd|
+Z42 !s107 U:/cpre381/Proj1/ALU/Other Stuff/invg_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R11
+R12
+DEx4 work 6 invg_n 0 22 9MTkY`N=lNjSklehS9Fj13
+!i122 3
+l36
+L29 17
+V22PGdSn[in51iDGR4UJnm3
+!s100 N72^LUZYY>NW8k`ck;IY10
+R17
+32
+R34
+!i10b 1
+R40
+R41
+R42
+!i113 0
+R22
+R23
+Eorg2
+R10
+R11
+R12
+!i122 4
+R13
+Z43 8U:/cpre381/Proj1/ALU/Other Stuff/org2.vhd
+Z44 FU:/cpre381/Proj1/ALU/Other Stuff/org2.vhd
+l0
+R16
+Vg[9jF>Y9L53>bbNkeLT@]1
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R17
+32
+Z45 !s110 1761315473
+!i10b 1
+R40
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/org2.vhd|
+Z47 !s107 U:/cpre381/Proj1/ALU/Other Stuff/org2.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R11
+R12
+DEx4 work 4 org2 0 22 g[9jF>Y9L53>bbNkeLT@]1
+!i122 4
+l32
+R24
+VN:VmSbhGlNK1cO>WaCCNU1
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R17
+32
+R45
+!i10b 1
+R40
+R46
+R47
+!i113 0
+R22
+R23
+Eorg2_n
+Z48 w1761180900
+R11
+R12
+!i122 5
+R13
+Z49 8U:/cpre381/Proj1/ALU/Other Stuff/org2_N.vhd
+Z50 FU:/cpre381/Proj1/ALU/Other Stuff/org2_N.vhd
+l0
+R28
+VggDzNBjSIk;1@5=[@`JXz0
+!s100 166mCbE:_JZ9V=N9;d<gT1
+R17
+32
+R45
+!i10b 1
+Z51 !s108 1761315473.000000
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/org2_N.vhd|
+Z53 !s107 U:/cpre381/Proj1/ALU/Other Stuff/org2_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R11
+R12
+DEx4 work 6 org2_n 0 22 ggDzNBjSIk;1@5=[@`JXz0
+!i122 5
+l38
+R31
+VbYBZFL;cPgMf2n;PGS?bK2
+!s100 CdliW@7So;Xn`5DzF@SjX1
+R17
+32
+R45
+!i10b 1
+R51
+R52
+R53
+!i113 0
+R22
+R23
+Etb_andg2_n
+Z54 w1761275326
+R11
+R12
+!i122 6
+R13
+Z55 8U:/cpre381/Proj1/ALU/Other Stuff/tb_andg2_N.vhd
+Z56 FU:/cpre381/Proj1/ALU/Other Stuff/tb_andg2_N.vhd
+l0
+Z57 L17 1
+VB8J44`iKANX74aUkgR?7C2
+!s100 MnGV]lEbfljP2zLboJ4@W0
+R17
+32
+Z58 !s110 1761315474
+!i10b 1
+R51
+Z59 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/tb_andg2_N.vhd|
+Z60 !s107 U:/cpre381/Proj1/ALU/Other Stuff/tb_andg2_N.vhd|
+!i113 0
+R22
+R23
+Amixed
+R11
+R12
+DEx4 work 10 tb_andg2_n 0 22 B8J44`iKANX74aUkgR?7C2
+!i122 6
+l38
+Z61 L21 65
+VYb1VU@[mn<`;KKX>TFV402
+!s100 OEYk2oa1Ti4MW4_oz_PFL2
+R17
+32
+R58
+!i10b 1
+R51
+R59
+R60
+!i113 0
+R22
+R23
+Etb_invg_n
+Z62 w1761276621
+R11
+R12
+!i122 7
+R13
+Z63 8U:/cpre381/Proj1/ALU/Other Stuff/tb_invg_N.vhd
+Z64 FU:/cpre381/Proj1/ALU/Other Stuff/tb_invg_N.vhd
+l0
+R57
+V;5A7I5MG<md6djCcYdbN70
+!s100 HLc5Oo>_F4G3iTS9R;L[71
+R17
+32
+R58
+!i10b 1
+Z65 !s108 1761315474.000000
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/tb_invg_N.vhd|
+Z67 !s107 U:/cpre381/Proj1/ALU/Other Stuff/tb_invg_N.vhd|
+!i113 0
+R22
+R23
+Amixed
+R11
+R12
+DEx4 work 9 tb_invg_n 0 22 ;5A7I5MG<md6djCcYdbN70
+!i122 7
+l36
+L21 51
+VzmW82:1aS;Oz3ERSbNAd_1
+!s100 1G2nk:4Ule::A;[SRJX7V3
+R17
+32
+R58
+!i10b 1
+R65
+R66
+R67
+!i113 0
+R22
+R23
+Etb_org2_n
+Z68 w1761275148
+R11
+R12
+!i122 8
+R13
+Z69 8U:/cpre381/Proj1/ALU/Other Stuff/tb_org2_N.vhd
+Z70 FU:/cpre381/Proj1/ALU/Other Stuff/tb_org2_N.vhd
+l0
+R57
+VLLz<IGA1Sd>lbP9J>T3CK0
+!s100 FWQ4WXOj8Z=z87ZHL_@;Y1
+R17
+32
+Z71 !s110 1761315475
+!i10b 1
+R65
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/tb_org2_N.vhd|
+Z73 !s107 U:/cpre381/Proj1/ALU/Other Stuff/tb_org2_N.vhd|
+!i113 0
+R22
+R23
+Amixed
+R11
+R12
+DEx4 work 9 tb_org2_n 0 22 LLz<IGA1Sd>lbP9J>T3CK0
+!i122 8
+l38
+L21 57
+VmCl<=@TVloBc:6=968nL`2
+!s100 4AU2YZ8j9OZ][J4;ghH1S3
+R17
+32
+R71
+!i10b 1
+R65
+R72
+R73
+!i113 0
+R22
+R23
+Etb_xorg2_n
+Z74 w1761276378
+R11
+R12
+!i122 9
+R13
+Z75 8U:/cpre381/Proj1/ALU/Other Stuff/tb_xorg2_N.vhd
+Z76 FU:/cpre381/Proj1/ALU/Other Stuff/tb_xorg2_N.vhd
+l0
+R57
+VB;7S16h2@CNP`H<JnT^OI1
+!s100 G8O:eC<XQEL[UkG5DfY]i0
+R17
+32
+R71
+!i10b 1
+Z77 !s108 1761315475.000000
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/tb_xorg2_N.vhd|
+Z79 !s107 U:/cpre381/Proj1/ALU/Other Stuff/tb_xorg2_N.vhd|
+!i113 0
+R22
+R23
+Amixed
+R11
+R12
+DEx4 work 10 tb_xorg2_n 0 22 B;7S16h2@CNP`H<JnT^OI1
+!i122 9
+l38
+R61
+VfUdd^kZ<cFU[7Ml`78b`P3
+!s100 hWfD2:[a:zegJeg=N<0G^3
+R17
+32
+R71
+!i10b 1
+R77
+R78
+R79
+!i113 0
+R22
+R23
+Exorg2
+R10
+R11
+R12
+!i122 10
+R13
+Z80 8U:/cpre381/Proj1/ALU/Other Stuff/xorg2.vhd
+Z81 FU:/cpre381/Proj1/ALU/Other Stuff/xorg2.vhd
+l0
+R16
+VokUkmIkG1Zl_Qn_OQIL7H2
+!s100 [hI[mXFH4_j16U;>U1Lfn2
+R17
+32
+Z82 !s110 1761315476
+!i10b 1
+R77
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/xorg2.vhd|
+Z84 !s107 U:/cpre381/Proj1/ALU/Other Stuff/xorg2.vhd|
+!i113 0
+R22
+R23
+Adataflow
+R11
+R12
+DEx4 work 5 xorg2 0 22 okUkmIkG1Zl_Qn_OQIL7H2
+!i122 10
+l32
+R24
+V:68lB?DjDIUd9JjH[M;nM2
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R17
+32
+R82
+!i10b 1
+R77
+R83
+R84
+!i113 0
+R22
+R23
+Exorg2_n
+Z85 w1761182290
+R11
+R12
+!i122 11
+R13
+Z86 8U:/cpre381/Proj1/ALU/Other Stuff/xorg2_N.vhd
+Z87 FU:/cpre381/Proj1/ALU/Other Stuff/xorg2_N.vhd
+l0
+R28
+V]FzOT=K6ZS0EKbaNc1hL?1
+!s100 j[8V`E5f=0h53BeVYf[540
+R17
+32
+R82
+!i10b 1
+Z88 !s108 1761315476.000000
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|U:/cpre381/Proj1/ALU/Other Stuff/xorg2_N.vhd|
+Z90 !s107 U:/cpre381/Proj1/ALU/Other Stuff/xorg2_N.vhd|
+!i113 0
+R22
+R23
+Astructure
+R11
+R12
+DEx4 work 7 xorg2_n 0 22 ]FzOT=K6ZS0EKbaNc1hL?1
+!i122 11
+l38
+R31
+VR2Hhgf;1Cac@T5=bRlSDE2
+!s100 JRNoZD8jGFFm>TMG?1LD51
+R17
+32
+R82
+!i10b 1
+R88
+R89
+R90
+!i113 0
+R22
+R23

@@ -1,0 +1,53 @@
+[N
+7
+4
+1 N
+6
+5 mixed
+3
+9 structure
+1
+37 U:/cpre381/Proj1/ALU/Other Stuff/work
+2
+7 xorg2_n
+5
+10 tb_xorg2_n
+7
+9 gCLK_HPER
+]
+[G
+1
+5
+6
+1
+7
+0
+0
+0
+0
+8 8
+-128
+-16
+-6
+2
+0
+0
+0
+0
+0
+0
+]
+[G
+1
+2
+3
+1
+4
+1
+0
+32
+0
+0 0
+0
+0
+]

@@ -1,0 +1,91 @@
+# Compile of andg2.vhd was successful.
+# Compile of andg2_N.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of invg_N.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of org2_N.vhd was successful.
+# Compile of tb_andg2_N.vhd was successful.
+# Compile of tb_invg_N.vhd was successful.
+# Compile of tb_org2_N.vhd was successful.
+# Compile of tb_xorg2_N.vhd was successful.
+# Compile of xorg2.vhd was successful.
+# Compile of xorg2_N.vhd was successful.
+# 12 compiles, 0 failed with no errors.
+vsim -gui work.tb_andg2_n -voptargs=+acc
+# vsim -gui work.tb_andg2_n -voptargs="+acc" 
+# Start time: 09:20:12 on Oct 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_andg2_n(mixed)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.andg2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_andg2_n/s_iA \
+sim:/tb_andg2_n/s_iB \
+sim:/tb_andg2_n/s_oF
+run 500
+quit -sim
+# End time: 09:23:05 on Oct 24,2025, Elapsed time: 0:02:53
+# Errors: 0, Warnings: 6
+vsim -gui -voptargs=+acc work.tb_invg_n
+# vsim -gui -voptargs="+acc" work.tb_invg_n 
+# Start time: 09:23:36 on Oct 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_invg_n(mixed)#1
+# Loading work.invg_n(structure)#1
+# Loading work.invg(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_invg_n/s_iA \
+sim:/tb_invg_n/s_oF
+run 500
+quit -sim
+# End time: 09:25:18 on Oct 24,2025, Elapsed time: 0:01:42
+# Errors: 0, Warnings: 2
+vsim -gui -voptargs=+acc work.tb_org2_n
+# vsim -gui -voptargs="+acc" work.tb_org2_n 
+# Start time: 09:25:52 on Oct 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_org2_n(mixed)#1
+# Loading work.org2_n(structure)#1
+# Loading work.org2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_org2_n/s_iA \
+sim:/tb_org2_n/s_iB \
+sim:/tb_org2_n/s_oF
+run 500
+quit -sim
+# End time: 09:29:03 on Oct 24,2025, Elapsed time: 0:03:11
+# Errors: 0, Warnings: 2
+vsim -gui -voptargs=+acc work.tb_xorg2_n
+# vsim -gui -voptargs="+acc" work.tb_xorg2_n 
+# Start time: 09:29:21 on Oct 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_xorg2_n(mixed)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.xorg2(dataflow)#1
+add wave -position insertpoint  \
+sim:/tb_xorg2_n/s_iA \
+sim:/tb_xorg2_n/s_iB \
+sim:/tb_xorg2_n/s_oF
+run 500
+# End time: 09:32:12 on Oct 24,2025, Elapsed time: 0:02:51
+# Errors: 0, Warnings: 2
