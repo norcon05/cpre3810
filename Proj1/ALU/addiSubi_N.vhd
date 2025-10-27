@@ -22,11 +22,11 @@ entity addiSubi_N is
   generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
   port(i_A         : in std_logic_vector(N-1 downto 0);
        i_B         : in std_logic_vector(N-1 downto 0);
-	   i_immediate : in std_logic_vector(N-1 downto 0);
-	   i_nAdd_Sub  : in std_logic;
-	   i_ALU_SRC   : in std_logic;
+	     i_immediate : in std_logic_vector(N-1 downto 0);
+	     i_nAdd_Sub  : in std_logic;
+	     i_ALU_SRC   : in std_logic;
        o_S         : out std_logic_vector(N-1 downto 0);
-	   o_Cout      : out std_logic);
+	     o_Cout      : out std_logic);
 end addiSubi_N;
 
 architecture structural of addiSubi_N is
@@ -34,9 +34,9 @@ architecture structural of addiSubi_N is
   component adder_N is
     port(i_A         : in std_logic_vector(N-1 downto 0);
          i_B         : in std_logic_vector(N-1 downto 0);
-	     i_Cin 	     : in std_logic;
+	       i_Cin 	     : in std_logic;
          o_S         : out std_logic_vector(N-1 downto 0);
-	     o_Cout      : out std_logic);
+	       o_Cout      : out std_logic);
   end component;
   
   component mux2t1_N is
@@ -87,8 +87,8 @@ begin
   adder: adder_N
     port map(i_A    => i_A,
              i_B    => s_MUXB,
-			 i_Cin  => i_nAdd_Sub,
-			 o_S    => o_S,
+			       i_Cin  => i_nAdd_Sub,
+			       o_S    => o_S,
              o_Cout => o_Cout);
   
 end structural;

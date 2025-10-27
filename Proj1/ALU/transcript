@@ -1,0 +1,111 @@
+# Compile of alu.vhd was successful.
+# Compile of tb_alu.vhd was successful.
+# Compile of alu.vhd was successful.
+vsim -gui work.tb_alu -voptargs=+acc
+# vsim -gui work.tb_alu -voptargs="+acc" 
+# Start time: 11:12:38 on Oct 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_alu(behavior)#1
+# Loading ieee.numeric_std(body)
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+add wave -position insertpoint  \
+sim:/tb_alu/s_iALUSrc \
+sim:/tb_alu/s_oZero \
+sim:/tb_alu/s_iALUop \
+sim:/tb_alu/s_iA \
+sim:/tb_alu/s_iB \
+sim:/tb_alu/s_iimm \
+sim:/tb_alu/s_oF
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-06  ProcessID: 9016
+#           Attempting to use alternate WLF file "./wlftvea1vz".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftvea1vz
+# A time value could not be extracted from the current line
+run 2000
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_alu/DUT/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_alu/DUT/SLT_UNIT
+quit -sim
+# End time: 11:15:07 on Oct 27,2025, Elapsed time: 0:02:29
+# Errors: 0, Warnings: 9
+# Compile of tb_alu.vhd was successful.
+# Compile of alu.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_alu
+# vsim -gui -voptargs="+acc" work.tb_alu 
+# Start time: 11:17:01 on Oct 27,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_alu(behavior)#1
+# Loading ieee.numeric_std(body)
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+add wave -position insertpoint  \
+sim:/tb_alu/s_iALUSrc \
+sim:/tb_alu/s_oZero \
+sim:/tb_alu/s_iALUop \
+sim:/tb_alu/s_iA \
+sim:/tb_alu/s_iB \
+sim:/tb_alu/s_iimm \
+sim:/tb_alu/s_oF
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: connorwm  Hostname: WLF25-CPRE-06  ProcessID: 9016
+#           Attempting to use alternate WLF file "./wlft4ax499".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4ax499
+run 2000
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_alu/DUT/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_alu/DUT/SLT_UNIT

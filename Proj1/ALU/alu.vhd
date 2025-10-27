@@ -27,7 +27,6 @@ entity alu is
     i_A         : in  std_logic_vector(N-1 downto 0); -- Operand A input
     i_B         : in  std_logic_vector(N-1 downto 0); -- Operand B input
     i_imm       : in  std_logic_vector(N-1 downto 0); -- Immediate value input (used if i_ALUSrc = '1')
-    i_shamt     : in  std_logic_vector(4 downto 0);   -- Shift amount (for shift operations)
     
     i_ALUOp     : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
                                                       -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
@@ -107,19 +106,19 @@ architecture structural of alu is
       i_data       : in  std_logic_vector(31 downto 0);
       i_shiftAmnt  : in  std_logic_vector(4 downto 0);
       i_arith      : in  std_logic;
-      i_dir        : in  std_logic;
+      i_dir        : in  std_logic; -- '0' = right shift, '1' = left shift
       o_data       : out std_logic_vector(31 downto 0)
     );
   end component;
 
   -- INTERNAL SIGNALS
   signal s_addsub_out, s_and_out, s_or_out, s_xor_out, s_nor_out : std_logic_vector(N-1 downto 0);
-  signal s_slt_out, s_shift_out : std_logic_vector(N-1 downto 0);
+  signal s_slt_out, s_shift_out, s_ALU_out : std_logic_vector(N-1 downto 0);
   signal s_Cout : std_logic;
   signal s_arith, s_dir : std_logic;
   signal s_op2 : std_logic_vector(N-1 downto 0);  -- Selected second operand (i_B or i_imm)
   signal s_shift_amount : std_logic_vector(4 downto 0);
-
+  signal zero_vector : std_logic_vector(N-1 downto 0) := (others => '0');
 begin
 
   -- Select second operand based on i_ALUSrc
@@ -132,8 +131,10 @@ begin
     generic map(N => N)
     port map(
       i_A         => i_A,
-      i_B         => s_op2,
+      i_B         => i_B,
+	    i_immediate => i_imm,
       i_nAdd_Sub  => i_ALUOp(0),  -- 0=ADD, 1=SUB
+	    i_ALU_SRC   => i_ALUSrc,
       o_S         => s_addsub_out,
       o_Cout      => s_Cout
     );
@@ -143,34 +144,56 @@ begin
   ---------------------------------------------------------------------------
   AND_UNIT : andg2_N
     generic map(N => N)
-    port map(i_A => i_A, i_B => s_op2, o_F => s_and_out);
+    port map(
+      i_A => i_A, 
+      i_B => s_op2, 
+      o_F => s_and_out
+    );
 
   OR_UNIT : org2_N
     generic map(N => N)
-    port map(i_A => i_A, i_B => s_op2, o_F => s_or_out);
+    port map(
+      i_A => i_A, 
+      i_B => s_op2,
+      o_F => s_or_out
+    );
 
   XOR_UNIT : xorg2_N
     generic map(N => N)
-    port map(i_A => i_A, i_B => s_op2, o_F => s_xor_out);
+    port map(
+      i_A => i_A, 
+      i_B => s_op2, 
+      o_F => s_xor_out
+    );
 
   NOR_UNIT : invg_N
     generic map(N => N)
-    port map(i_A => s_or_out, o_F => s_nor_out);
+    port map(
+      i_A => s_or_out, -- NOTE: s_or_out goes in to create nor
+      o_F => s_nor_out
+    );
 
   ---------------------------------------------------------------------------
   -- SLT (Set Less Than)
   ---------------------------------------------------------------------------
   SLT_UNIT : slt_N
     generic map(N => N)
-    port map(i_A => i_A, i_B => s_op2, o_F => s_slt_out);
+    port map(
+      i_A => i_A, 
+      i_B => s_op2, 
+      o_F => s_slt_out
+    );
 
   ---------------------------------------------------------------------------
   -- SHIFT OPERATIONS
   ---------------------------------------------------------------------------
-  s_dir <= '1' when (i_ALUOp = "0111" or i_ALUOp = "1010") else '0';  -- SLL or SLLI
+  -- 0 = right, 1 = left
+  s_dir <= '0' when (i_ALUOp = "1000" or i_ALUOp = "1001" or
+                     i_ALUOp = "1011" or i_ALUOp = "1100") else '1';
+
   s_arith <= '1' when (i_ALUOp = "1001" or i_ALUOp = "1100") else '0'; -- SRA or SRAI
 
-  s_shift_amount <= i_shamt when (i_ALUOp(3 downto 1) = "101") else s_op2(4 downto 0);
+  s_shift_amount <= s_op2(4 downto 0); --Only grab the bottom 5 bits
 
   SHIFT_UNIT : barrelShifter
     port map(
@@ -188,27 +211,29 @@ begin
           s_slt_out, s_shift_out)
   begin
     case i_ALUOp is
-      when "0000" => o_F <= s_addsub_out;   -- ADD / ADDI
-      when "0001" => o_F <= s_addsub_out;   -- SUB / SUBI
-      when "0010" => o_F <= s_slt_out;      -- SLT
-      when "0011" => o_F <= s_and_out;      -- AND
-      when "0100" => o_F <= s_or_out;       -- OR
-      when "0101" => o_F <= s_xor_out;      -- XOR
-      when "0110" => o_F <= s_nor_out;      -- NOR
-      when "0111" => o_F <= s_shift_out;    -- SLL
-      when "1000" => o_F <= s_shift_out;    -- SRL
-      when "1001" => o_F <= s_shift_out;    -- SRA
-      when "1010" => o_F <= s_shift_out;    -- SLLI
-      when "1011" => o_F <= s_shift_out;    -- SRLI
-      when "1100" => o_F <= s_shift_out;    -- SRAI
-      when others => o_F <= (others => '0');
+      when "0000" => s_ALU_out <= s_addsub_out;   -- ADD / ADDI
+      when "0001" => s_ALU_out <= s_addsub_out;   -- SUB / SUBI
+      when "0010" => s_ALU_out <= s_slt_out;      -- SLT
+      when "0011" => s_ALU_out <= s_and_out;      -- AND
+      when "0100" => s_ALU_out <= s_or_out;       -- OR
+      when "0101" => s_ALU_out <= s_xor_out;      -- XOR
+      when "0110" => s_ALU_out <= s_nor_out;      -- NOR
+      when "0111" => s_ALU_out <= s_shift_out;    -- SLL
+      when "1000" => s_ALU_out <= s_shift_out;    -- SRL
+      when "1001" => s_ALU_out <= s_shift_out;    -- SRA
+      when "1010" => s_ALU_out <= s_shift_out;    -- SLLI
+      when "1011" => s_ALU_out <= s_shift_out;    -- SRLI
+      when "1100" => s_ALU_out <= s_shift_out;    -- SRAI
+      when others => s_ALU_out <= (others => '0');
     end case;
   end process;
+
+  o_F <= s_ALU_out; --Set the output
 
   ---------------------------------------------------------------------------
   -- ZERO FLAG
   ---------------------------------------------------------------------------
-  o_Zero <= '1' when (o_F = (others => '0')) else '0';
+  o_Zero <= '1' when (s_ALU_out = zero_vector) else '0';
 
 end structural;
 
