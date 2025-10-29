@@ -31,7 +31,6 @@ begin
     o_rs2         <= (others => '0');
     o_func7       <= (others => '0');
     o_imm12bit    <= (others => '0');
-    o_imm13bit    <= (others => '0');
     o_imm20bit    <= (others => '0');
     o_immType     <= '0';
 

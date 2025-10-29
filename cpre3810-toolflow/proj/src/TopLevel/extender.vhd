@@ -35,7 +35,7 @@ architecture dataflow of extender is
   signal s_result : STD_LOGIC_VECTOR(31 downto 0);
 begin
 
-  process(i_imm12bit, i_imm13bit, i_imm20bit, i_immType, i_sign)
+  process(i_imm12bit, i_imm20bit, i_immType, i_sign)
   begin
     case i_immType is
       when '0' =>  -- 12-bit immediate
@@ -50,7 +50,10 @@ begin
           s_result <= (31 downto 20 => i_imm20bit(19)) & i_imm20bit;
         else
           s_result <= (31 downto 20 => '0') & i_imm20bit;
-        end if;
+        end if;s
+      
+      when others =>
+        s_result <= (31 downto 0 => '0');
     end case;
   end process;
 
