@@ -68,8 +68,138 @@ architecture structure of RISCV_Processor is
           q            : out std_logic_vector((DATA_WIDTH -1) downto 0));
     end component;
 
+  component alu is
+    generic(N : integer := 32);
+    port (
+      i_A         : in  std_logic_vector(N-1 downto 0); -- Operand A input
+      i_B         : in  std_logic_vector(N-1 downto 0); -- Operand B input
+      i_imm       : in  std_logic_vector(N-1 downto 0); -- Immediate value input (used if i_ALUSrc = '1')
+    
+      i_ALUOp     : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
+                                                        -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
+                                                        -- 0001 : SUB / SUBI (Subtract i_B or immediate from i_A)
+                                                        -- 0010 : SLT       (Set Less Than: i_A < i_B or immediate)
+                                                        -- 0011 : AND       (Bitwise AND)
+                                                        -- 0100 : OR        (Bitwise OR)
+                                                        -- 0101 : XOR       (Bitwise XOR)
+                                                        -- 0110 : NOR       (Bitwise NOR)
+                                                        -- 0111 : SLL       (Logical Left Shift)
+                                                        -- 1000 : SRL       (Logical Right Shift)
+                                                        -- 1001 : SRA       (Arithmetic Right Shift)
+                                                        -- 1010 : SLLI      (Logical Left Shift Immediate)
+                                                        -- 1011 : SRLI      (Logical Right Shift Immediate)
+                                                        -- 1100 : SRAI      (Arithmetic Right Shift Immediate)
+
+      i_ALUSrc    : in  std_logic;                      -- Selects second ALU operand source:
+                                                        -- '0' = i_B
+                                                        -- '1' = i_imm (immediate)
+
+      o_F         : out std_logic_vector(N-1 downto 0); -- ALU output result
+      o_Zero      : out std_logic                       -- Zero flag, '1' if o_F is zero, else '0'
+    );
+    end component;
+
+  component pcLogic is
+    port(
+    i_CLK          : in std_logic;                          -- Clock signal for synchronous PC updates
+    i_RST          : in std_logic;                          -- Reset signal (typically sets PC to 0)
+    i_PC_WE        : in std_logic;                          -- Enable signal for writing to PC (for wfi)
+    i_rs1          : in std_logic_vector(31 downto 0);      -- Value from register rs1 (used for JALR)
+    i_imm          : in std_logic_vector(31 downto 0);      -- 32-bit immediate from instruction (used in branches, JAL, JALR)
+    i_PC_SEL       : in std_logic_vector(1 downto 0);       -- PC Next Value Selection: 
+	                                                            -- 00: PC + 4         (Default)
+                                                              -- 01: PC + imm       (Branch)
+                                                              -- 10: PC + imm       (JAL)
+                                                              -- 11: rs1 + imm      (JALR)
+    o_PC           : out std_logic_vector(31 downto 0)      -- Output: current PC value (used by instruction memory)
+    );
+    end component;
+
+  component Control is
+    generic(ADDR_WIDTH : integer;
+            DATA_WIDTH : integer);
+    port(
+       i_opcode         : in std_logic_vector(6 downto 0);
+       i_func3		: in std_logic_vector(2 downto 0);
+       i_func7		: in std_logic_vector(6 downto 0);
+       o_ALUControl	: out std_logic_vector(3 downto 0);
+       o_ImmType        : out std_logic_vector(1 downto 0);
+       o_ALUSRC	 	: out std_logic;
+       o_MemReg		: out std_logic;
+       o_RegWr          : out std_logic;
+       o_MemRd	 	: out std_logic;
+       o_MemWr		: out std_logic;
+       o_Branch		: out std_logic);
+    end component;
+
+  component extender is
+    port (i_in  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
+          i_sel : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
+          o_out : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
+    end component;
+
+  component regFile is
+    port(
+       i_CLK      : in std_logic;                         -- Clock
+       i_RST      : in std_logic;                         -- Reset
+       i_WE       : in std_logic;                         -- Write Enable
+       i_rs1_addr : in std_logic_vector(4 downto 0);      -- Address of first register we want to read
+	     i_rs2_addr : in std_logic_vector(4 downto 0);      -- Address of second register we want to read
+	     i_rd_addr  : in std_logic_vector(4 downto 0);      -- Address of register we want to write to
+	     i_rd_data  : in std_logic_vector(31 downto 0);	    -- The data we want to write
+	     o_rs1_data : out std_logic_vector(31 downto 0);    -- The data held in the first register we read
+       o_rs2_data : out std_logic_vector(31 downto 0));   -- The data held in the second register we read
+    end component;
+
+  component regFile is
+    port(
+      i_instr 	  : in std_logic_vector(31 downto 0);
+      o_opcode	  : out std_logic_vector(6 downto 0); 
+      o_rd	      : out std_logic_vector(4 downto 0); 
+      o_func3	    : out std_logic_vector(2 downto 0); 
+      o_rs1	      : out std_logic_vector(4 downto 0); 
+      o_rs2	      : out std_logic_vector(4 downto 0); 
+      o_func7	    : out std_logic_vector(6 downto 0);
+      o_imm12bit	: out std_logic_vector(11 downto 0);
+      o_imm13bit	: out std_logic_vector(12 downto 0);
+      o_imm20bit	: out std_logic_vector(19 downto 0));
+    end component;
+
   -- TODO: You may add any additional signals or components your implementation 
   --       requires below this comment
+
+  -- Instruction fields
+  signal s_opcode  : std_logic_vector(6 downto 0);
+  signal s_func3   : std_logic_vector(2 downto 0);
+  signal s_func7   : std_logic_vector(6 downto 0);
+  signal s_rs1     : std_logic_vector(4 downto 0);
+  signal s_rs2     : std_logic_vector(4 downto 0);
+  signal s_rd      : std_logic_vector(4 downto 0);
+
+  -- Register file data lines
+  signal s_rs1_data  : std_logic_vector(N-1 downto 0);
+  signal s_rs2_data  : std_logic_vector(N-1 downto 0);
+
+  -- Immediate
+  signal s_imm       : std_logic_vector(N-1 downto 0);
+
+  -- Control signals
+  signal s_ALUOp     : std_logic_vector(3 downto 0);
+  signal s_ImmType   : std_logic_vector(1 downto 0);
+  signal s_ALUSrc    : std_logic;
+  signal s_MemReg    : std_logic;
+  signal s_MemRd     : std_logic;
+  signal s_MemWr     : std_logic;
+  signal s_Branch    : std_logic;
+
+  -- ALU outputs
+  signal s_ALUResult : std_logic_vector(N-1 downto 0);
+  signal s_Zero      : std_logic;
+
+  -- PC control
+  signal s_PC        : std_logic_vector(N-1 downto 0);
+  signal s_PC_SEL    : std_logic_vector(1 downto 0);
+  signal s_PC_WE     : std_logic;
 
 begin
 
@@ -79,6 +209,10 @@ begin
       iInstAddr when others;
 
 
+  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
+  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
+
+  -- TODO: Implement the rest of your processor below this comment! 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)
@@ -97,10 +231,96 @@ begin
              we   => s_DMemWr,
              q    => s_DMemOut);
 
-  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
-  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
+  PC_LOGIC: pcLogic
+    port map(
+      i_CLK     => iCLK,
+      i_RST     => iRST,
+      i_PC_WE   => s_PC_WE,
+      i_rs1     => s_rs1_data,
+      i_imm     => s_imm,
+      i_PC_SEL  => s_PC_SEL,
+      o_PC      => s_NextInstAddr
+    );
+  
+  -- Instruction Decode
+  DECODER: regFile
+    port map(
+      i_instr    => s_Inst,
+      o_opcode   => s_opcode,
+      o_rd       => s_rd,
+      o_func3    => s_func3,
+      o_rs1      => s_rs1,
+      o_rs2      => s_rs2,
+      o_func7    => s_func7,
+      o_imm12bit => open,  -- Connect to 12-bit extender 
+      o_imm13bit => open,  -- Connect to 13-bit extender
+      o_imm20bit => open   -- Connect to 20-bit extender
+    );
 
-  -- TODO: Implement the rest of your processor below this comment! 
+  -- Control Unit
+  CTRL: Control
+    generic map(ADDR_WIDTH => ADDR_WIDTH,
+                DATA_WIDTH => N)
+    port map(
+      i_opcode   => s_opcode,
+      i_func3    => s_func3,
+      i_func7    => s_func7,
+      o_ALUControl => s_ALUOp,
+      o_ImmType  => s_ImmType,
+      o_ALUSRC   => s_ALUSrc,
+      o_MemReg   => s_MemReg,
+      o_RegWr    => s_RegWr,
+      o_MemRd    => s_MemRd,
+      o_MemWr    => s_DMemWr,
+      o_Branch   => s_Branch
+    );
+
+  -- Register File
+  RF: regFile
+    port map(
+      i_CLK       => iCLK,
+      i_RST       => iRST,
+      i_WE        => s_RegWr,
+      i_rs1_addr  => s_rs1,
+      i_rs2_addr  => s_rs2,
+      i_rd_addr   => s_rd,
+      i_rd_data   => s_RegWrData,
+      o_rs1_data  => s_rs1_data,
+      o_rs2_data  => s_rs2_data
+    );
+
+  -- Immediate Extension (placeholder for your 13-bit / 20-bit extenders)
+  IMM_EXT: extender
+    port map(
+      i_in  => s_Inst(31 downto 20),  -- Example for 12-bit immediate
+      i_sel => '1',                    -- Example: sign-extend
+      o_out => s_imm
+    );
+
+  -- ALU
+  ALU_UNIT: alu
+    generic map(N => N)
+    port map(
+      i_A      => s_rs1_data,
+      i_B      => s_rs2_data,
+      i_imm    => s_imm,
+      i_ALUOp  => s_ALUOp,
+      i_ALUSrc => s_ALUSrc,
+      o_F      => s_ALUResult,
+      o_Zero   => s_Zero
+    );
+
+  -- Write Back MUX
+  s_RegWrData <=
+      s_ALUResult when s_MemReg = '0' else
+      s_DMemOut;
+
+  -- Data Memory Address & Data Inputs
+  s_DMemAddr <= s_ALUResult;
+  s_DMemData <= s_rs2_data;
+
+  -- Connect ALU output to top-level port
+  oALUOut <= s_ALUResult;
 
 end structure;
 
