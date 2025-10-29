@@ -116,8 +116,6 @@ architecture structure of RISCV_Processor is
     end component;
 
   component Control is
-    generic(ADDR_WIDTH : integer;
-            DATA_WIDTH : integer);
     port(
        i_opcode         : in std_logic_vector(6 downto 0);
        i_func3		: in std_logic_vector(2 downto 0);
@@ -130,7 +128,8 @@ architecture structure of RISCV_Processor is
        o_MemRd	 	: out std_logic;
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
-       o_Branch		: out std_logic);
+       o_Branch		: out std_logic;
+       o_lui		: out std_logic);
     end component;
 
   component extender is
@@ -139,7 +138,7 @@ architecture structure of RISCV_Processor is
           i_immType   : in  STD_LOGIC;    -- Immediate Types:
                                             -- 0: 12-bit immediate used
                                             -- 1: 20-bit immediate used
-
+	  i_lui	      : in STD_LOGIC;                        -- '1' = shift upper, '0' = normal handling
           i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
           o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
     end component;
@@ -183,7 +182,6 @@ architecture structure of RISCV_Processor is
   signal s_func7   : std_logic_vector(6 downto 0);
   signal s_rs1     : std_logic_vector(4 downto 0);
   signal s_rs2     : std_logic_vector(4 downto 0);
-  signal s_rd      : std_logic_vector(4 downto 0);
 
   -- Register file data lines
   signal s_rs1_data  : std_logic_vector(N-1 downto 0);
@@ -205,6 +203,7 @@ architecture structure of RISCV_Processor is
   signal s_MemWr     : std_logic;
   signal s_signed    : std_logic;
   signal s_Branch    : std_logic;
+  signal s_lui	     : std_logic;
 
   -- ALU outputs
   signal s_ALUResult : std_logic_vector(N-1 downto 0);
@@ -274,7 +273,7 @@ begin
     port map(
       i_instr    => s_Inst,
       o_opcode   => s_opcode,
-      o_rd       => s_rd,
+      o_rd       => s_RegWrAddr,
       o_func3    => s_func3,
       o_rs1      => s_rs1,
       o_rs2      => s_rs2,
@@ -283,11 +282,11 @@ begin
       o_imm20bit => s_imm20bit,
       o_immType  => s_DecImmType
     );
+    
+   
 
   -- Control Unit
   CTRL: Control
-    generic map(ADDR_WIDTH => ADDR_WIDTH,
-                DATA_WIDTH => N)
     port map(
       i_opcode   => s_opcode,
       i_func3    => s_func3,
@@ -300,7 +299,8 @@ begin
       o_MemRd    => s_MemRd,
       o_MemWr    => s_DMemWr,
       o_signed    => s_signed,
-      o_Branch   => s_Branch
+      o_Branch   => s_Branch,
+      o_lui	 => s_lui
     );
 
   -- Register File
@@ -311,7 +311,7 @@ begin
       i_WE        => s_RegWr,
       i_rs1_addr  => s_rs1,
       i_rs2_addr  => s_rs2,
-      i_rd_addr   => s_rd,
+      i_rd_addr   => s_RegWrAddr,
       i_rd_data   => s_RegWrData,
       o_rs1_data  => s_rs1_data,
       o_rs2_data  => s_rs2_data
@@ -323,6 +323,7 @@ begin
       i_imm20bit => s_imm20bit,
       i_immType  => s_DecImmType,
       i_sign     => s_signed, 
+      i_lui	 => s_lui,
       o_out      => s_imm
     );
 

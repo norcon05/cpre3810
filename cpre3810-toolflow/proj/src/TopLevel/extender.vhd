@@ -20,13 +20,13 @@ use IEEE.std_logic_1164.all;
 entity extender is
 
   port (i_imm12bit  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
-        i_imm13bit  : in  STD_LOGIC_VECTOR(12 downto 0);   -- 13-bit input
         i_imm20bit  : in  STD_LOGIC_VECTOR(19 downto 0);   -- 20-bit input
         i_immType   : in  STD_LOGIC;  -- Immediate Types:             
                                         -- 0: 12-bit immediate used
                                         -- 1: 20-bit immediate used
 
         i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
+        i_lui       : in  STD_LOGIC;			   -- '1' = shift upper, '0' = normal handling
         o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
 
 end extender;
@@ -46,11 +46,15 @@ begin
         end if;
 
       when '1' =>  -- 20-bit immediate
-        if i_sign = '1' then
-          s_result <= (31 downto 20 => i_imm20bit(19)) & i_imm20bit;
-        else
-          s_result <= (31 downto 20 => '0') & i_imm20bit;
-        end if;s
+        if i_lui = '1' then
+          s_result <= i_imm20bit & (11 downto 0 => '0');
+        else 
+          if i_sign = '1'  then
+            s_result <= (31 downto 20 => i_imm20bit(19)) & i_imm20bit;
+          else
+            s_result <= (31 downto 20 => '0') & i_imm20bit;
+          end if;
+        end if;
       
       when others =>
         s_result <= (31 downto 0 => '0');

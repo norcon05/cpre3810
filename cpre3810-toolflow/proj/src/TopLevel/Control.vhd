@@ -16,7 +16,8 @@ entity Control is
        o_MemRd	 	: out std_logic;
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
-       o_Branch		: out std_logic);
+       o_Branch		: out std_logic;
+       o_lui		: out std_logic);
 
    end Control;
 
@@ -71,6 +72,7 @@ begin
     o_MemWr <= '1' when (i_opcode = OP_STORE) else '0';
     o_MemReg <= '1' when (i_opcode = OP_LOAD) else '0';
     o_Branch <= '1' when (i_opcode = OP_BRANCH) else '0';
+    o_lui <= '1' when (i_opcode = OP_LUI) else '0';
 
     --------------------------------------------------------------------
     -- Immediate type selection

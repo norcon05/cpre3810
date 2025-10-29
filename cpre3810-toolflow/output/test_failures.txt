@@ -1,0 +1,2 @@
+proj/riscv/cpre3810_test_assembly_program_suite/and_2.s
+proj/riscv/cpre3810_test_assembly_program_suite/and_3.s
