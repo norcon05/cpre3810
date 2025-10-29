@@ -1,0 +1,25 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity Decode is 
+  port(
+    i_instr 	: in std_logic_vector(31 downto 0);
+    o_opcode	: out std_logic_vector(6 downto 0); 
+    o_rd	: out std_logic_vector(4 downto 0); 
+    o_func3	: out std_logic_vector(2 downto 0); 
+    o_rs1	: out std_logic_vector(4 downto 0); 
+    o_rs2	: out std_logic_vector(4 downto 0); 
+    o_func7	: out std_logic_vector(6 downto 0)
+  ); 
+end Decode;
+
+architecture Dataflow of Decode is
+begin
+  o_opcode <= i_instr(6 downto 0);
+  o_rd     <= i_instr(11 downto 7);
+  o_funct3 <= i_instr(14 downto 12);
+  o_rs1    <= i_instr(19 downto 15);
+  o_rs2    <= i_instr(24 downto 20);
+  o_funct7 <= i_instr(31 downto 25);
+end Dataflow;
