@@ -12,13 +12,10 @@ entity Decode is
     o_rs2	      : out std_logic_vector(4 downto 0); 
     o_func7	    : out std_logic_vector(6 downto 0);
     o_imm12bit	: out std_logic_vector(11 downto 0);
-    o_imm13bit	: out std_logic_vector(12 downto 0);
     o_imm20bit	: out std_logic_vector(19 downto 0);
-    o_immType   : out std_logic_vector(1 downto 0) -- Immediate Types:
-                                                      -- 00: No immediate used
-                                                      -- 01: 12-bit immediate used
-                                                      -- 10: 13-bit immediate used
-                                                      -- 11: 20-bit immediate used
+    o_immType   : out std_logic -- Immediate Types:
+                                  -- 0: 12-bit immediate used
+                                  -- 1: 20-bit immediate used
   ); 
 end Decode;
 
@@ -36,7 +33,7 @@ begin
     o_imm12bit    <= (others => '0');
     o_imm13bit    <= (others => '0');
     o_imm20bit    <= (others => '0');
-    o_immType     <= (others => '0');
+    o_immType     <= '0';
 
     case i_instr(6 downto 0) is
       ------------------------------------------------------------------------
@@ -49,9 +46,8 @@ begin
         o_rs2         <= i_instr(24 downto 20);
         o_func7       <= i_instr(31 downto 25);
         o_imm12bit    <= (others => '0');  -- not used
-        o_imm13bit    <= (others => '0');  -- not used
         o_imm20bit    <= (others => '0');  -- not used
-        o_immType     <= (others => '0');  -- No immediate
+        o_immType     <= '0';
 
       ------------------------------------------------------------------------
       -- I-TYPE Instruction
@@ -63,9 +59,8 @@ begin
         o_rs2       <= (others => '0');
         o_func7     <= (others => '0');
         o_imm12bit  <= i_instr(31 downto 20);
-        o_imm13bit  <= (others => '0');  -- not used
         o_imm20bit  <= (others => '0');  -- not used
-        o_immType   <= "01";             -- 12-bit immediate
+        o_immType   <= '0';              -- 12-bit immediate
 
       ------------------------------------------------------------------------
       -- S-TYPE Instruction
@@ -76,10 +71,9 @@ begin
         o_rs1       <= i_instr(19 downto 15);
         o_rs2       <= i_instr(24 downto 20);
         o_func7     <= (others => '0');
-        o_imm12bit  <= (others => '0');  -- not used
-        o_imm13bit  <= i_instr(31 downto 25) & i_instr(11 downto 7);
+        o_imm12bit  <= i_instr(31 downto 25) & i_instr(11 downto 7);
         o_imm20bit  <= (others => '0');  -- not used
-        o_immType   <= "10";             -- 13-bit immediate
+        o_immType   <= '0';              -- 12-bit immediate
 
       ------------------------------------------------------------------------
       -- SB-TYPE Instruction
@@ -90,10 +84,9 @@ begin
         o_rs1       <= i_instr(19 downto 15);
         o_rs2       <= i_instr(24 downto 20);
         o_func7     <= (others => '0');
-        o_imm12bit  <= (others => '0');  -- not used
-        o_imm13bit  <= i_instr(31) & i_instr(7) & i_instr(30 downto 25) & i_instr(11 downto 8);
+        o_imm12bit  <= i_instr(31) & i_instr(7) & i_instr(30 downto 25) & i_instr(11 downto 8);
         o_imm20bit  <= (others => '0');  -- not used
-        o_immType   <= "10";             -- 13-bit immediate
+        o_immType   <= '0';              -- 12-bit immediate
 
       ------------------------------------------------------------------------
       -- U-TYPE Instruction
@@ -105,9 +98,8 @@ begin
         o_rs2      <= (others => '0');
         o_func7    <= (others => '0');
         o_imm12bit <= (others => '0');  -- not used
-        o_imm13bit <= (others => '0');  -- not used
         o_imm20bit <= i_instr(31 downto 12);
-        o_immType   <= "11";             -- 20-bit immediate
+        o_immType   <= '1';             -- 20-bit immediate
 
       ------------------------------------------------------------------------
       -- UJ-TYPE Instruction
@@ -119,9 +111,8 @@ begin
         o_rs2      <= (others => '0');
         o_func7    <= (others => '0');
         o_imm12bit <= (others => '0');  -- not used
-        o_imm13bit <= (others => '0');  -- not used
         o_imm20bit <= i_instr(31) & i_instr(19 downto 12) & i_instr(20) & i_instr(30 downto 21);
-        o_immType   <= "11";             -- 20-bit immediate
+        o_immType   <= '1';             -- 20-bit immediate
 
       ------------------------------------------------------------------------
       -- Default / Unknown opcode
@@ -133,9 +124,8 @@ begin
         o_rs2      <= (others => '0');
         o_func7    <= (others => '0');
         o_imm12bit <= (others => '0');
-        o_imm13bit <= (others => '0');
         o_imm20bit <= (others => '0');
-        o_immType  <= (others => '0');
+        o_immType  <= '0';
     end case;
   end process;
 end Dataflow;

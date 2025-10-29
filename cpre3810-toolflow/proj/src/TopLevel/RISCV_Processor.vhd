@@ -135,13 +135,10 @@ architecture structure of RISCV_Processor is
 
   component extender is
     port (i_imm12bit  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
-          i_imm13bit  : in  STD_LOGIC_VECTOR(12 downto 0);   -- 13-bit input
           i_imm20bit  : in  STD_LOGIC_VECTOR(19 downto 0);   -- 20-bit input
-          i_immType   : in  STD_LOGIC_VECTOR(1 downto 0);    -- Immediate Types:
-                                                              -- 00: No immediate used (output 0)
-                                                              -- 01: 12-bit immediate used
-                                                              -- 10: 13-bit immediate used
-                                                              -- 11: 20-bit immediate used
+          i_immType   : in  STD_LOGIC;    -- Immediate Types:
+                                            -- 0: 12-bit immediate used
+                                            -- 1: 20-bit immediate used
 
           i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
           o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
@@ -170,13 +167,10 @@ architecture structure of RISCV_Processor is
       o_rs2	      : out std_logic_vector(4 downto 0); 
       o_func7	    : out std_logic_vector(6 downto 0);
       o_imm12bit	: out std_logic_vector(11 downto 0);
-      o_imm13bit	: out std_logic_vector(12 downto 0);
       o_imm20bit	: out std_logic_vector(19 downto 0);
-      o_immType   : out std_logic_vector(1 downto 0) -- Immediate Types:
-                                                      -- 00: No immediate used
-                                                      -- 01: 12-bit immediate used
-                                                      -- 10: 13-bit immediate used
-                                                      -- 11: 20-bit immediate used
+      o_immType   : out std_logic -- Immediate Types:
+                                    -- 0: 12-bit immediate used
+                                    -- 1: 20-bit immediate used
       );
     end component;
 
@@ -198,9 +192,8 @@ architecture structure of RISCV_Processor is
   -- Immediate Signals
   signal s_imm       : std_logic_vector(N-1 downto 0);
   signal s_imm12bit  : std_logic_vector(11 downto 0);
-  signal s_imm13bit  : std_logic_vector(12 downto 0);
   signal s_imm20bit  : std_logic_vector(19 downto 0);
-  signal s_DecImmType: std_logic_vector(1 downto 0);
+  signal s_DecImmType: std_logic;
 
 
   -- Control signals
@@ -261,7 +254,7 @@ begin
   end process;
 
   -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
-  -- NOT NEEDED FOR RISC-V Was This for MIPS???4
+  -- NOT NEEDED FOR RISC-V Was This for MIPS???
   s_Ovfl <= '0';
 
   -- TODO: Implement the rest of your processor below this comment! 
@@ -287,7 +280,6 @@ begin
       o_rs2      => s_rs2,
       o_func7    => s_func7,
       o_imm12bit => s_imm12bit,
-      o_imm13bit => s_imm13bit,
       o_imm20bit => s_imm20bit,
       o_immType  => s_DecImmType
     );
@@ -328,7 +320,6 @@ begin
   IMM_EXT: extender
     port map(
       i_imm12bit => s_imm12bit,
-      i_imm13bit => s_imm13bit,
       i_imm20bit => s_imm20bit,
       i_immType  => s_DecImmType,
       i_sign     => s_signed, 
