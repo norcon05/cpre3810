@@ -129,13 +129,22 @@ architecture structure of RISCV_Processor is
        o_RegWr          : out std_logic;
        o_MemRd	 	: out std_logic;
        o_MemWr		: out std_logic;
+       o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic);
     end component;
 
   component extender is
-    port (i_in  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
-          i_sel : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
-          o_out : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
+    port (i_imm12bit  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
+          i_imm13bit  : in  STD_LOGIC_VECTOR(12 downto 0);   -- 13-bit input
+          i_imm20bit  : in  STD_LOGIC_VECTOR(19 downto 0);   -- 20-bit input
+          i_immType   : in  STD_LOGIC_VECTOR(1 downto 0);    -- Immediate Types:
+                                                              -- 00: No immediate used (output 0)
+                                                              -- 01: 12-bit immediate used
+                                                              -- 10: 13-bit immediate used
+                                                              -- 11: 20-bit immediate used
+
+          i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
+          o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
     end component;
 
   component regFile is
@@ -151,7 +160,7 @@ architecture structure of RISCV_Processor is
        o_rs2_data : out std_logic_vector(31 downto 0));   -- The data held in the second register we read
     end component;
 
-  component regFile is
+  component Decode is
     port(
       i_instr 	  : in std_logic_vector(31 downto 0);
       o_opcode	  : out std_logic_vector(6 downto 0); 
@@ -162,7 +171,13 @@ architecture structure of RISCV_Processor is
       o_func7	    : out std_logic_vector(6 downto 0);
       o_imm12bit	: out std_logic_vector(11 downto 0);
       o_imm13bit	: out std_logic_vector(12 downto 0);
-      o_imm20bit	: out std_logic_vector(19 downto 0));
+      o_imm20bit	: out std_logic_vector(19 downto 0);
+      o_immType   : out std_logic_vector(1 downto 0) -- Immediate Types:
+                                                      -- 00: No immediate used
+                                                      -- 01: 12-bit immediate used
+                                                      -- 10: 13-bit immediate used
+                                                      -- 11: 20-bit immediate used
+      );
     end component;
 
   -- TODO: You may add any additional signals or components your implementation 
@@ -180,8 +195,13 @@ architecture structure of RISCV_Processor is
   signal s_rs1_data  : std_logic_vector(N-1 downto 0);
   signal s_rs2_data  : std_logic_vector(N-1 downto 0);
 
-  -- Immediate
+  -- Immediate Signals
   signal s_imm       : std_logic_vector(N-1 downto 0);
+  signal s_imm12bit  : std_logic_vector(11 downto 0);
+  signal s_imm13bit  : std_logic_vector(12 downto 0);
+  signal s_imm20bit  : std_logic_vector(19 downto 0);
+  signal s_DecImmType: std_logic_vector(1 downto 0);
+
 
   -- Control signals
   signal s_ALUOp     : std_logic_vector(3 downto 0);
@@ -190,6 +210,7 @@ architecture structure of RISCV_Processor is
   signal s_MemReg    : std_logic;
   signal s_MemRd     : std_logic;
   signal s_MemWr     : std_logic;
+  signal s_signed    : std_logic;
   signal s_Branch    : std_logic;
 
   -- ALU outputs
@@ -208,11 +229,6 @@ begin
     s_IMemAddr <= s_NextInstAddr when '0',
       iInstAddr when others;
 
-
-  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
-  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
-
-  -- TODO: Implement the rest of your processor below this comment! 
   IMem: mem
     generic map(ADDR_WIDTH => ADDR_WIDTH,
                 DATA_WIDTH => N)
@@ -231,6 +247,24 @@ begin
              we   => s_DMemWr,
              q    => s_DMemOut);
 
+  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
+  s_Halt <= '1' when (s_opcode = "1110011" and s_func3 = "000") else '0';
+
+  -- Disable PC updates when halted
+  process(s_Halt)
+  begin
+    if (s_Halt = '1') then
+      s_PC_WE <= '0';
+    else
+      s_PC_WE <= '1';
+    end if;
+  end process;
+
+  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
+  -- NOT NEEDED FOR RISC-V Was This for MIPS???4
+  s_Ovfl <= '0';
+
+  -- TODO: Implement the rest of your processor below this comment! 
   PC_LOGIC: pcLogic
     port map(
       i_CLK     => iCLK,
@@ -243,7 +277,7 @@ begin
     );
   
   -- Instruction Decode
-  DECODER: regFile
+  DECODER: Decode
     port map(
       i_instr    => s_Inst,
       o_opcode   => s_opcode,
@@ -252,9 +286,10 @@ begin
       o_rs1      => s_rs1,
       o_rs2      => s_rs2,
       o_func7    => s_func7,
-      o_imm12bit => open,  -- Connect to 12-bit extender 
-      o_imm13bit => open,  -- Connect to 13-bit extender
-      o_imm20bit => open   -- Connect to 20-bit extender
+      o_imm12bit => s_imm12bit,
+      o_imm13bit => s_imm13bit,
+      o_imm20bit => s_imm20bit,
+      o_immType  => s_DecImmType
     );
 
   -- Control Unit
@@ -272,6 +307,7 @@ begin
       o_RegWr    => s_RegWr,
       o_MemRd    => s_MemRd,
       o_MemWr    => s_DMemWr,
+      o_signed    => s_signed,
       o_Branch   => s_Branch
     );
 
@@ -289,13 +325,16 @@ begin
       o_rs2_data  => s_rs2_data
     );
 
-  -- Immediate Extension (placeholder for your 13-bit / 20-bit extenders)
   IMM_EXT: extender
     port map(
-      i_in  => s_Inst(31 downto 20),  -- Example for 12-bit immediate
-      i_sel => '1',                    -- Example: sign-extend
-      o_out => s_imm
+      i_imm12bit => s_imm12bit,
+      i_imm13bit => s_imm13bit,
+      i_imm20bit => s_imm20bit,
+      i_immType  => s_DecImmType,
+      i_sign     => s_signed, 
+      o_out      => s_imm
     );
+
 
   -- ALU
   ALU_UNIT: alu
@@ -309,6 +348,36 @@ begin
       o_F      => s_ALUResult,
       o_Zero   => s_Zero
     );
+
+  -----------------------------------------------------------
+  -- Program Counter (PC) control logic
+  -- Determines how the next PC is selected:
+    --   00 : PC + 4        (Default)
+    --   01 : PC + imm      (Branch)
+    --   10 : PC + imm      (JAL)
+    --   11 : rs1 + imm     (JALR)
+  ------------------------------------------------------------
+  process(s_opcode, s_Branch, s_Zero)
+    begin
+    -- Default behavior: increment PC
+    s_PC_SEL <= "00";
+
+    -- Conditional branches (BEQ, BNE, etc.)
+    if (s_Branch = '1' and s_Zero = '1') then
+      s_PC_SEL <= "01"; -- PC + immediate (branch target)
+    end if;
+
+    -- JAL (opcode = 1101111)
+    if (s_opcode = "1101111") then
+      s_PC_SEL <= "10"; -- Jump and link
+    end if;
+
+    -- JALR (opcode = 1100111)
+    if (s_opcode = "1100111") then
+      s_PC_SEL <= "11"; -- Jump and link register
+    end if;
+  end process;
+
 
   -- Write Back MUX
   s_RegWrData <=

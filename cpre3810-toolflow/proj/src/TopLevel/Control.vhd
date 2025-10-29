@@ -15,6 +15,7 @@ entity Control is
        o_RegWr          : out std_logic;
        o_MemRd	 	: out std_logic;
        o_MemWr		: out std_logic;
+       o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic);
 
    end Control;
@@ -57,6 +58,14 @@ begin
                          i_opcode = OP_LUI   or
                          i_opcode = OP_AUIPC)
                else '0';
+    
+    -- Signed flag: 1 = signed, 0 = unsigned
+    o_signed <= '0' when ((i_opcode = OP_RTYPE and i_func3 = "011") or  -- SLTU
+                          (i_opcode = OP_ITYPE and i_func3 = "011") or  -- SLTIU
+                          (i_opcode = OP_BRANCH and 
+                          (i_func3 = "110" or i_func3 = "111")))     -- BLTU, BGEU
+                else '1';
+
 
     o_MemRd <= '1' when (i_opcode = OP_LOAD) else '0';
     o_MemWr <= '1' when (i_opcode = OP_STORE) else '0';
@@ -74,7 +83,7 @@ begin
         "00"; -- default
 
     --------------------------------------------------------------------
-    -- ALU control decoding (aligned with your ALU)
+    -- ALU control decoding (aligned with ALU)
     --------------------------------------------------------------------
     o_ALUControl <=
         -- Arithmetic ops
