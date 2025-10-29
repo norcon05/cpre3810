@@ -17,6 +17,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 library work;
 use work.RISCV_types.all;
@@ -216,6 +217,7 @@ architecture structure of RISCV_Processor is
   signal s_PC        : std_logic_vector(N-1 downto 0);
   signal s_PC_SEL    : std_logic_vector(1 downto 0);
   signal s_PC_WE     : std_logic;
+  signal s_PC_BA     : std_logic_vector(N-1 downto 0);
 
 begin
 
@@ -331,15 +333,8 @@ begin
       o_out      => s_imm
     );
 
-process(s_auipc)
-  begin
-    if (s_auipc = '1') then
-      s_Op1 <= s_iMemAddr;
-    else
-      s_Op1 <= s_rs1_data;
-    end if;
-  end process;
-
+s_PC_BA <= x"00400000";
+s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc = '1' else s_rs1_data;
 
   -- ALU
   ALU_UNIT: alu

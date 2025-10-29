@@ -128,6 +128,7 @@ begin
       i_D3 => s_jalr_target_aligned, -- 11: rs1 + imm (JALR)
       o_O  => s_pc_next
     );
+    
 
   -- Current PC value to be used by instruction memory
   o_PC <= s_pc;
