@@ -26,7 +26,7 @@ entity extender is
                                         -- 1: 20-bit immediate used
 
         i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
-        i_lui       : in  STD_LOGIC;			   -- '1' = shift upper, '0' = normal handling
+        i_upperIMM       : in  STD_LOGIC;			   -- '1' = shift upper, '0' = normal handling
         o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
 
 end extender;
@@ -35,7 +35,7 @@ architecture dataflow of extender is
   signal s_result : STD_LOGIC_VECTOR(31 downto 0);
 begin
 
-  process(i_imm12bit, i_imm20bit, i_immType, i_sign)
+  process(i_imm12bit, i_imm20bit, i_immType, i_sign, i_upperIMM)
   begin
     case i_immType is
       when '0' =>  -- 12-bit immediate
@@ -46,7 +46,7 @@ begin
         end if;
 
       when '1' =>  -- 20-bit immediate
-        if i_lui = '1' then
+        if i_upperIMM = '1' then
           s_result <= i_imm20bit & (11 downto 0 => '0');
         else 
           if i_sign = '1'  then

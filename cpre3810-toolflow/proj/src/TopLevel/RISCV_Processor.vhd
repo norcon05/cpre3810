@@ -129,7 +129,8 @@ architecture structure of RISCV_Processor is
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic;
-       o_lui		: out std_logic);
+       o_upperIMM	: out std_logic;
+       o_auipc		: out std_logic);
     end component;
 
   component extender is
@@ -138,7 +139,7 @@ architecture structure of RISCV_Processor is
           i_immType   : in  STD_LOGIC;    -- Immediate Types:
                                             -- 0: 12-bit immediate used
                                             -- 1: 20-bit immediate used
-	  i_lui	      : in STD_LOGIC;                        -- '1' = shift upper, '0' = normal handling
+	  i_upperIMM	      : in STD_LOGIC;                        -- '1' = shift upper, '0' = normal handling
           i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
           o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
     end component;
@@ -203,11 +204,13 @@ architecture structure of RISCV_Processor is
   signal s_MemWr     : std_logic;
   signal s_signed    : std_logic;
   signal s_Branch    : std_logic;
-  signal s_lui	     : std_logic;
+  signal s_upperIMM     : std_logic;
+  signal s_auipc	: std_logic;
 
   -- ALU outputs
   signal s_ALUResult : std_logic_vector(N-1 downto 0);
   signal s_Zero      : std_logic;
+  signal s_Op1	     : std_logic_vector(N-1 downto 0);
 
   -- PC control
   signal s_PC        : std_logic_vector(N-1 downto 0);
@@ -300,7 +303,8 @@ begin
       o_MemWr    => s_DMemWr,
       o_signed    => s_signed,
       o_Branch   => s_Branch,
-      o_lui	 => s_lui
+      o_upperIMM => s_upperIMM,
+      o_auipc	 => s_auipc
     );
 
   -- Register File
@@ -323,16 +327,25 @@ begin
       i_imm20bit => s_imm20bit,
       i_immType  => s_DecImmType,
       i_sign     => s_signed, 
-      i_lui	 => s_lui,
+      i_upperIMM => s_upperIMM,
       o_out      => s_imm
     );
+
+process(s_auipc)
+  begin
+    if (s_auipc = '1') then
+      s_Op1 <= s_iMemAddr;
+    else
+      s_Op1 <= s_rs1_data;
+    end if;
+  end process;
 
 
   -- ALU
   ALU_UNIT: alu
     generic map(N => N)
     port map(
-      i_A      => s_rs1_data,
+      i_A      => s_Op1,
       i_B      => s_rs2_data,
       i_imm    => s_imm,
       i_ALUOp  => s_ALUOp,
