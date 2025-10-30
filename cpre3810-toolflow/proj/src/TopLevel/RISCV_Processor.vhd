@@ -352,32 +352,80 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
   -----------------------------------------------------------
   -- Program Counter (PC) control logic
   -- Determines how the next PC is selected:
-    --   00 : PC + 4        (Default)
-    --   01 : PC + imm      (Branch)
-    --   10 : PC + imm      (JAL)
-    --   11 : rs1 + imm     (JALR)
-  ------------------------------------------------------------
-  process(s_opcode, s_Branch, s_Zero)
+  --   00 : PC + 4        (Default)
+  --   01 : PC + imm      (Branch target)
+  --   10 : PC + imm      (JAL)
+  --   11 : rs1 + imm     (JALR)
+  -----------------------------------------------------------
+  process(s_opcode, s_Branch, s_Zero, s_Less, s_funct3)
     begin
-    -- Default behavior: increment PC
+    -- Default: increment PC normally
     s_PC_SEL <= "00";
 
-    -- Conditional branches (BEQ, BNE, etc.)
-    if (s_Branch = '1' and s_Zero = '1') then
-      s_PC_SEL <= "01"; -- PC + immediate (branch target)
+    ---------------------------------------------------------
+    -- Conditional branches
+    -- Branch instructions have opcode = 1100011
+    -- funct3 determines the type of branch:
+    --   000 : BEQ   (Branch if Equal)
+    --   001 : BNE   (Branch if Not Equal)
+    --   100 : BLT   (Branch if Less Than, signed)
+    --   101 : BGE   (Branch if Greater or Equal, signed)
+    --   110 : BLTU  (Branch if Less Than, unsigned)
+    --   111 : BGEU  (Branch if Greater or Equal, unsigned)
+    ---------------------------------------------------------
+    if (s_Branch = '1') then
+      case s_funct3 is
+        when "000" =>  -- BEQ
+          if (s_Zero = '1') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 == rs2
+          end if;
+
+        when "001" =>  -- BNE
+          if (s_Zero = '0') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 != rs2
+          end if;
+
+        when "100" =>  -- BLT (signed)
+          if (s_Less = '1') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 < rs2
+          end if;
+
+        when "101" =>  -- BGE (signed)
+          if (s_Less = '0') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 >= rs2
+          end if;
+
+        when "110" =>  -- BLTU (unsigned)
+          if (s_Less = '1') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 < rs2 (unsigned)
+          end if;
+
+        when "111" =>  -- BGEU (unsigned)
+          if (s_Less = '0') then
+            s_PC_SEL <= "01";  -- Take branch if rs1 >= rs2 (unsigned)
+          end if;
+
+        when others =>
+          -- Default: increment PC normally
+          s_PC_SEL <= "00";
+      end case;
     end if;
 
-    -- JAL (opcode = 1101111)
+    ---------------------------------------------------------
+    -- Unconditional jumps
+    ---------------------------------------------------------
+
+    -- JAL (Jump and Link) -> opcode = 1101111
     if (s_opcode = "1101111") then
-      s_PC_SEL <= "10"; -- Jump and link
+      s_PC_SEL <= "10";  -- Jump to PC + immediate
     end if;
 
-    -- JALR (opcode = 1100111)
+    -- JALR (Jump and Link Register) -> opcode = 1100111
     if (s_opcode = "1100111") then
-      s_PC_SEL <= "11"; -- Jump and link register
+      s_PC_SEL <= "11";  -- Jump to (rs1 + immediate)
     end if;
-  end process;
 
+  end process;
 
   -- Write Back MUX
   s_RegWrData <=
