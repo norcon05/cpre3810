@@ -75,7 +75,7 @@ architecture structure of RISCV_Processor is
       i_A         : in  std_logic_vector(N-1 downto 0); -- Operand A input
       i_B         : in  std_logic_vector(N-1 downto 0); -- Operand B input
       i_imm       : in  std_logic_vector(N-1 downto 0); -- Immediate value input (used if i_ALUSrc = '1')
-    
+      i_sign	  : in  std_logic;			-- '1' when signed, '0' when unsigned
       i_ALUOp     : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
                                                         -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
                                                         -- 0001 : SUB / SUBI (Subtract i_B or immediate from i_A)
@@ -130,6 +130,8 @@ architecture structure of RISCV_Processor is
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic;
+       o_branchJump	: out std_logic;
+       o_Jump		: out std_logic;
        o_upperIMM	: out std_logic;
        o_auipc		: out std_logic);
     end component;
@@ -140,6 +142,7 @@ architecture structure of RISCV_Processor is
           i_immType   : in  STD_LOGIC;    -- Immediate Types:
                                             -- 0: 12-bit immediate used
                                             -- 1: 20-bit immediate used
+          i_branchJump    : in STD_LOGIC;			-- '1' for branch or jump, else '0'
 	  i_upperIMM	      : in STD_LOGIC;                        -- '1' = shift upper, '0' = normal handling
           i_sign      : in  STD_LOGIC;                       -- '1' = sign-extend, '0' = zero-extend
           o_out       : out STD_LOGIC_VECTOR(31 downto 0));  -- 32-bit output
@@ -205,6 +208,8 @@ architecture structure of RISCV_Processor is
   signal s_MemWr     : std_logic;
   signal s_signed    : std_logic;
   signal s_Branch    : std_logic;
+  signal s_BranchJump: std_logic;
+  signal s_Jump	     : std_logic;
   signal s_upperIMM     : std_logic;
   signal s_auipc	: std_logic;
 
@@ -218,6 +223,7 @@ architecture structure of RISCV_Processor is
   signal s_PC_SEL    : std_logic_vector(1 downto 0);
   signal s_PC_WE     : std_logic;
   signal s_PC_BA     : std_logic_vector(N-1 downto 0);
+  signal s_four	     : std_logic_vector(N-1 downto 0);
 
 begin
 
@@ -305,6 +311,8 @@ begin
       o_MemWr    => s_DMemWr,
       o_signed    => s_signed,
       o_Branch   => s_Branch,
+      o_branchJump => s_BranchJump,
+      o_Jump	  => s_Jump,
       o_upperIMM => s_upperIMM,
       o_auipc	 => s_auipc
     );
@@ -328,14 +336,17 @@ begin
       i_imm12bit => s_imm12bit,
       i_imm20bit => s_imm20bit,
       i_immType  => s_DecImmType,
+      i_branchJump	 => s_BranchJump,
       i_sign     => s_signed, 
       i_upperIMM => s_upperIMM,
       o_out      => s_imm
     );
 
 s_PC_BA <= x"00400000";
-s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc = '1' else s_rs1_data;
-
+s_four <= x"00000004";
+s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc = '1' else
+    	 std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA) + unsigned(s_four)) when s_Jump = '1' else
+    	 s_rs1_data;
   -- ALU
   ALU_UNIT: alu
     generic map(N => N)
@@ -343,6 +354,7 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
       i_A      => s_Op1,
       i_B      => s_rs2_data,
       i_imm    => s_imm,
+      i_sign   => s_signed,
       i_ALUOp  => s_ALUOp,
       i_ALUSrc => s_ALUSrc,
       o_F      => s_ALUResult,
@@ -357,7 +369,7 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
   --   10 : PC + imm      (JAL)
   --   11 : rs1 + imm     (JALR)
   -----------------------------------------------------------
-  process(s_opcode, s_Branch, s_Zero, s_Less, s_funct3)
+  process(s_opcode, s_Branch, s_Zero, s_func3)
     begin
     -- Default: increment PC normally
     s_PC_SEL <= "00";
@@ -374,7 +386,7 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
     --   111 : BGEU  (Branch if Greater or Equal, unsigned)
     ---------------------------------------------------------
     if (s_Branch = '1') then
-      case s_funct3 is
+      case s_func3 is
         when "000" =>  -- BEQ
           if (s_Zero = '1') then
             s_PC_SEL <= "01";  -- Take branch if rs1 == rs2
@@ -386,22 +398,22 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
           end if;
 
         when "100" =>  -- BLT (signed)
-          if (s_Less = '1') then
+          if (s_Zero = '0') then
             s_PC_SEL <= "01";  -- Take branch if rs1 < rs2
           end if;
 
         when "101" =>  -- BGE (signed)
-          if (s_Less = '0') then
+          if (s_Zero = '1') then
             s_PC_SEL <= "01";  -- Take branch if rs1 >= rs2
           end if;
 
         when "110" =>  -- BLTU (unsigned)
-          if (s_Less = '1') then
+          if (s_Zero = '0') then
             s_PC_SEL <= "01";  -- Take branch if rs1 < rs2 (unsigned)
           end if;
 
         when "111" =>  -- BGEU (unsigned)
-          if (s_Less = '0') then
+          if (s_Zero = '1') then
             s_PC_SEL <= "01";  -- Take branch if rs1 >= rs2 (unsigned)
           end if;
 

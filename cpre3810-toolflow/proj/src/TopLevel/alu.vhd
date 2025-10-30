@@ -27,7 +27,7 @@ entity alu is
     i_A         : in  std_logic_vector(N-1 downto 0); -- Operand A input
     i_B         : in  std_logic_vector(N-1 downto 0); -- Operand B input
     i_imm       : in  std_logic_vector(N-1 downto 0); -- Immediate value input (used if i_ALUSrc = '1')
-    
+    i_sign	: in  std_logic;		      -- '1' is signed, '0' is unsigned
     i_ALUOp     : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
                                                       -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
                                                       -- 0001 : SUB / SUBI (Subtract i_B or immediate from i_A)
@@ -98,6 +98,7 @@ architecture structural of alu is
     generic(N : integer := 32);
     port(i_A : in std_logic_vector(N-1 downto 0);
          i_B : in std_logic_vector(N-1 downto 0);
+         i_sign : in std_logic;
          o_F : out std_logic_vector(N-1 downto 0));
   end component;
 
@@ -181,6 +182,7 @@ begin
     port map(
       i_A => i_A, 
       i_B => s_op2, 
+      i_sign => i_sign,
       o_F => s_slt_out
     );
 

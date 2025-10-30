@@ -17,6 +17,8 @@ entity Control is
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic;
+       o_branchJump	: out std_logic;
+       o_Jump		: out std_logic;
        o_upperIMM	: out std_logic;
        o_auipc		: out std_logic);
 
@@ -45,8 +47,6 @@ begin
     o_ALUSRC <= '1' when (i_opcode = OP_ITYPE or
                           i_opcode = OP_LOAD  or
                           i_opcode = OP_STORE or
-                          i_opcode = OP_JAL   or
-                          i_opcode = OP_JALR  or
                           i_opcode = OP_LUI   or
                           i_opcode = OP_AUIPC)
                 else '0';
@@ -73,6 +73,8 @@ begin
     o_MemWr <= '1' when (i_opcode = OP_STORE) else '0';
     o_MemReg <= '1' when (i_opcode = OP_LOAD) else '0';
     o_Branch <= '1' when (i_opcode = OP_BRANCH) else '0';
+    o_Jump <= '1' when (i_opcode = OP_JAL or i_opcode = OP_JALR) else '0';
+    o_branchJump <= '1' when (i_opcode = OP_BRANCH or i_opcode = OP_JAL or i_opcode = OP_JALR) else '0';
     o_upperIMM <= '1' when (i_opcode = OP_LUI or i_opcode = OP_AUIPC) else '0';
     o_auipc <= '1' when (i_opcode = OP_AUIPC) else '0';
 
