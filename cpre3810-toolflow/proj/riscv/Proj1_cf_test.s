@@ -1,62 +1,140 @@
-# Compute several Fibonacci numbers and put in array, then print
+# Control Flow Instruction Test
+# Demonstrates all branch/jump instructions and recursion depth ≥ 5
+
 .data
-fibs:.word   0 : 19         # "array" of words to contain fib values
-size: .word  19             # size of "array" (agrees with array declaration)
+msg_start:  .asciz "Starting control-flow test...\n"
+msg_done:   .asciz "All control flow instructions executed.\n"
+newline:    .asciz "\n"
+
 .text
-      la   s0, fibs        # load address of array
-      la   s5, size        # load address of size variable
-      lw   s5, 0(s5)      # load array size
-
-      li   s2, 1           # 1 is the known value of first and second Fib. number
-      sw   s2, 0(s0)      # F[0] = 1
-      sw   s2, 4(s0)      # F[1] = F[0] = 1
-      addi s1, s5, -2     # Counter for loop, will execute (size-2) times
-      
-      # Loop to compute each Fibonacci number using the previous two Fib. numbers.
-loop: lw   s3, 0(s0)      # Get value from array F[n-2]
-      lw   s4, 4(s0)      # Get value from array F[n-1]
-      add  s2, s3, s4    # F[n] = F[n-1] + F[n-2]
-      sw   s2, 8(s0)      # Store newly computed F[n] in array
-      addi s0, s0, 4      # increment address to now-known Fib. number storage
-      addi s1, s1, -1     # decrement loop counter
-      bne s1, zero, loop  # repeat while not finished
-      
-      # Fibonacci numbers are computed and stored in array. Print them.
-      la   a0, fibs        # first argument for print (array)
-      add  a1, zero, s5  # second argument for print (size)
-      jal  print            # call print routine. 
-
-      # The program is finished. Exit.
-      j die 
-		
 ###############################################################
-# Subroutine to print the numbers on one line.
-      .data
-space:.asciz  " "          # space to insert between numbers
-head: .asciz  "The Fibonacci numbers are:\n"
-      .text
-print:add  t0, zero, a0  # starting address of array of data to be printed
-      add  t1, zero, a1  # initialize loop counter to array size
-      la   a0, head        # load address of the print heading string
-      ori  a7, zero , 4           # specify Print String service
-      ecall               # print the heading string
-      
-out:  lw   a0, 0(t0)      # load the integer to be printed (the current Fib. number)
-      ori  a7, zero , 1           # specify Print Integer service
-      ecall               # print fibonacci number
-      
-      la   a0, space       # load address of spacer for syscall
-      ori  a7, zero , 4           # specify Print String service
-      ecall               # print the spacer string
-      
-      addi t0, t0, 4      # increment address of data to be printed
-      addi t1, t1, -1     # decrement loop counter
-      bne t1, zero , out         # repeat while not finished
-      
-      jr   ra              # return from subroutine
-      
-# End of subroutine to print the numbers on one line
+# Main Program
 ###############################################################
+main:
+      ###########################################################
+      # Print startup message
+      ###########################################################
+      la    a0, msg_start
+      ori   a7, zero, 4           # Print string syscall
+      ecall
 
-die:
-wfi
+      ###########################################################
+      # Initialize stack pointer and counter
+      ###########################################################
+      addi  sp, sp, -64           # allocate stack space
+      addi  s0, zero, 5           # recursion depth = 5
+      jal   ra, level1            # start nested calls
+
+after_calls:
+      ###########################################################
+      # Print completion message
+      ###########################################################
+      la    a0, msg_done
+      ori   a7, zero, 4
+      ecall
+
+      addi  sp, sp, 64            # restore stack
+      j     exit_program
+
+
+###############################################################
+# LEVEL 1 Function
+###############################################################
+level1:
+      addi  sp, sp, -16           # new activation record
+      sw    ra, 12(sp)
+      addi  s0, s0, -1            # decrement depth counter
+
+      # Use a branch instruction (beq)
+      beq   s0, zero, ret1        # if zero, return
+
+      jal   ra, level2            # nested call
+ret1:
+      lw    ra, 12(sp)
+      addi  sp, sp, 16
+      jalr  zero, 0(ra)           # return
+
+
+###############################################################
+# LEVEL 2 Function
+###############################################################
+level2:
+      addi  sp, sp, -16
+      sw    ra, 12(sp)
+      addi  s0, s0, -1
+
+      # Use bne
+      bne   s0, zero, continue2
+      j     ret2
+continue2:
+      jal   ra, level3
+ret2:
+      lw    ra, 12(sp)
+      addi  sp, sp, 16
+      jalr  zero, 0(ra)
+
+
+###############################################################
+# LEVEL 3 Function
+###############################################################
+level3:
+      addi  sp, sp, -16
+      sw    ra, 12(sp)
+      addi  s0, s0, -1
+
+      # Use blt
+      blt   s0, zero, ret3
+      jal   ra, level4
+ret3:
+      lw    ra, 12(sp)
+      addi  sp, sp, 16
+      jalr  zero, 0(ra)
+
+
+###############################################################
+# LEVEL 4 Function
+###############################################################
+level4:
+      addi  sp, sp, -16
+      sw    ra, 12(sp)
+      addi  s0, s0, -1
+
+      # Use bge (taken when s0 >= 0)
+      bge   s0, zero, deeper4
+      j     ret4
+deeper4:
+      jal   ra, level5
+ret4:
+      lw    ra, 12(sp)
+      addi  sp, sp, 16
+      jalr  zero, 0(ra)
+
+
+###############################################################
+# LEVEL 5 Function
+###############################################################
+level5:
+      addi  sp, sp, -16
+      sw    ra, 12(sp)
+      addi  s0, s0, -1
+
+      # Use unsigned branches (bltu / bgeu)
+      bltu  s0, zero, ret5     # will not be taken
+      bgeu  s0, zero, ret5     # always taken (unsigned)
+      
+      # Just for demonstration, call a print
+      la    a0, newline
+      ori   a7, zero, 4
+      ecall
+
+ret5:
+      lw    ra, 12(sp)
+      addi  sp, sp, 16
+      jalr  zero, 0(ra)
+
+
+###############################################################
+# Program Exit
+###############################################################
+exit_program:
+      wfi                        # wait for interrupt / halt
