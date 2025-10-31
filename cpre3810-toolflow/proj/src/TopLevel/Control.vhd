@@ -74,7 +74,7 @@ begin
     o_MemReg <= '1' when (i_opcode = OP_LOAD) else '0';
     o_Branch <= '1' when (i_opcode = OP_BRANCH) else '0';
     o_Jump <= '1' when (i_opcode = OP_JAL or i_opcode = OP_JALR) else '0';
-    o_branchJump <= '1' when (i_opcode = OP_BRANCH or i_opcode = OP_JAL or i_opcode = OP_JALR) else '0';
+    o_branchJump <= '1' when (i_opcode = OP_BRANCH or i_opcode = OP_JAL) else '0';
     o_upperIMM <= '1' when (i_opcode = OP_LUI or i_opcode = OP_AUIPC) else '0';
     o_auipc <= '1' when (i_opcode = OP_AUIPC) else '0';
 
@@ -108,6 +108,7 @@ begin
         -- I-type immediate versions
         "0000" when (i_opcode = "0010011" and i_func3 = "000") else -- ADDI
         "0010" when (i_opcode = "0010011" and i_func3 = "010") else -- SLTI
+        "0010" when (i_opcode = "0010011" and i_func3 = "011") else -- SLTIU
         "0011" when (i_opcode = "0010011" and i_func3 = "111") else -- ANDI
         "0100" when (i_opcode = "0010011" and i_func3 = "110") else -- ORI
         "0101" when (i_opcode = "0010011" and i_func3 = "100") else -- XORI

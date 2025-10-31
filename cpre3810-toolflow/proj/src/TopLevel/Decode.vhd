@@ -56,10 +56,15 @@ begin
         o_func3     <= i_instr(14 downto 12);
         o_rs1       <= i_instr(19 downto 15);
         o_rs2       <= (others => '0');
-        o_func7     <= (others => '0');
         o_imm12bit  <= i_instr(31 downto 20);
         o_imm20bit  <= (others => '0');  -- not used
         o_immType   <= '0';              -- 12-bit immediate
+        
+        if i_instr(14 downto 12) = "101" then
+            o_func7 <= i_instr(31 downto 25);
+        else
+            o_func7 <= (others => '0');
+        end if;
 
       ------------------------------------------------------------------------
       -- S-TYPE Instruction
