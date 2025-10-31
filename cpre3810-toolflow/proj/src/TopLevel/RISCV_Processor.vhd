@@ -225,6 +225,9 @@ architecture structure of RISCV_Processor is
   signal s_PC_BA     : std_logic_vector(N-1 downto 0);
   signal s_four	     : std_logic_vector(N-1 downto 0);
 
+  -- Load Byte, Half-Word
+  signal s_LoadData : std_logic_vector(N-1 downto 0);
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -439,10 +442,28 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
 
   end process;
 
+process(s_DMemOut, s_ALUResult, s_func3)
+begin
+  case s_func3 is
+    when "000" =>  -- LB
+      s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(7 downto 0)), 32));
+    when "001" =>  -- LH
+      s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(15 downto 0)), 32));
+    when "100" =>  -- LBU
+      s_LoadData <= (others => '0');
+      s_LoadData(7 downto 0) <= s_DMemOut(7 downto 0);
+    when "101" =>  -- LHU
+      s_LoadData <= (others => '0');
+      s_LoadData(15 downto 0) <= s_DMemOut(15 downto 0);
+    when others =>  -- LW
+      s_LoadData <= s_DMemOut;
+  end case;
+end process;
+
   -- Write Back MUX
   s_RegWrData <=
       s_ALUResult when s_MemReg = '0' else
-      s_DMemOut;
+      s_LoadData;
 
   -- Data Memory Address & Data Inputs
   s_DMemAddr <= s_ALUResult;
