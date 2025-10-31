@@ -59,9 +59,9 @@ architecture structural of pcLogic is
   component adder_N is
     port(i_A         : in std_logic_vector(31 downto 0);
          i_B         : in std_logic_vector(31 downto 0);
-	     i_Cin 	     : in std_logic;
+	       i_Cin 	     : in std_logic;
          o_S         : out std_logic_vector(31 downto 0);
-	     o_Cout      : out std_logic);
+	       o_Cout      : out std_logic);
   end component;
 
   signal s_pc                  : std_logic_vector(31 downto 0); -- Current PC value (from the PC register)
@@ -70,6 +70,9 @@ architecture structural of pcLogic is
   signal s_pc_branch           : std_logic_vector(31 downto 0); -- Target address for conditional branch (PC + imm)
   signal s_jalr_target         : std_logic_vector(31 downto 0); -- Target address for JALR (rs1 + imm)
   signal s_jalr_target_aligned : std_logic_vector(31 downto 0); -- Target address for JALR with LSB cleared (byte addressable memory)
+  signal s_jalr_adjusted : std_logic_vector(31 downto 0);       -- 
+  signal s_PC_BA         : std_logic_vector(31 downto 0) := x"FFC00000"; -- = -0x00400000 in 2’s complement  (PC base address)
+
   signal s_unused_carry        : std_logic;                     -- Holds the value of the carries (not used)
 
 begin
@@ -105,17 +108,27 @@ begin
     );
 	
   -- rs1 + imm (for JALR)
+  -- TODO: Subtract x"00400000" from this value only for JALR
   rs1_Plus_imm : adder_N
     port map (
       i_A => i_rs1,
       i_B => i_imm,
-	  i_Cin  => '0',
+	    i_Cin  => '0',
       o_S => s_jalr_target,
-	  o_Cout => s_unused_carry 
+	    o_Cout => s_unused_carry 
     );
 
   -- Target address for JALR with LSB cleared (byte addressable memory)
   s_jalr_target_aligned <= s_jalr_target and x"FFFFFFFE";
+
+  JALR_Adjust_Subtract : adder_N
+  port map (
+    i_A    => s_jalr_target_aligned,
+    i_B    => s_PC_BA,
+    i_Cin  => '0',
+    o_S    => s_jalr_adjusted,
+    o_Cout => s_unused_carry
+  );
   
   -- 4-to-1 Mux for PC source selection
   PC_Select_Mux : mux4t1_N
@@ -125,7 +138,7 @@ begin
       i_D0 => s_pc_plus4,            -- 00: PC + 4
       i_D1 => s_pc_branch,           -- 01: PC + imm (Branch)
       i_D2 => s_pc_branch,           -- 10: PC + imm (JAL, same as branch)
-      i_D3 => s_jalr_target_aligned, -- 11: rs1 + imm (JALR)
+      i_D3 => s_jalr_adjusted,       -- 11: rs1 + imm (JALR)
       o_O  => s_pc_next
     );
     
