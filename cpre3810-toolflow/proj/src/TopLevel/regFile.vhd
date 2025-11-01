@@ -34,7 +34,9 @@ end regFile;
 architecture structural of regFile is
 
   component reg_N is
-    generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+    generic(N : integer := 32; -- Generic of type integer for input/output data width. Default value is 32.
+  	  INIT_VAL : std_logic_vector(N-1 downto 0) := (others => '0') 
+    ); 
 	port(i_CLK : in std_logic;                         -- Clock
          i_RST : in std_logic;                         -- Reset
          i_WE  : in std_logic;                         -- Write Enable
@@ -206,7 +208,7 @@ begin
     );
 
   reg2 : reg_N
-    generic map(N => 32)
+    generic map(N => 32, INIT_VAL => x"7FFFEFFC")
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,

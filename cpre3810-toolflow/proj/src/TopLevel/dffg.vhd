@@ -26,7 +26,9 @@ entity dffg is
        i_RST        : in std_logic;     -- Reset input
        i_WE         : in std_logic;     -- Write enable input
        i_D          : in std_logic;     -- Data value input
+       i_Default    : in std_logic;     -- Default value
        o_Q          : out std_logic);   -- Data value output
+       
 
 end dffg;
 
@@ -51,7 +53,7 @@ begin
   process (i_CLK, i_RST)
   begin
     if (i_RST = '1') then
-      s_Q <= '0'; -- Use "(others => '0')" for N-bit values
+      s_Q <= i_Default; -- Use "(others => '0')" for N-bit values
     elsif (rising_edge(i_CLK)) then
       s_Q <= s_D;
     end if;
