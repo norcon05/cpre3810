@@ -47,13 +47,13 @@ main:
       ###########################################################
       slt   t5, s1, s2          # set if s1 < s2
       slti  t6, s2, 15          # set if s2 < 15
-      sltiu t7, s1, 50          # unsigned comparison
+      sltiu a0, s1, 50          # unsigned comparison
       
       ###########################################################
       # Immediate upper and PC-relative
       ###########################################################
-      lui   t8, 0x12345         # load upper immediate
-      auipc t9, 0x1             # add upper immediate to PC
+      lui   a1, 0x12345         # load upper immediate
+      auipc a2, 0x1             # add upper immediate to PC
       
       ###########################################################
       # Memory operations (using stack + test_data)

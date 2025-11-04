@@ -1,23 +1,13 @@
-# Control Flow Instruction Test
-# Demonstrates all branch/jump instructions and recursion depth ≥ 5
-
-.data
-msg_start:  .asciz "Starting control-flow test...\n"
-msg_done:   .asciz "All control flow instructions executed.\n"
-newline:    .asciz "\n"
+###############################################################
+# Control Flow Instruction Test (No Print)
+# Demonstrates all branch/jump instructions and recursion depth >= 5
+###############################################################
 
 .text
 ###############################################################
 # Main Program
 ###############################################################
 main:
-      ###########################################################
-      # Print startup message
-      ###########################################################
-      la    a0, msg_start
-      ori   a7, zero, 4           # Print string syscall
-      ecall
-
       ###########################################################
       # Initialize stack pointer and counter
       ###########################################################
@@ -26,13 +16,6 @@ main:
       jal   ra, level1            # start nested calls
 
 after_calls:
-      ###########################################################
-      # Print completion message
-      ###########################################################
-      la    a0, msg_done
-      ori   a7, zero, 4
-      ecall
-
       addi  sp, sp, 64            # restore stack
       j     exit_program
 
@@ -41,11 +24,11 @@ after_calls:
 # LEVEL 1 Function
 ###############################################################
 level1:
-      addi  sp, sp, -16           # new activation record
+      addi  sp, sp, -16
       sw    ra, 12(sp)
-      addi  s0, s0, -1            # decrement depth counter
+      addi  s0, s0, -1
 
-      # Use a branch instruction (beq)
+      # Branch instruction (beq)
       beq   s0, zero, ret1        # if zero, return
 
       jal   ra, level2            # nested call
@@ -63,7 +46,7 @@ level2:
       sw    ra, 12(sp)
       addi  s0, s0, -1
 
-      # Use bne
+      # Branch instruction (bne)
       bne   s0, zero, continue2
       j     ret2
 continue2:
@@ -82,7 +65,7 @@ level3:
       sw    ra, 12(sp)
       addi  s0, s0, -1
 
-      # Use blt
+      # Branch instruction (blt)
       blt   s0, zero, ret3
       jal   ra, level4
 ret3:
@@ -99,7 +82,7 @@ level4:
       sw    ra, 12(sp)
       addi  s0, s0, -1
 
-      # Use bge (taken when s0 >= 0)
+      # Branch instruction (bge)
       bge   s0, zero, deeper4
       j     ret4
 deeper4:
@@ -118,15 +101,10 @@ level5:
       sw    ra, 12(sp)
       addi  s0, s0, -1
 
-      # Use unsigned branches (bltu / bgeu)
+      # Unsigned branches
       bltu  s0, zero, ret5     # will not be taken
       bgeu  s0, zero, ret5     # always taken (unsigned)
       
-      # Just for demonstration, call a print
-      la    a0, newline
-      ori   a7, zero, 4
-      ecall
-
 ret5:
       lw    ra, 12(sp)
       addi  sp, sp, 16
