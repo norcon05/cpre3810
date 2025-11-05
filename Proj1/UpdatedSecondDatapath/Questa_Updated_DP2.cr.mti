@@ -1,0 +1,225 @@
+U:/cpre381/Proj1/UpdatedSecondDatapath/mux32t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/mux32t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux32t1_N
+-- Compiling architecture dataflow of mux32t1_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/invg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/invg_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg_N
+-- Compiling architecture structure of invg_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/andg2_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/andg2_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2_N
+-- Compiling architecture structure of andg2_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/reg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/reg_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity reg_N
+-- Compiling architecture structural of reg_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/decoder5t32.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/decoder5t32.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity decoder5t32
+-- Compiling architecture dataflow of decoder5t32
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/adder_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/adder_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity adder_N
+-- Compiling architecture structural of adder_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/barrelShifter.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/barrelShifter.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity barrelShifter
+-- Compiling architecture structure of barrelShifter
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/dffg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/addSub_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/addSub_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addSub_N
+-- Compiling architecture structural of addSub_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/onesComp_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/onesComp_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/mux2t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/mux2t1.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/datapath2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/datapath2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity datapath2
+-- Compiling architecture structural of datapath2
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/xorg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/org2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/addiSubi_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/addiSubi_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addiSubi_N
+-- Compiling architecture structural of addiSubi_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/alu.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/alu.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity alu
+-- Compiling architecture structural of alu
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/shiftBinary.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/shiftBinary.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity shiftBinary
+-- Compiling architecture structure of shiftBinary
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/invg.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/andg2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/tb_datapath2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/tb_datapath2.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_datapath2
+-- Compiling architecture behavior of tb_datapath2
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/regFile.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/regFile.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity regFile
+-- Compiling architecture structural of regFile
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/mux2t1_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/xorg2_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/xorg2_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2_N
+-- Compiling architecture structure of xorg2_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/org2_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/org2_N.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2_N
+-- Compiling architecture structure of org2_N
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/mem.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/extender.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/extender.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity extender
+-- Compiling architecture dataflow of extender
+
+} {} {}} U:/cpre381/Proj1/UpdatedSecondDatapath/adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none U:/cpre381/Proj1/UpdatedSecondDatapath/adder.vhd
+QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity adder
+-- Compiling architecture structure of adder
+
+} {} {}}

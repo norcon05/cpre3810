@@ -1,0 +1,531 @@
+# Compile of adder.vhd was successful.
+# Compile of adder_N.vhd was successful.
+# Compile of addiSubi_N.vhd was successful.
+# Compile of addSub_N.vhd was successful.
+# Compile of alu.vhd was successful.
+# Compile of andg2.vhd was successful.
+# Compile of andg2_N.vhd was successful.
+# Compile of barrelShifter.vhd was successful.
+# Compile of datapath2.vhd failed with 1 errors.
+# Compile of decoder5t32.vhd was successful.
+# Compile of dffg.vhd was successful.
+# Compile of extender.vhd was successful.
+# Compile of invg.vhd was successful.
+# Compile of invg_N.vhd was successful.
+# Compile of mem.vhd was successful.
+# Compile of mux2t1.vhd was successful.
+# Compile of mux2t1_N.vhd was successful.
+# Compile of mux32t1_N.vhd was successful.
+# Compile of onesComp_N.vhd was successful.
+# Compile of org2.vhd was successful.
+# Compile of org2_N.vhd was successful.
+# Compile of reg_N.vhd was successful.
+# Compile of regFile.vhd was successful.
+# Compile of shiftBinary.vhd was successful.
+# Compile of slt_N.vhd was successful.
+# Compile of tb_datapath2.vhd was successful.
+# Compile of xorg2.vhd was successful.
+# Compile of xorg2_N.vhd was successful.
+# 28 compiles, 1 failed with 1 error.
+# Compile of datapath2.vhd failed with 3 errors.
+# Compile of datapath2.vhd failed with 4 errors.
+# Compile of datapath2.vhd was successful.
+# Compile of tb_datapath2.vhd was successful.
+vsim -gui work.tb_datapath2 -voptargs=+acc
+# vsim -gui work.tb_datapath2 -voptargs="+acc" 
+# Start time: 17:55:43 on Nov 04,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+# Loading work.mem(rtl)#1
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_oALU_Zero \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_iALUOp \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 500 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 500 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 500 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 600 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 600 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 800 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1100 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1100 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1100 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1400 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 16  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1700 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1700 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1700 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2 us  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2 us  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2 us  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2100 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2100 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2400 ns  Iteration: 5  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2900 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3 us  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3 us  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3100 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3100 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3300 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 4  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3600 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3700 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3800 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3800 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3800 ns  Iteration: 5  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3900 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+quit -sim
+# End time: 18:06:42 on Nov 04,2025, Elapsed time: 0:10:59
+# Errors: 0, Warnings: 69
+# Compile of slt_N.vhd was successful.
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 18:07:14 on Nov 04,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+# Loading work.mem(rtl)#1
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_oALU_Zero \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_iALUOp \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+run 4000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 500 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 500 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 500 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 600 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 600 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 800 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 800 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1100 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1100 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1100 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1200 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1400 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1400 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1500 ns  Iteration: 16  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1700 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 1700 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1700 ns  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 12  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 1800 ns  Iteration: 14  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2 us  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2 us  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2 us  Iteration: 6  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2100 ns  Iteration: 11  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2100 ns  Iteration: 13  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2400 ns  Iteration: 5  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 2900 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3 us  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3 us  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3100 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3100 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3300 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3400 ns  Iteration: 4  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3600 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3700 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3800 ns  Iteration: 2  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3800 ns  Iteration: 3  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 3800 ns  Iteration: 5  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 3900 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# Causality operation skipped due to absence of debug database file
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+quit -sim
+# End time: 18:18:48 on Nov 04,2025, Elapsed time: 0:11:34
+# Errors: 0, Warnings: 62
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 18:21:02 on Nov 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+# Loading work.mem(rtl)#1
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_oALU_Zero \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_iALUOp \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+quit -sim
+# End time: 18:22:53 on Nov 04,2025, Elapsed time: 0:01:51
+# Errors: 0, Warnings: 5
+vsim -gui -voptargs=+acc work.tb_datapath2
+# vsim -gui -voptargs="+acc" work.tb_datapath2 
+# Start time: 18:22:57 on Nov 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.tb_datapath2(behavior)#1
+# Loading work.datapath2(structural)#1
+# Loading work.regfile(structural)#1
+# Loading ieee.numeric_std(body)
+# Loading work.decoder5t32(dataflow)#1
+# Loading work.reg_n(structural)#1
+# Loading work.dffg(mixed)#1
+# Loading work.mux32t1_n(dataflow)#1
+# Loading work.extender(dataflow)#1
+# Loading work.alu(structural)#1
+# Loading work.addisubi_n(structural)#1
+# Loading work.mux2t1_n(structural)#1
+# Loading work.mux2t1(structure)#1
+# Loading work.invg(dataflow)#1
+# Loading work.andg2(dataflow)#1
+# Loading work.org2(dataflow)#1
+# Loading work.onescomp_n(structural)#1
+# Loading work.adder_n(structural)#1
+# Loading work.adder(structure)#1
+# Loading work.xorg2(dataflow)#1
+# Loading work.andg2_n(structure)#1
+# Loading work.org2_n(structure)#1
+# Loading work.xorg2_n(structure)#1
+# Loading work.invg_n(structure)#1
+# Loading work.slt_n(dataflow)#1
+# Loading work.barrelshifter(structure)#1
+# Loading work.shiftbinary(structure)#1
+# Loading work.shiftbinary(structure)#2
+# Loading work.shiftbinary(structure)#3
+# Loading work.shiftbinary(structure)#4
+# Loading work.shiftbinary(structure)#5
+# Loading work.mem(rtl)#1
+add wave -position insertpoint  \
+sim:/tb_datapath2/s_iCLK \
+sim:/tb_datapath2/s_iRST \
+sim:/tb_datapath2/s_iwrite_enable \
+sim:/tb_datapath2/s_iALU_SRC \
+sim:/tb_datapath2/s_oALU_Zero \
+sim:/tb_datapath2/s_isign \
+sim:/tb_datapath2/s_iMemWrite \
+sim:/tb_datapath2/s_iMemToReg \
+sim:/tb_datapath2/s_irs1 \
+sim:/tb_datapath2/s_irs2 \
+sim:/tb_datapath2/s_ird \
+sim:/tb_datapath2/s_iALUOp \
+sim:/tb_datapath2/s_ord_data \
+sim:/tb_datapath2/s_oALU_Result \
+sim:/tb_datapath2/s_iimm
+mem load -infile dmem.hex -format hex /tb_datapath2/DUT/MemoryInst
+run 2000
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/MemoryInst
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 1  Instance: /tb_datapath2/DUT/ALUInst/SLT_UNIT
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 3  Instance: /tb_datapath2/DUT/MemoryInst
+run 2000
+run 1000

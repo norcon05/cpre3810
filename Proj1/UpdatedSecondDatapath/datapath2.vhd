@@ -20,31 +20,65 @@ use IEEE.std_logic_1164.all;
 entity datapath2 is
   port(i_rs1           : in std_logic_vector(4 downto 0);
        i_rs2           : in std_logic_vector(4 downto 0);
-	   i_rd 	       : in std_logic_vector(4 downto 0);
-	   i_imm 	       : in std_logic_vector(11 downto 0);
-	   i_CLK           : in std_logic;
-	   i_RST           : in std_logic;
-	   i_write_enable  : in std_logic;
-	   i_ALU_SRC       : in std_logic;   -- Second value in ALU (0 - rs2, 1 - immediate)
-	   i_nAdd_Sub      : in std_logic;   -- Add or Sub (0 - add, 1 - sub)
-	   i_sign          : in std_logic;   -- Extension of Immediate (0 - zero extended, 1 - sign extended)
-	   i_MemWrite      : in std_logic;   -- Can Write to memory?
-	   i_MemToReg      : in std_logic;   -- Choose rd data (0 - ALU Result, 1 - Memory output)
+	     i_rd 	       : in std_logic_vector(4 downto 0);
+	     i_imm 	       : in std_logic_vector(11 downto 0);
+	     i_CLK           : in std_logic;
+	     i_RST           : in std_logic;
+	     i_write_enable  : in std_logic;
+	     i_ALU_SRC       : in std_logic;   -- Second value in ALU (0 - rs2, 1 - immediate)
+	     i_ALUOp         : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
+                                                        -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
+                                                        -- 0001 : SUB / SUBI (Subtract i_B or immediate from i_A)
+                                                        -- 0010 : SLT       (Set Less Than: i_A < i_B or immediate)
+                                                        -- 0011 : AND       (Bitwise AND)
+                                                        -- 0100 : OR        (Bitwise OR)
+                                                        -- 0101 : XOR       (Bitwise XOR)
+                                                        -- 0110 : NOR       (Bitwise NOR)
+                                                        -- 0111 : SLL       (Logical Left Shift)
+                                                        -- 1000 : SRL       (Logical Right Shift)
+                                                        -- 1001 : SRA       (Arithmetic Right Shift)
+                                                        -- 1010 : SLLI      (Logical Left Shift Immediate)
+                                                        -- 1011 : SRLI      (Logical Right Shift Immediate)
+                                                        -- 1100 : SRAI      (Arithmetic Right Shift Immediate)
+	     i_sign          : in std_logic;   -- Extension of Immediate (0 - zero extended, 1 - sign extended)
+	     i_MemWrite      : in std_logic;   -- Can Write to memory?
+	     i_MemToReg      : in std_logic;   -- Choose rd data (0 - ALU Result, 1 - Memory output)
        o_ALU_Result    : out std_logic_vector(31 downto 0); -- Output result of ALU for testing
-	   o_rd_data       : out std_logic_vector(31 downto 0)); -- Output the data getting written to rd for testing
+       o_ALU_Zero      : out std_logic;  -- ALU Zero Output
+	     o_rd_data       : out std_logic_vector(31 downto 0)); -- Output the data getting written to rd for testing
 end datapath2;
 
 architecture structural of datapath2 is
 
-  component addiSubi_N is
-    generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
-    port(i_A         : in std_logic_vector(N-1 downto 0);
-         i_B         : in std_logic_vector(N-1 downto 0);
-	     i_immediate : in std_logic_vector(N-1 downto 0);
-	     i_nAdd_Sub  : in std_logic;
-	     i_ALU_SRC   : in std_logic;
-         o_S         : out std_logic_vector(N-1 downto 0);
-	     o_Cout      : out std_logic);
+  component alu is
+    generic(N : integer := 32);
+    port (
+      i_A         : in  std_logic_vector(N-1 downto 0); -- Operand A input
+      i_B         : in  std_logic_vector(N-1 downto 0); -- Operand B input
+      i_imm       : in  std_logic_vector(N-1 downto 0); -- Immediate value input (used if i_ALUSrc = '1')
+      i_sign	    : in  std_logic;		                  -- '1' is signed, '0' is unsigned
+      i_ALUOp     : in  std_logic_vector(3 downto 0);   -- ALU operation control signal:
+                                                        -- 0000 : ADD / ADDI (Add i_A and i_B or immediate)
+                                                        -- 0001 : SUB / SUBI (Subtract i_B or immediate from i_A)
+                                                        -- 0010 : SLT       (Set Less Than: i_A < i_B or immediate)
+                                                        -- 0011 : AND       (Bitwise AND)
+                                                        -- 0100 : OR        (Bitwise OR)
+                                                        -- 0101 : XOR       (Bitwise XOR)
+                                                        -- 0110 : NOR       (Bitwise NOR)
+                                                        -- 0111 : SLL       (Logical Left Shift)
+                                                        -- 1000 : SRL       (Logical Right Shift)
+                                                        -- 1001 : SRA       (Arithmetic Right Shift)
+                                                        -- 1010 : SLLI      (Logical Left Shift Immediate)
+                                                        -- 1011 : SRLI      (Logical Right Shift Immediate)
+                                                        -- 1100 : SRAI      (Arithmetic Right Shift Immediate)
+
+      i_ALUSrc    : in  std_logic;                      -- Selects second ALU operand source:
+                                                        -- '0' = i_B
+                                                        -- '1' = i_imm (immediate)
+
+      o_F         : out std_logic_vector(N-1 downto 0); -- ALU output result
+      o_Zero      : out std_logic                       -- Zero flag, '1' if o_F is zero, else '0'
+    );
   end component;
   
   component regFile is
@@ -86,7 +120,6 @@ architecture structural of datapath2 is
   signal s_iA          : std_logic_vector(31 downto 0);           -- A in the ALU
   signal s_iB          : std_logic_vector(31 downto 0);           -- B in the ALU
   signal s_iimm        : std_logic_vector(31 downto 0);           -- immediate in the ALU
-  signal s_Cout        : std_logic;                               -- Carry Out not needed
   signal s_q           : std_logic_vector(31 downto 0);           -- Output from memory
   signal s_oALU_Result : std_logic_vector(31 downto 0);           -- The result of the ALU
   signal s_ord_data    : std_logic_vector(31 downto 0);           -- The result of the 2 to 1 mux
@@ -111,16 +144,17 @@ begin
       o_out      => s_iimm
     );
 	
-  ALUInst : addiSubi_N
+  ALUInst : alu
     generic map(N => 32)
     port map(
       i_A         => s_iA,
       i_B         => s_iB,
-	  i_immediate => s_iimm,
-	  i_nAdd_Sub  => i_nAdd_Sub,
-	  i_ALU_SRC   => i_ALU_SRC,
-      o_S         => s_oALU_Result,
-	  o_Cout      => s_Cout
+	    i_imm       => s_iimm,
+	    i_sign      => i_sign,
+      i_ALUOp     => i_ALUOp,
+	    i_ALUSrc    => i_ALU_SRC,
+      o_F         => s_oALU_Result,
+	    o_Zero      => o_ALU_Zero
     );
   
   MemoryInst : mem
