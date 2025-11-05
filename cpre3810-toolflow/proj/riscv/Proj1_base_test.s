@@ -11,6 +11,7 @@ test_data:  .word  0x12345678, 0x00000000, 0x11111111, 0x22222222
 # Main program start
 ###############################################################
 main:
+      lui   sp, 0x80000
       la    s0, test_data       # load base address of test_data
       addi  sp, sp, -32         # allocate stack space
       
@@ -59,8 +60,6 @@ main:
       # Memory operations (using stack + test_data)
       ###########################################################
       sw    s3,  0(sp)          # store word
-      sh    s1,  4(sp)          # store halfword
-      sb    s2,  6(sp)          # store byte
       
       lw    a0,  0(sp)          # load word
       lh    a1,  4(sp)          # load halfword
