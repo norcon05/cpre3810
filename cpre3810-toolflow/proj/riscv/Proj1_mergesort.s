@@ -1,29 +1,18 @@
 # RISC-V Merge Sort Implementation
 # Sorts an array of N integers in ascending order using Merge Sort.
-# Demonstrates recursion, stack usage, and memory manipulation.
 
 .data
-arr:    .word 9, 3, 4, 7, 2, -1, 8, 1, 5, 3, 6 , 10,    # Unsorted array
-N:      .word 11                             # Array size
-
-msg_start: .asciz "Unsorted array:\n"
-msg_sorted: .asciz "\nSorted array:\n"
-space:  .asciz " "
-newline:.asciz "\n"
+arr:    .word 9, 3, 4, 7, 2, -1, 8, 1, 5, 3, 6 , 10   # Unsorted array
+N:      .word 11                                      # Array size
 
 .text
 ###############################################################
 # Main program
 ###############################################################
 main:
-      la   a0, msg_start
-      li   a7, 4
-      ecall                              # print start message
-
       la   a0, arr
       la   a1, N
       lw   a1, 0(a1)                     # load N
-      jal  ra, print_array               # print unsorted array
 
       ##########################################################
       # Call mergesort(arr, 0, N-1)
@@ -36,18 +25,6 @@ main:
       jal   ra, mergesort
 
       ##########################################################
-      # Print sorted array
-      ##########################################################
-      la   a0, msg_sorted
-      li   a7, 4
-      ecall
-
-      la   a0, arr
-      la   a1, N
-      lw   a1, 0(a1)
-      jal  ra, print_array
-
-      ##########################################################
       # Program finished
       ##########################################################
       j    exit
@@ -55,10 +32,6 @@ main:
 
 ###############################################################
 # mergesort(arr, left, right)
-# Recursively splits array and merges sorted halves.
-# a0 = base address
-# a1 = left index
-# a2 = right index
 ###############################################################
 mergesort:
       addi sp, sp, -24       # increase stack frame to store mid
@@ -89,7 +62,6 @@ mergesort:
       lw   a2, 8(sp)        # right
       jal  ra, mergesort
 
-
       # merge(arr, left, mid, right)
       lw   a0, 16(sp)
       lw   a1, 12(sp)
@@ -105,11 +77,6 @@ ms_return:
 
 ###############################################################
 # merge(arr, left, mid, right)
-# Merges two sorted halves of arr[left..mid] and arr[mid+1..right]
-# a0 = base address
-# a1 = left
-# a2 = mid
-# a3 = right
 ###############################################################
 merge:
       addi sp, sp, -160
@@ -216,36 +183,6 @@ merge_done:
       lw   ra, 156(sp)
       addi sp, sp, 160
       jalr zero, 0(ra)
-
-
-###############################################################
-# print_array(base, N)
-# Prints array of N integers separated by spaces.
-# a0 = base address
-# a1 = number of elements
-###############################################################
-print_array:
-      mv   t0, a0             # pointer to current element
-      mv   t1, a1             # remaining elements
-print_loop:
-      beq  t1, zero, print_done
-
-      lw   a0, 0(t0)          # load integer
-      li   a7, 1              # print integer
-      ecall
-
-      la   a0, space
-      li   a7, 4              # print space
-      ecall
-
-      addi t0, t0, 4
-      addi t1, t1, -1
-      j    print_loop
-print_done:
-      la   a0, newline
-      li   a7, 4
-      ecall
-      jr   ra
 
 
 ###############################################################

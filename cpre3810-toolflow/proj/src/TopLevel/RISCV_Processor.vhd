@@ -126,7 +126,6 @@ architecture structure of RISCV_Processor is
        o_ALUSRC	 	: out std_logic;
        o_MemReg		: out std_logic;
        o_RegWr          : out std_logic;
-       o_MemRd	 	: out std_logic;
        o_MemWr		: out std_logic;
        o_signed		: out std_logic; -- 1 when signed, 0 when unsigned
        o_Branch		: out std_logic;
@@ -204,7 +203,6 @@ architecture structure of RISCV_Processor is
   signal s_ImmType   : std_logic_vector(1 downto 0);
   signal s_ALUSrc    : std_logic;
   signal s_MemReg    : std_logic;
-  signal s_MemRd     : std_logic;
   signal s_MemWr     : std_logic;
   signal s_signed    : std_logic;
   signal s_Branch    : std_logic;
@@ -310,7 +308,6 @@ begin
       o_ALUSRC   => s_ALUSrc,
       o_MemReg   => s_MemReg,
       o_RegWr    => s_RegWr,
-      o_MemRd    => s_MemRd,
       o_MemWr    => s_DMemWr,
       o_signed    => s_signed,
       o_Branch   => s_Branch,
