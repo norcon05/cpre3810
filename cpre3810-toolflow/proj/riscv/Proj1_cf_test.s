@@ -11,6 +11,7 @@ main:
       ###########################################################
       # Initialize stack pointer and counter
       ###########################################################
+      lui   sp, 0x80000
       addi  sp, sp, -64           # allocate stack space
       addi  s0, zero, 5           # recursion depth = 5
       jal   ra, level1            # start nested calls

@@ -10,6 +10,7 @@ N:      .word 11                                      # Array size
 # Main program
 ###############################################################
 main:
+      lui  sp, 0x80000
       la   a0, arr
       la   a1, N
       lw   a1, 0(a1)                     # load N
