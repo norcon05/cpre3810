@@ -59,6 +59,16 @@ architecture structural of EX_MEM is
     );
   end component;
 
+  component dffg is
+    port(
+      i_CLK : in std_logic;
+      i_RST : in std_logic;
+      i_WE  : in std_logic;
+      i_D   : in std_logic;
+      o_Q   : out std_logic
+    );
+  end component;
+
 begin
 
   -------------------------------------------------------------------
@@ -99,8 +109,7 @@ begin
   -- Control registers
   -------------------------------------------------------------------
 
-  BRANCH_REG: reg_N
-    generic map(N => 1)
+  BRANCH_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -109,8 +118,7 @@ begin
       o_Q   => o_Branch
     );
 
-  MEMWR_REG: reg_N
-    generic map(N => 1)
+  MEMWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -119,8 +127,7 @@ begin
       o_Q   => o_MemWr
     );
 
-  MEMREG_REG: reg_N
-    generic map(N => 1)
+  MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -129,8 +136,7 @@ begin
       o_Q   => o_MemReg
     );
 
-  REGWR_REG: reg_N
-    generic map(N => 1)
+  REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,

@@ -55,6 +55,16 @@ architecture structural of MEM_WB is
     );
   end component;
 
+  component dffg is
+    port(
+      i_CLK : in std_logic;
+      i_RST : in std_logic;
+      i_WE  : in std_logic;
+      i_D   : in std_logic;
+      o_Q   : out std_logic
+    );
+  end component;
+
 begin
 
   -------------------------------------------------------------------
@@ -95,8 +105,7 @@ begin
   -- Control registers
   -------------------------------------------------------------------
 
-  MEMREG_REG: reg_N
-    generic map(N => 1)
+  MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -105,8 +114,7 @@ begin
       o_Q   => o_MemReg
     );
 
-  REGWR_REG: reg_N
-    generic map(N => 1)
+  REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -116,4 +124,3 @@ begin
     );
 
 end structural;
-

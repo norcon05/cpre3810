@@ -79,6 +79,16 @@ architecture structural of ID_EX is
     );
   end component;
 
+  component dffg is
+    port(
+      i_CLK : in std_logic;
+      i_RST : in std_logic;
+      i_WE  : in std_logic;
+      i_D   : in std_logic;
+      o_Q   : out std_logic
+    );
+  end component;
+
 begin
 
   -------------------------------------------------------------------
@@ -170,8 +180,9 @@ begin
       o_Q   => o_func3
     );
 
-  ALUSRC_REG: reg_N
-    generic map(N => 1)
+  -- 1-bit controls now implemented with dffg
+
+  ALUSRC_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -180,8 +191,7 @@ begin
       o_Q   => o_ALUSrc
     );
 
-  SIGNED_REG: reg_N
-    generic map(N => 1)
+  SIGNED_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -190,8 +200,7 @@ begin
       o_Q   => o_signed
     );
 
-  BRANCH_REG: reg_N
-    generic map(N => 1)
+  BRANCH_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -200,8 +209,7 @@ begin
       o_Q   => o_Branch
     );
 
-  JUMP_REG: reg_N
-    generic map(N => 1)
+  JUMP_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -210,8 +218,7 @@ begin
       o_Q   => o_Jump
     );
 
-  AUIPC_REG: reg_N
-    generic map(N => 1)
+  AUIPC_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -220,8 +227,7 @@ begin
       o_Q   => o_auipc
     );
 
-  UIMM_REG: reg_N
-    generic map(N => 1)
+  UIMM_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -230,8 +236,7 @@ begin
       o_Q   => o_upperIMM
     );
 
-  MEMWR_REG: reg_N
-    generic map(N => 1)
+  MEMWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -240,8 +245,7 @@ begin
       o_Q   => o_MemWr
     );
 
-  MEMREG_REG: reg_N
-    generic map(N => 1)
+  MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
@@ -250,8 +254,7 @@ begin
       o_Q   => o_MemReg
     );
 
-  REGWR_REG: reg_N
-    generic map(N => 1)
+  REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
