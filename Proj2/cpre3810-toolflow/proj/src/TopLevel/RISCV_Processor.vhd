@@ -279,7 +279,9 @@ architecture structure of RISCV_Processor is
       o_opcode     : out std_logic_vector(6 downto 0);
 
       -- Control outputs
-      o_Branch     : out std_logic;      
+      o_Branch     : out std_logic;  
+      o_MemWr      : out std_logic;
+      o_MemReg     : out std_logic;    
       o_RegWr      : out std_logic;
       o_Halt       : out std_logic
     );  

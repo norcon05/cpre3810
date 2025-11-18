@@ -42,14 +42,14 @@ entity EX_MEM is
     o_rd         : out std_logic_vector(4 downto 0);
     o_func3     : out std_logic_vector(2 downto 0);
     o_func7     : out std_logic_vector(6 downto 0); 
-    o_opcode    : out std_logic_vector(6 downto 0)
+    o_opcode    : out std_logic_vector(6 downto 0);
 
     -- Control outputs
     o_Branch     : out std_logic;
     o_MemWr      : out std_logic;
     o_MemReg     : out std_logic;
     o_RegWr      : out std_logic;
-    o_Halt       : out std_logic;
+    o_Halt       : out std_logic
   );
 end entity;
 
