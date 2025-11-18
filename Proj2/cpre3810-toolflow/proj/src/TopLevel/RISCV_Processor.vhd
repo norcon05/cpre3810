@@ -177,8 +177,147 @@ architecture structure of RISCV_Processor is
       );
     end component;
 
-  -- TODO: You may add any additional signals or components your implementation 
-  --       requires below this comment
+  -- Pipeline Registers:
+  component IF_ID is
+    port (
+      iCLK    : in  std_logic;
+      iRST    : in  std_logic;
+
+      -- Inputs from IF stage
+      i_pc    : in  std_logic_vector(31 downto 0);
+      i_inst  : in  std_logic_vector(31 downto 0);
+
+      -- Outputs to ID stage
+      o_pc    : out std_logic_vector(31 downto 0);
+      o_inst  : out std_logic_vector(31 downto 0)
+    );
+  end component;
+  
+  component ID_EX is
+    port (
+      iCLK : in std_logic;
+      iRST : in std_logic;
+
+      -- Datapath inputs
+      i_rs1_data  : in std_logic_vector(31 downto 0);
+      i_rs2_data  : in std_logic_vector(31 downto 0);
+      i_rs1       : in std_logic_vector(4 downto 0);
+      i_rs2       : in std_logic_vector(4 downto 0);
+      i_rd        : in std_logic_vector(4 downto 0);
+      i_imm       : in std_logic_vector(31 downto 0);
+      i_pc        : in std_logic_vector(31 downto 0);
+
+      -- Control inputs
+      i_ALUOp     : in std_logic_vector(3 downto 0);
+      i_ALUSrc    : in std_logic;
+      i_signed    : in std_logic;
+      i_Branch    : in std_logic;
+      i_func3     : in std_logic_vector(2 downto 0);
+      i_func7     : in std_logic_vector(6 downto 0);
+      i_opcode    : in std_logic_vector(6 downto 0);
+      i_Jump      : in std_logic;
+      i_auipc     : in std_logic;
+      i_upperIMM  : in std_logic;
+      i_MemWr     : in std_logic;
+      i_MemReg    : in std_logic;
+      i_RegWr     : in std_logic;
+      i_Halt      : in std_logic;
+
+      -- Datapath outputs
+      o_rs1_data  : out std_logic_vector(31 downto 0);
+      o_rs2_data  : out std_logic_vector(31 downto 0);
+      o_rs1       : out std_logic_vector(4 downto 0);
+      o_rs2       : out std_logic_vector(4 downto 0);
+      o_rd        : out std_logic_vector(4 downto 0);
+      o_imm       : out std_logic_vector(31 downto 0);
+      o_pc        : out std_logic_vector(31 downto 0);
+
+      -- Control outputs
+      o_ALUOp     : out std_logic_vector(3 downto 0);
+      o_ALUSrc    : out std_logic;
+      o_signed    : out std_logic;
+      o_Branch    : out std_logic;
+      o_func3     : out std_logic_vector(2 downto 0);
+      o_func7     : out std_logic_vector(6 downto 0);
+      o_opcode    : out std_logic_vector(6 downto 0);
+      o_Jump      : out std_logic;
+      o_auipc     : out std_logic;
+      o_upperIMM  : out std_logic;
+      o_MemWr     : out std_logic;
+      o_MemReg    : out std_logic;
+      o_RegWr     : out std_logic;
+      o_Halt      : out std_logic
+    );
+  end component;
+
+  component EX_MEM is
+    port (
+      iCLK : in std_logic;
+      iRST : in std_logic;
+
+      -- Datapath inputs
+      i_ALU_result : in std_logic_vector(31 downto 0); 
+      i_rs2_data   : in std_logic_vector(31 downto 0);
+      i_rd         : in std_logic_vector(4 downto 0);
+      i_func3      : in std_logic_vector(2 downto 0);
+      i_func7      : in std_logic_vector(6 downto 0);
+      i_opcode     : in std_logic_vector(6 downto 0);
+
+      -- Control inputs
+      i_Branch     : in std_logic;
+      i_MemWr      : in std_logic;
+      i_MemReg     : in std_logic;
+      i_RegWr      : in std_logic;
+      i_Halt       : in std_logic;
+
+      -- Datapath outputs
+      o_ALU_result : out std_logic_vector(31 downto 0);
+      o_rs2_data   : out std_logic_vector(31 downto 0);
+      o_rd         : out std_logic_vector(4 downto 0);
+      o_func3      : out std_logic_vector(2 downto 0);
+      o_func7      : out std_logic_vector(6 downto 0);
+      o_opcode     : out std_logic_vector(6 downto 0);
+
+      -- Control outputs
+      o_Branch     : out std_logic;      
+      o_RegWr      : out std_logic;
+      o_Halt       : out std_logic
+    );  
+  end component;
+
+  component MEM_WB is
+    port (
+      iCLK : in std_logic;
+      iRST : in std_logic;
+
+      -- Datapath inputs
+      i_MEM_data   : in std_logic_vector(31 downto 0);
+      i_ALU_result : in std_logic_vector(31 downto 0);
+      i_rd         : in std_logic_vector(4 downto 0);
+      i_func3      : in std_logic_vector(2 downto 0);
+      i_func7      : in std_logic_vector(6 downto 0);
+      i_opcode     : in std_logic_vector(6 downto 0);
+
+      -- Control inputs
+      i_MemReg     : in std_logic;
+      i_RegWr      : in std_logic;
+      i_Halt       : in std_logic;
+
+      -- Datapath outputs
+      o_MEM_data   : out std_logic_vector(31 downto 0);
+      o_ALU_result : out std_logic_vector(31 downto 0);
+      o_rd         : out std_logic_vector(4 downto 0);
+      o_func3      : out std_logic_vector(2 downto 0);
+      o_func7      : out std_logic_vector(6 downto 0);
+      o_opcode     : out std_logic_vector(6 downto 0);
+
+      -- Control outputs
+      o_MemReg     : out std_logic;
+      o_RegWr      : out std_logic;
+      o_Halt       : out std_logic
+    );
+  end component;
+
 
   -- Instruction fields
   signal s_opcode  : std_logic_vector(6 downto 0);
@@ -226,6 +365,63 @@ architecture structure of RISCV_Processor is
   -- Load Byte, Half-Word
   signal s_LoadData : std_logic_vector(N-1 downto 0);
 
+  -- IF/ID outputs
+  signal s_IFID_PC     : std_logic_vector(31 downto 0);
+  signal s_IFID_Inst   : std_logic_vector(31 downto 0);
+
+  -- ID/EX outputs
+  signal s_IDEX_rs1_data  : std_logic_vector(31 downto 0);
+  signal s_IDEX_rs2_data  : std_logic_vector(31 downto 0);
+  signal s_IDEX_rs1       : std_logic_vector(4 downto 0);
+  signal s_IDEX_rs2       : std_logic_vector(4 downto 0);
+  signal s_IDEX_rd        : std_logic_vector(4 downto 0);
+  signal s_IDEX_imm       : std_logic_vector(31 downto 0);
+  signal s_IDEX_pc        : std_logic_vector(31 downto 0);
+
+  -- ID/EX controls
+  signal s_IDEX_ALUOp     : std_logic_vector(3 downto 0);
+  signal s_IDEX_ALUSrc    : std_logic;
+  signal s_IDEX_signed    : std_logic;
+  signal s_IDEX_Branch    : std_logic;
+  signal s_IDEX_func3     : std_logic_vector(2 downto 0);
+  signal s_IDEX_func7     : std_logic_vector(6 downto 0);
+  signal s_IDEX_opcode    : std_logic_vector(6 downto 0);
+  signal s_IDEX_Jump      : std_logic;
+  signal s_IDEX_auipc     : std_logic;
+  signal s_IDEX_upperIMM  : std_logic;
+  signal s_IDEX_MemWr     : std_logic;
+  signal s_IDEX_MemReg    : std_logic;
+  signal s_IDEX_RegWr     : std_logic;
+  signal s_IDEX_Halt      : std_logic;
+
+  -- EX/MEM outputs
+  signal s_EXMEM_ALU_result : std_logic_vector(31 downto 0);
+  signal s_EXMEM_rs2_data   : std_logic_vector(31 downto 0);
+  signal s_EXMEM_rd         : std_logic_vector(4 downto 0);
+  signal s_EXMEM_func3      : std_logic_vector(2 downto 0);
+  signal s_EXMEM_func7      : std_logic_vector(6 downto 0);
+  signal s_EXMEM_opcode     : std_logic_vector(6 downto 0);
+
+  -- EX/MEM controls
+  signal s_EXMEM_Branch     : std_logic;
+  signal s_EXMEM_MemWr      : std_logic;
+  signal s_EXMEM_MemReg     : std_logic;
+  signal s_EXMEM_RegWr      : std_logic;
+  signal s_EXMEM_Halt       : std_logic;
+
+  -- MEM/WB outputs
+  signal s_MEMWB_MEM_data   : std_logic_vector(31 downto 0);
+  signal s_MEMWB_ALU_result : std_logic_vector(31 downto 0);
+  signal s_MEMWB_rd         : std_logic_vector(4 downto 0);
+  signal s_MEMWB_func3      : std_logic_vector(2 downto 0);
+  signal s_MEMWB_func7      : std_logic_vector(6 downto 0);
+  signal s_MEMWB_opcode     : std_logic_vector(6 downto 0);
+
+  -- MEM/WB controls
+  signal s_MEMWB_MemReg     : std_logic;
+  signal s_MEMWB_RegWr      : std_logic;
+  signal s_MEMWB_Halt       : std_logic;
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -252,7 +448,7 @@ begin
              q    => s_DMemOut);
 
   -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
-  s_Halt <= '1' when (s_opcode = "1110011" and s_func3 = "000") else '0';
+  s_IDEX_Halt <= '1' when (s_opcode = "1110011" and s_func3 = "000") else '0';
 
   -- Disable PC updates when halted
   process(s_Halt)
@@ -274,16 +470,28 @@ begin
       i_CLK     => iCLK,
       i_RST     => iRST,
       i_PC_WE   => s_PC_WE,
-      i_rs1     => s_rs1_data,
-      i_imm     => s_imm,
+      i_rs1     => s_IDEX_rs1_data,
+      i_imm     => s_IDEX_imm,
       i_PC_SEL  => s_PC_SEL,
       o_PC      => s_NextInstAddr
+    );
+
+  --IF/ID Pipeline Register
+  IF_ID_REG: IF_ID
+    port map(
+      iCLK   => iCLK,
+      iRST   => iRST,
+      i_pc   => s_NextInstAddr,   -- PC going into IF/ID
+      i_inst => s_Inst,           -- Instruction from IMEM
+
+      o_pc   => s_IFID_PC,        -- Outputs to decode stage
+      o_inst => s_IFID_Inst
     );
   
   -- Instruction Decode
   DECODER: Decode
     port map(
-      i_instr    => s_Inst,
+      i_instr    => s_IFID_Inst,
       o_opcode   => s_opcode,
       o_rd       => s_RegWrAddr,
       o_func3    => s_func3,
@@ -341,22 +549,79 @@ begin
       i_upperIMM => s_upperIMM,
       o_out      => s_imm
     );
+  
+  --ID/EX Pipeline Register
+  ID_EX_REG: ID_EX
+    port map(
+      iCLK => iCLK,
+      iRST => iRST,
+
+      -- Datapath in
+      i_rs1_data => s_rs1_data,
+      i_rs2_data => s_rs2_data,
+      i_rs1      => s_rs1,
+      i_rs2      => s_rs2,
+      i_rd       => s_RegWrAddr,
+      i_imm      => s_imm,
+      i_pc       => s_IFID_PC,
+
+      -- Control in
+      i_ALUOp    => s_ALUOp,
+      i_ALUSrc   => s_ALUSrc,
+      i_signed   => s_signed,
+      i_Branch   => s_Branch,
+      i_func3    => s_func3,
+      i_func7    => s_func7,
+      i_opcode   => s_opcode,
+      i_Jump     => s_Jump,
+      i_auipc    => s_auipc,
+      i_upperIMM => s_upperIMM,
+      i_MemWr    => s_DMemWr,
+      i_MemReg   => s_MemReg,
+      i_RegWr    => s_RegWr,
+      i_Halt     => s_IDEX_Halt,
+
+      -- Outputs
+      o_rs1_data => s_IDEX_rs1_data,
+      o_rs2_data => s_IDEX_rs2_data,
+      o_rs1      => s_IDEX_rs1,
+      o_rs2      => s_IDEX_rs2,
+      o_rd       => s_IDEX_rd,
+      o_imm      => s_IDEX_imm,
+      o_pc       => s_IDEX_pc,
+
+      o_ALUOp    => s_IDEX_ALUOp,
+      o_ALUSrc   => s_IDEX_ALUSrc,
+      o_signed   => s_IDEX_signed,
+      o_Branch   => s_IDEX_Branch,
+      o_func3    => s_IDEX_func3,
+      o_func7    => s_IDEX_func7,
+      o_opcode   => s_IDEX_opcode,
+      o_Jump     => s_IDEX_Jump,
+      o_auipc    => s_IDEX_auipc,
+      o_upperIMM => s_IDEX_upperIMM,
+      o_MemWr    => s_IDEX_MemWr,
+      o_MemReg   => s_IDEX_MemReg,
+      o_RegWr    => s_IDEX_RegWr,
+      o_Halt     => s_EXMEM_Halt
+    );
+
 
 s_PC_BA <= x"00400000";
 s_four <= x"00000004";
-s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc = '1' else
-    	 std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA) + unsigned(s_four)) when s_Jump = '1' else
-    	 s_rs1_data;
+s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_auipc = '1' else
+    	 std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA) + unsigned(s_four)) when s_IDEX_Jump = '1' else
+    	 s_IDEX_rs1_data;
   -- ALU
   ALU_UNIT: alu
     generic map(N => N)
     port map(
       i_A      => s_Op1,
-      i_B      => s_rs2_data,
-      i_imm    => s_imm,
-      i_sign   => s_signed,
-      i_ALUOp  => s_ALUOp,
-      i_ALUSrc => s_ALUSrc,
+      i_B      => s_IDEX_rs2_data,
+      i_imm    => s_IDEX_imm,
+      i_sign   => s_IDEX_signed,
+      i_ALUOp  => s_IDEX_ALUOp,
+      i_ALUSrc => s_IDEX_ALUSrc,
       o_F      => s_ALUResult,
       o_Zero   => s_Zero
     );
@@ -369,7 +634,7 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
   --   10 : PC + imm      (JAL)
   --   11 : rs1 + imm     (JALR)
   -----------------------------------------------------------
-  process(s_opcode, s_Branch, s_Zero, s_func3)
+  process(s_IDEX_opcode, s_IDEX_Branch, s_Zero, s_IDEX_func3)
     begin
     -- Default: increment PC normally
     s_PC_SEL <= "00";
@@ -385,8 +650,8 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
     --   110 : BLTU  (Branch if Less Than, unsigned)
     --   111 : BGEU  (Branch if Greater or Equal, unsigned)
     ---------------------------------------------------------
-    if (s_Branch = '1') then
-      case s_func3 is
+    if (s_IDEX_Branch = '1') then
+      case s_IDEX_func3 is
         when "000" =>  -- BEQ
           if (s_Zero = '1') then
             s_PC_SEL <= "01";  -- Take branch if rs1 == rs2
@@ -428,43 +693,111 @@ s_Op1 <= std_logic_vector(unsigned(s_IMemAddr) + unsigned(s_PC_BA)) when s_auipc
     ---------------------------------------------------------
 
     -- JAL (Jump and Link) -> opcode = 1101111
-    if (s_opcode = "1101111") then
+    if (s_IDEX_opcode = "1101111") then
       s_PC_SEL <= "10";  -- Jump to PC + immediate
     end if;
 
     -- JALR (Jump and Link Register) -> opcode = 1100111
-    if (s_opcode = "1100111") then
+    if (s_IDEX_opcode = "1100111") then
       s_PC_SEL <= "11";  -- Jump to (rs1 + immediate)
     end if;
 
   end process;
 
-process(s_DMemOut, s_ALUResult, s_func3)
-begin
-  case s_func3 is
-    when "000" =>  -- LB
-      s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(7 downto 0)), 32));
-    when "001" =>  -- LH
-      s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(15 downto 0)), 32));
-    when "100" =>  -- LBU
-      s_LoadData <= (others => '0');
-      s_LoadData(7 downto 0) <= s_DMemOut(7 downto 0);
-    when "101" =>  -- LHU
-      s_LoadData <= (others => '0');
-      s_LoadData(15 downto 0) <= s_DMemOut(15 downto 0);
-    when others =>  -- LW
-      s_LoadData <= s_DMemOut;
-  end case;
-end process;
+  --EX/MEM Pipeline Register
+  EX_MEM_REG: EX_MEM
+    port map(
+      iCLK => iCLK,
+      iRST => iRST,
+
+      i_ALU_result => s_ALUResult,
+      i_rs2_data   => s_IDEX_rs2_data,
+      i_rd         => s_IDEX_rd,
+      i_func3      => s_IDEX_func3,
+      i_func7      => s_IDEX_func7,
+      i_opcode     => s_IDEX_opcode,
+
+      i_Branch     => s_IDEX_Branch,
+      i_MemWr      => s_IDEX_MemWr,
+      i_MemReg     => s_IDEX_MemReg,
+      i_RegWr      => s_IDEX_RegWr,
+      i_Halt       => s_EXMEM_Halt,
+
+      o_ALU_result => s_EXMEM_ALU_result,
+      o_rs2_data   => s_EXMEM_rs2_data,
+      o_rd         => s_EXMEM_rd,
+      o_func3      => s_EXMEM_func3,
+      o_func7      => s_EXMEM_func7,
+      o_opcode     => s_EXMEM_opcode,
+
+      o_Branch     => s_EXMEM_Branch,
+      o_MemWr      => s_EXMEM_MemWr,
+      o_MemReg     => s_EXMEM_MemReg,
+      o_RegWr      => s_EXMEM_RegWr,
+      o_Halt       => s_MEMWB_Halt
+    );
+
+
+  process(s_DMemOut, s_EXMEM_ALU_result, s_EXMEM_func3)
+  begin
+    case s_EXMEM_func3 is
+      when "000" =>  -- LB
+        s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(7 downto 0)), 32));
+      when "001" =>  -- LH
+        s_LoadData <= std_logic_vector(resize(signed(s_DMemOut(15 downto 0)), 32));
+      when "100" =>  -- LBU
+        s_LoadData <= (others => '0');
+        s_LoadData(7 downto 0) <= s_DMemOut(7 downto 0);
+      when "101" =>  -- LHU
+        s_LoadData <= (others => '0');
+        s_LoadData(15 downto 0) <= s_DMemOut(15 downto 0);
+      when others =>  -- LW
+        s_LoadData <= s_DMemOut;
+    end case;
+  end process;
+
+  --MEM/WB Pipeline Register
+  MEM_WB_REG: MEM_WB
+    port map(
+      iCLK => iCLK,
+      iRST => iRST,
+
+      i_MEM_data   => s_LoadData,
+      i_ALU_result => s_EXMEM_ALU_result,
+      i_rd         => s_EXMEM_rd,
+      i_func3      => s_EXMEM_func3,
+      i_func7      => s_EXMEM_func7,
+      i_opcode     => s_EXMEM_opcode,
+
+      i_MemReg     => s_EXMEM_MemReg,
+      i_RegWr      => s_EXMEM_RegWr,
+      i_Halt       => s_MEMWB_Halt,
+
+      o_MEM_data   => s_MEMWB_MEM_data,
+      o_ALU_result => s_MEMWB_ALU_result,
+      o_rd         => s_MEMWB_rd,
+      o_MemReg     => s_MEMWB_MemReg,
+      o_RegWr      => s_MEMWB_RegWr,
+      o_Halt       => s_Halt,
+      o_func3      => s_MEMWB_func3,
+      o_func7      => s_MEMWB_func7,
+      o_opcode     => s_MEMWB_opcode
+    );
+
 
   -- Write Back MUX
-  s_RegWrData <=
-      s_ALUResult when s_MemReg = '0' else
-      s_LoadData;
+  s_RegWrData <= s_MEMWB_ALU_result when s_MEMWB_MemReg = '0'
+               else s_MEMWB_MEM_data;
+
+  s_RegWr     <= s_MEMWB_RegWr;
+  s_RegWrAddr <= s_MEMWB_rd;
+
 
   -- Data Memory Address & Data Inputs
-  s_DMemAddr <= s_ALUResult;
-  s_DMemData <= s_rs2_data;
+  s_DMemAddr <= s_EXMEM_ALU_result;
+  s_DMemData <= s_EXMEM_rs2_data;
+  s_DMemWr   <= s_EXMEM_MemWr;
+
 
   -- Connect ALU output to top-level port
   oALUOut <= s_ALUResult;

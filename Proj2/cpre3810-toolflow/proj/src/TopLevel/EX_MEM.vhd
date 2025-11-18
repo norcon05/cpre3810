@@ -25,23 +25,31 @@ entity EX_MEM is
     i_ALU_result : in std_logic_vector(31 downto 0);
     i_rs2_data   : in std_logic_vector(31 downto 0);
     i_rd         : in std_logic_vector(4 downto 0);
+    i_func3     : in std_logic_vector(2 downto 0);
+    i_func7     : in std_logic_vector(6 downto 0);
+    i_opcode    : in std_logic_vector(6 downto 0);
 
     -- Control inputs
     i_Branch     : in std_logic;
     i_MemWr      : in std_logic;
     i_MemReg     : in std_logic;
     i_RegWr      : in std_logic;
+    i_Halt       : in std_logic;
 
     -- Datapath outputs
     o_ALU_result : out std_logic_vector(31 downto 0);
     o_rs2_data   : out std_logic_vector(31 downto 0);
     o_rd         : out std_logic_vector(4 downto 0);
+    o_func3     : out std_logic_vector(2 downto 0);
+    o_func7     : out std_logic_vector(6 downto 0); 
+    o_opcode    : out std_logic_vector(6 downto 0)
 
     -- Control outputs
     o_Branch     : out std_logic;
     o_MemWr      : out std_logic;
     o_MemReg     : out std_logic;
-    o_RegWr      : out std_logic
+    o_RegWr      : out std_logic;
+    o_Halt       : out std_logic;
   );
 end entity;
 
@@ -105,6 +113,36 @@ begin
       o_Q   => o_rd
     );
 
+  FUNC3_REG: reg_N
+    generic map(N => 3)
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_func3,
+      o_Q   => o_func3
+    );
+
+  FUNC7_REG: reg_N
+    generic map(N => 7) 
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_func7,
+      o_Q   => o_func7
+    );
+  
+  OPCODE_REG: reg_N
+    generic map(N => 7) 
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_opcode,
+      o_Q   => o_opcode
+    );
+
   -------------------------------------------------------------------
   -- Control registers
   -------------------------------------------------------------------
@@ -143,6 +181,15 @@ begin
       i_WE  => '1',
       i_D   => i_RegWr,
       o_Q   => o_RegWr
+    );
+
+  HALT_REG: dffg
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_Halt,
+      o_Q   => o_Halt
     );
 
 end structural;

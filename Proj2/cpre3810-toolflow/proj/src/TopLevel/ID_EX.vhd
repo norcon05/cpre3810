@@ -28,6 +28,7 @@ entity ID_EX is
     i_rs2       : in std_logic_vector(4 downto 0);
     i_rd        : in std_logic_vector(4 downto 0);
     i_imm       : in std_logic_vector(31 downto 0);
+    i_pc        : in std_logic_vector(31 downto 0);
 
     -- Control inputs
     i_ALUOp     : in std_logic_vector(3 downto 0);
@@ -35,12 +36,15 @@ entity ID_EX is
     i_signed    : in std_logic;
     i_Branch    : in std_logic;
     i_func3     : in std_logic_vector(2 downto 0);
+    i_func7     : in std_logic_vector(6 downto 0);
+    i_opcode    : in std_logic_vector(6 downto 0);
     i_Jump      : in std_logic;
     i_auipc     : in std_logic;
     i_upperIMM  : in std_logic;
     i_MemWr     : in std_logic;
     i_MemReg    : in std_logic;
     i_RegWr     : in std_logic;
+    i_Halt      : in std_logic;
 
     -- Datapath outputs
     o_rs1_data  : out std_logic_vector(31 downto 0);
@@ -49,6 +53,7 @@ entity ID_EX is
     o_rs2       : out std_logic_vector(4 downto 0);
     o_rd        : out std_logic_vector(4 downto 0);
     o_imm       : out std_logic_vector(31 downto 0);
+    o_pc        : out std_logic_vector(31 downto 0);
 
     -- Control outputs
     o_ALUOp     : out std_logic_vector(3 downto 0);
@@ -56,12 +61,15 @@ entity ID_EX is
     o_signed    : out std_logic;
     o_Branch    : out std_logic;
     o_func3     : out std_logic_vector(2 downto 0);
+    o_func7     : out std_logic_vector(6 downto 0);
+    o_opcode    : out std_logic_vector(6 downto 0);
     o_Jump      : out std_logic;
     o_auipc     : out std_logic;
     o_upperIMM  : out std_logic;
     o_MemWr     : out std_logic;
     o_MemReg    : out std_logic;
-    o_RegWr     : out std_logic
+    o_RegWr     : out std_logic;
+    o_Halt      : out std_logic
   );
 end entity;
 
@@ -155,6 +163,15 @@ begin
       o_Q   => o_imm
     );
 
+  PC_REG: reg_N
+    generic map(N => 32)
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_pc,
+      o_Q   => o_pc
+    );
 
   -------------------------------------------------------------------
   -- Control registers
@@ -178,6 +195,26 @@ begin
       i_WE  => '1',
       i_D   => i_func3,
       o_Q   => o_func3
+    );
+
+  FUNC7_REG: reg_N
+    generic map(N => 7)
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_func7,
+      o_Q   => o_func7
+    );
+
+  OPCODE_REG: reg_N
+    generic map(N => 7)
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_opcode,
+      o_Q   => o_opcode
     );
 
   -- 1-bit controls now implemented with dffg
@@ -261,6 +298,15 @@ begin
       i_WE  => '1',
       i_D   => i_RegWr,
       o_Q   => o_RegWr
+    );
+
+  HALT_REG: dffg
+    port map(
+      i_CLK => iCLK,
+      i_RST => iRST,
+      i_WE  => '1',
+      i_D   => i_Halt,
+      o_Q   => o_Halt
     );
 
 end structural;
