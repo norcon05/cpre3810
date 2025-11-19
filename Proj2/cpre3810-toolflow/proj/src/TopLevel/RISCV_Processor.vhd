@@ -44,7 +44,9 @@ architecture structure of RISCV_Processor is
  
   -- Required register file signals 
   signal s_RegWr        : std_logic; -- TODO: use this signal as the final active high write enable input to the register file
+  signal s_RegWrIn	: std_logic; -- TODO: 
   signal s_RegWrAddr    : std_logic_vector(4 downto 0); -- TODO: use this signal as the final destination register address input
+  signal s_RegWrAddrIn	: std_logic_vector(4 downto 0); -- TODO: 
   signal s_RegWrData    : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the final data memory data input
 
   -- Required instruction memory signals
@@ -495,7 +497,7 @@ begin
     port map(
       i_instr    => s_IFID_Inst,
       o_opcode   => s_opcode,
-      o_rd       => s_RegWrAddr,
+      o_rd       => s_RegWrAddrIn,
       o_func3    => s_func3,
       o_rs1      => s_rs1,
       o_rs2      => s_rs2,
@@ -517,7 +519,7 @@ begin
       o_ImmType  => s_ImmType,
       o_ALUSRC   => s_ALUSrc,
       o_MemReg   => s_MemReg,
-      o_RegWr    => s_RegWr,
+      o_RegWr    => s_RegWrIn,
       o_MemWr    => s_DMemWr,
       o_signed    => s_signed,
       o_Branch   => s_Branch,
@@ -563,7 +565,7 @@ begin
       i_rs2_data => s_rs2_data,
       i_rs1      => s_rs1,
       i_rs2      => s_rs2,
-      i_rd       => s_RegWrAddr,
+      i_rd       => s_RegWrAddrIn,
       i_imm      => s_imm,
       i_pc       => s_IFID_PC,
 
@@ -580,7 +582,7 @@ begin
       i_upperIMM => s_upperIMM,
       i_MemWr    => s_DMemWr,
       i_MemReg   => s_MemReg,
-      i_RegWr    => s_RegWr,
+      i_RegWr    => s_RegWrIn,
       i_Halt     => s_IDEX_Halt,
 
       -- Outputs
