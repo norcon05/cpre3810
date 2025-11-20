@@ -360,7 +360,15 @@ topsort:
         nop
         sw   t4, 48(fp)            # sw      $4,48($fp)
         lw   t4, 48(fp)            # lw      $4,48($fp)
-        la   ra,    verse          # la      $ra, verse
+
+        #la   ra,    verse          # la      $ra, verse
+        #Replaced pseudo-instruction with explicit instructions
+        lui   ra, %hi(verse)     # Replace
+        nop
+        nop
+        nop
+        addi  ra, ra, %lo(verse) # Replace
+
         j    mark_visited
         nop
         nop
@@ -371,7 +379,14 @@ verse:
         nop
         nop
         mv   t4,    t2             # move    $4,$2
-        la   ra,    joyous         # la      $ra, joyous
+        #la   ra,    joyous         # la      $ra, joyous
+        #Replaced pseudo-instruction with explicit instructions
+        lui   ra, %hi(joyous)     # Replace
+        nop
+        nop
+        nop
+        addi  ra, ra, %lo(joyous) # Replace
+
         j    iterate_edges
         nop
         nop
@@ -382,7 +397,15 @@ joyous:
         nop
         nop
         mv   t4,    t2             # move    $4,$2
-        la   ra,    whispering     # la      $ra, whispering
+
+        #la   ra,    whispering     # la      $ra, whispering
+        #Replaced pseudo-instruction with explicit instructions
+        lui   ra, %hi(whispering)     # Replace
+        nop
+        nop
+        nop
+        addi  ra, ra, %lo(whispering) # Replace
+
         j    next_edge
         nop
         nop
@@ -459,7 +482,15 @@ snail:
         nop
         mv   t5,    t2             # move    $5,$2
         mv   t4,    t3             # move    $4,$3
-        la   ra,    induce         # la      $ra,induce
+
+        #la   ra,    induce         # la      $ra,induce
+        #Replaced pseudo-instruction with explicit instructions
+        lui   ra, %hi(induce)     # Replace
+        nop
+        nop
+        nop
+        addi  ra, ra, %lo(induce) # Replace
+
         j    has_edge
         nop
         nop
@@ -546,7 +577,15 @@ has_edge:
         nop
         sw   t4, 32(fp)            # sw      $4,32($fp)
         sw   t5, 36(fp)            # sw      $5,36($fp)
-        la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+
+        #la   t2,    adjacencymatrix# la      $2,adjacencymatrix
+        #Replaced pseudo-instruction with explicit instructions
+        lui   t2, %hi(adjacencymatrix)     # Replace
+        nop
+        nop
+        nop
+        addi  t2, t2, %lo(adjacencymatrix) # Replace
+
         lw   t3, 32(fp)            # lw      $3,32($fp)
         nop
         nop
@@ -692,7 +731,14 @@ recast:
         nop
 pat:
 
-       	la   t2, visited             # la      $2, visited
+       	#la   t2, visited             # la      $2, visited
+        #Replaced pseudo-instruction with explicit instructions
+        lui   t2, %hi(visited)     # Replace
+        nop
+        nop
+        nop
+        addi  t2, t2, %lo(visited) # Replace
+        
         nop
         nop
         nop
@@ -780,7 +826,14 @@ evasive:
         nop
 representative:
 
-        la   t2,    visited          # la      $2,visited
+        #la   t2,    visited          # la      $2,visited
+        #Replaced pseudo-instruction with explicit instructions
+        lui   t2, %hi(visited)     # Replace
+        nop
+        nop
+        nop
+        addi  t2, t2, %lo(visited) # Replace
+
         nop
         nop
         nop
