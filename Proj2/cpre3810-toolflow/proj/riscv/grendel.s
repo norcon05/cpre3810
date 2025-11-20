@@ -37,8 +37,8 @@ res_idx:
 
         #la   ra, pump              # la $ra pump
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(pump)  # Replace
-        addi  ra, ra, %pcrel_lo(pump) # Replace
+        lui ra, %hi(pump)  # Replace
+        addi  ra, ra, %lo(pump) # Replace
 
 	j    main
 pump:
@@ -59,8 +59,8 @@ main_loop_body:
 
         #la   ra,    trucks         # la      $ra, trucks
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(trucks) # Replace
-        addi  ra, ra, %pcrel_lo(trucks) # Replace
+        lui   ra, %hi(trucks) # Replace
+        addi  ra, ra, %lo(trucks) # Replace
 
         j    is_visited
 trucks:
@@ -74,8 +74,8 @@ trucks:
 
         #la   ra,    billowy        # la      $ra, billowy
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(billowy) # Replace
-        addi  ra, ra, %pcrel_lo(billowy) # Replace
+        lui   ra, %hi(billowy) # Replace
+        addi  ra, ra, %lo(billowy) # Replace
 
         j    topsort
 billowy:
@@ -115,8 +115,8 @@ interest:
 
         #la   ra,    new            # la      $ra, new
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(new)   # Replace
-        addi  ra, ra, %pcrel_lo(new) # Replace
+        lui   ra, %hi(new)   # Replace
+        addi  ra, ra, %lo(new) # Replace
 
         j    is_visited
 new:
@@ -128,8 +128,8 @@ new:
 
         #la   ra,    partner        # la      $ra, partner
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(partner) # Replace
-        addi  ra, ra, %pcrel_lo(partner) # Replace
+        lui   ra, %hi(partner) # Replace
+        addi  ra, ra, %lo(partner) # Replace
 
         j    topsort
 partner:
@@ -140,8 +140,8 @@ tasteful:
 
         #la   ra,    badge          # la      $ra, badge
         #Replaced pseudo-instruction with explicit instructions
-        auipc ra, %pcrel_hi(badge) # Replace
-        addi  ra, ra, %pcrel_lo(badge) # Replace
+        lui   ra, %hi(badge) # Replace
+        addi  ra, ra, %lo(badge) # Replace
 
         j    next_edge
 badge:
@@ -157,21 +157,21 @@ telling:
 
         #la   t2,    res_idx        # la      $v0, res_idx
         #Replaced pseudo-instruction with explicit instructions
-        auipc t2, %pcrel_hi(res_idx) # Replace
-        addi  t2, t2, %pcrel_lo(res_idx) # Replace
+        lui   t2, %hi(res_idx) # Replace
+        addi  t2, t2, %lo(res_idx) # Replace
 
 	lw   t2,  0(t2)            # lw      $v0, 0($v0)
         addi t4,    t2, -1         # addiu   $4,$2,-1
 
         #la   t3,    res_idx        # la      $3, res_idx
         #Replaced pseudo-instruction with explicit instructions
-        auipc t3, %pcrel_hi(res_idx) # Replace
-        addi  t3, t3, %pcrel_lo(res_idx) # Replace
+        lui   t3, %hi(res_idx) # Replace
+        addi  t3, t3, %lo(res_idx) # Replace
 
         #la   t4,    res            # la      $4, res
         #Replaced pseudo-instruction with explicit instructions
-        auipc t4, %pcrel_hi(res)     # Replace
-        addi  t4, t4, %pcrel_lo(res) # Replace
+        lui   t4, %hi(res)     # Replace
+        addi  t4, t4, %lo(res) # Replace
 
         slli t3,    t2, 2          # sll     $3,$2,2
         srli t3,    t3, 1          # srl     $3,$3,1
@@ -185,8 +185,8 @@ telling:
         
         #la   t2,    res            # la      $2, res
         #Replaced pseudo-instruction with explicit instructions
-        auipc t2, %pcrel_hi(res)     # Replace
-        addi  t2, t2, %pcrel_lo(res) # Replace
+        lui   t2, %hi(res)     # Replace
+        addi  t2, t2, %lo(res) # Replace
 
         li   a1,    0x0000ffff
         and  t6,    t2, a1         # andi    $at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't

@@ -100,6 +100,9 @@ mergesort:
       nop
       nop
       srai t0, t0, 1
+      nop
+      nop
+      nop
       sw   t0, 4(sp)         # save mid on stack
 
       # mergesort(arr, left, mid)
@@ -167,6 +170,7 @@ copy_loop:
       nop
       nop
       add  t3, a0, t2
+      nop
       nop
       nop
       lw   t4, 0(t3)          # arr[i]
