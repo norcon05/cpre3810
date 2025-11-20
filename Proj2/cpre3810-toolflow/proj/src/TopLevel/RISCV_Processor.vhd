@@ -110,6 +110,7 @@ architecture structure of RISCV_Processor is
     i_PC_WE        : in std_logic;                          -- Enable signal for writing to PC (for wfi)
     i_rs1          : in std_logic_vector(31 downto 0);      -- Value from register rs1 (used for JALR)
     i_imm          : in std_logic_vector(31 downto 0);      -- 32-bit immediate from instruction (used in branches, JAL, JALR)
+    i_current_PC   : in std_logic_vector(31 downto 0);      -- Current PC value (for calculating branch targets)
     i_PC_SEL       : in std_logic_vector(1 downto 0);       -- PC Next Value Selection: 
 	                                                            -- 00: PC + 4         (Default)
                                                               -- 01: PC + imm       (Branch)
@@ -477,6 +478,7 @@ begin
       i_PC_WE   => s_PC_WE,
       i_rs1     => s_IDEX_rs1_data,
       i_imm     => s_IDEX_imm,
+      i_current_PC => s_IDEX_pc,
       i_PC_SEL  => s_PC_SEL,
       o_PC      => s_NextInstAddr
     );

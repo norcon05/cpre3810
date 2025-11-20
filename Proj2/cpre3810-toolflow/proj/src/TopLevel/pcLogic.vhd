@@ -25,6 +25,7 @@ entity pcLogic is
     i_PC_WE        : in std_logic;                          -- Enable signal for writing to PC (for wfi)
     i_rs1          : in std_logic_vector(31 downto 0);      -- Value from register rs1 (used for JALR)
     i_imm          : in std_logic_vector(31 downto 0);      -- 32-bit immediate from instruction (used in branches, JAL, JALR)
+    i_current_PC   : in std_logic_vector(31 downto 0);      -- Current PC value (for calculating branch targets)
     i_PC_SEL       : in std_logic_vector(1 downto 0);       -- PC Next Value Selection: 
 	                                                        -- 00: PC + 4         (Default)
                                                             -- 01: PC + imm       (Branch)
@@ -42,8 +43,8 @@ architecture structural of pcLogic is
     port(i_S          : in std_logic_vector(1 downto 0);
          i_D0         : in std_logic_vector(31 downto 0);
          i_D1         : in std_logic_vector(31 downto 0);
-		 i_D2         : in std_logic_vector(31 downto 0);
-		 i_D3         : in std_logic_vector(31 downto 0);
+		     i_D2         : in std_logic_vector(31 downto 0);
+		     i_D3         : in std_logic_vector(31 downto 0);
          o_O          : out std_logic_vector(31 downto 0));
   end component;
   
@@ -92,7 +93,7 @@ begin
     port map (
       i_A => s_pc,
       i_B => x"00000004",
-	  i_Cin  => '0',
+	    i_Cin  => '0',
       o_S => s_pc_plus4,
 	  o_Cout => s_unused_carry 
     );
@@ -100,7 +101,7 @@ begin
   -- PC + imm (for branches or jal)
   PC_Plus_imm : adder_N
     port map (
-      i_A => s_pc,
+      i_A => i_current_PC,
       i_B => i_imm,
 	  i_Cin  => '0',
       o_S => s_pc_branch,
