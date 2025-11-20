@@ -38,15 +38,16 @@ architecture structure of RISCV_Processor is
 
   -- Required data memory signals
   signal s_DMemWr       : std_logic; -- TODO: use this signal as the final active high data memory write enable signal
+  signal s_DMemWrIn	    : std_logic; -- Initial Signal 
   signal s_DMemAddr     : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the final data memory address input
   signal s_DMemData     : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the final data memory data input
   signal s_DMemOut      : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the data memory output
  
   -- Required register file signals 
   signal s_RegWr        : std_logic; -- TODO: use this signal as the final active high write enable input to the register file
-  signal s_RegWrIn	: std_logic; -- TODO: 
+  signal s_RegWrIn	    : std_logic; -- Initial Signal 
   signal s_RegWrAddr    : std_logic_vector(4 downto 0); -- TODO: use this signal as the final destination register address input
-  signal s_RegWrAddrIn	: std_logic_vector(4 downto 0); -- TODO: 
+  signal s_RegWrAddrIn	: std_logic_vector(4 downto 0); -- Initial Signal 
   signal s_RegWrData    : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the final data memory data input
 
   -- Required instruction memory signals
@@ -520,7 +521,7 @@ begin
       o_ALUSRC   => s_ALUSrc,
       o_MemReg   => s_MemReg,
       o_RegWr    => s_RegWrIn,
-      o_MemWr    => s_DMemWr,
+      o_MemWr    => s_DMemWrIn,
       o_signed    => s_signed,
       o_Branch   => s_Branch,
       o_branchJump => s_BranchJump,
@@ -580,7 +581,7 @@ begin
       i_Jump     => s_Jump,
       i_auipc    => s_auipc,
       i_upperIMM => s_upperIMM,
-      i_MemWr    => s_DMemWr,
+      i_MemWr    => s_DMemWrIn,
       i_MemReg   => s_MemReg,
       i_RegWr    => s_RegWrIn,
       i_Halt     => s_IDEX_Halt,
