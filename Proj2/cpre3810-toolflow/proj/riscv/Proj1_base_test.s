@@ -12,7 +12,13 @@ test_data:  .word  0x12345678, 0x00000000, 0x11111111, 0x22222222
 ###############################################################
 main:
       lui   sp, 0x80000
-      la    s0, test_data       # load base address of test_data
+      
+      #la    s0, test_data       # load base address of test_data
+      #Replaced pseudo-instruction with explicit instructions
+      auipc s0, %pcrel_hi(test_data) # Replace
+      addi  s0, s0, %pcrel_lo(test_data) # Replace
+
+
       addi  sp, sp, -32         # allocate stack space
       
       ###########################################################

@@ -11,16 +11,35 @@ N:      .word 11                                      # Array size
 ###############################################################
 main:
       lui  sp, 0x80000
-      la   a0, arr
-      la   a1, N
+
+      #la   a0, arr
+      #Replaced pseudo-instruction with explicit instructions
+      auipc a0, %pcrel_hi(arr)  # Replace
+      addi  a0, a0, %pcrel_lo(arr) # Replace
+
+      #la   a1, N
+      #Replaced pseudo-instruction with explicit instructions
+      auipc a1, %pcrel_hi(N)    # Replace
+      addi  a1, a1, %pcrel_lo(N) # Replace
+
       lw   a1, 0(a1)                     # load N
 
       ##########################################################
       # Call mergesort(arr, 0, N-1)
       ##########################################################
-      la   a0, arr                       # base address
+
+      #la   a0, arr                       # base address
+      #Replaced pseudo-instruction with explicit instructions
+      auipc a0, %pcrel_hi(arr)          # Replace
+      addi  a0, a0, %pcrel_lo(arr)      # Replace
+
       li   a1, 0                         # left index = 0
-      la   a2, N
+
+      #la   a2, N
+      #Replaced pseudo-instruction with explicit instructions
+      auipc a2, %pcrel_hi(N)            # Replace
+      addi  a2, a2, %pcrel_lo(N)        # Replace
+      
       lw   a2, 0(a2)
       addi a2, a2, -1                    # right index = N - 1
       jal   ra, mergesort

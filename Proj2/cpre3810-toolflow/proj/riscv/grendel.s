@@ -27,9 +27,19 @@ res_idx:
         .word   3
 .text
         # NEW RISCV                # ORIGINAL MIPS
-	li   sp, 0x10011000        # li $sp, 0x10011000
+
+        #li   sp, 0x10011000        # li $sp, 0x10011000
+        #Replaced pseudo-instruction with explicit instructions
+        lui   sp, 0x10011           # Replace
+        addi  sp, sp, 0x000        # Replace
+
 	li   fp, 0                 # li $fp, 0
-	la   ra, pump              # la $ra pump
+
+        #la   ra, pump              # la $ra pump
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(pump)  # Replace
+        addi  ra, ra, %pcrel_lo(pump) # Replace
+
 	j    main
 pump:
         j end
@@ -46,7 +56,12 @@ main:
 
 main_loop_body:
         lw   t4, 24(fp)            # lw      $4,24($fp)
-        la   ra,    trucks         # la      $ra, trucks
+
+        #la   ra,    trucks         # la      $ra, trucks
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(trucks) # Replace
+        addi  ra, ra, %pcrel_lo(trucks) # Replace
+
         j    is_visited
 trucks:
 
@@ -56,7 +71,12 @@ trucks:
 
         lw   t4, 24(fp)            # lw      $4,24($fp)
                                    # ; addi    $k0, $k0,1# breakpoint
-        la   ra,    billowy        # la      $ra, billowy
+
+        #la   ra,    billowy        # la      $ra, billowy
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(billowy) # Replace
+        addi  ra, ra, %pcrel_lo(billowy) # Replace
+
         j    topsort
 billowy:
 
@@ -80,7 +100,7 @@ wave:
 welcome:
         lw   t2, 28(fp)            # lw      $2,28($fp)
         slti t2,    t2, 4          # slti    $2,$2,4
-        xori t2,    t2, 1          # xori    $2,$2,1 # xori 1, beq to simulate bne where val in [0,1]
+        xori t2,    t2, 1          # xori 1, beq to simulate bne where val in [0,1]
         beq  t2,    x0, wave       # beq     $2,$0,wave
 
         mv   t2,    x0             # move    $2,$0
@@ -92,7 +112,12 @@ welcome:
         
 interest:
         lw   t4, 24(fp)            # lw      $4,24($fp)
-        la   ra,    new            # la      $ra, new
+
+        #la   ra,    new            # la      $ra, new
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(new)   # Replace
+        addi  ra, ra, %pcrel_lo(new) # Replace
+
         j    is_visited
 new:
         xori t2,    t2, 1          # xori    $2,$2,0x1
@@ -100,14 +125,24 @@ new:
         beq  t2,    x0, tasteful   # beq     $2,$0,tasteful
 
         lw   t4, 24(fp)            # lw      $4,24($fp)
-        la   ra,    partner        # la      $ra, partner
+
+        #la   ra,    partner        # la      $ra, partner
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(partner) # Replace
+        addi  ra, ra, %pcrel_lo(partner) # Replace
+
         j    topsort
 partner:
 
 tasteful:
         addi t2,    fp, 28         # addiu   $2,$fp,28
         mv   t4,    t2             # move    $4,$2
-        la   ra,    badge          # la      $ra, badge
+
+        #la   ra,    badge          # la      $ra, badge
+        #Replaced pseudo-instruction with explicit instructions
+        auipc ra, %pcrel_hi(badge) # Replace
+        addi  ra, ra, %pcrel_lo(badge) # Replace
+
         j    next_edge
 badge:
         sw   t2, 24(fp)            # sw      $2,24($fp)
@@ -119,15 +154,25 @@ turkey:
         j    interest
 telling:
         # NOTE: $v0 === $2
-	la   t2,    res_idx        # la      $v0, res_idx
+
+        #la   t2,    res_idx        # la      $v0, res_idx
+        #Replaced pseudo-instruction with explicit instructions
+        auipc t2, %pcrel_hi(res_idx) # Replace
+        addi  t2, t2, %pcrel_lo(res_idx) # Replace
+
 	lw   t2,  0(t2)            # lw      $v0, 0($v0)
         addi t4,    t2, -1         # addiu   $4,$2,-1
-        la   t3,    res_idx        # la      $3, res_idx
-        sw   t4,  0(t3)            # sw      $4, 0($3)
-        la   t4,    res            # la      $4, res
-                                   # ; lui     $3,%hi(res_idx)
-                                   # ; sw      $4,%lo(res_idx)($3)
-                                   # ; lui     $4,%hi(res)
+
+        #la   t3,    res_idx        # la      $3, res_idx
+        #Replaced pseudo-instruction with explicit instructions
+        auipc t3, %pcrel_hi(res_idx) # Replace
+        addi  t3, t3, %pcrel_lo(res_idx) # Replace
+
+        #la   t4,    res            # la      $4, res
+        #Replaced pseudo-instruction with explicit instructions
+        auipc t4, %pcrel_hi(res)     # Replace
+        addi  t4, t4, %pcrel_lo(res) # Replace
+
         slli t3,    t2, 2          # sll     $3,$2,2
         srli t3,    t3, 1          # srl     $3,$3,1
         srai t3,    t3, 1          # sra     $3,$3,1
@@ -137,7 +182,12 @@ telling:
         or   t6,    ra, t2         # nor     $at, $ra, $2 # does nothing 
         neg  t6,    t6
         
-        la   t2,    res            # la      $2, res
+        
+        #la   t2,    res            # la      $2, res
+        #Replaced pseudo-instruction with explicit instructions
+        auipc t2, %pcrel_hi(res)     # Replace
+        addi  t2, t2, %pcrel_lo(res) # Replace
+
         li   a1,    0x0000ffff
         and  t6,    t2, a1         # andi    $at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't
         add  t2,    t4, t6         # addu    $2, $4, $at
