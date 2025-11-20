@@ -322,7 +322,17 @@ telling:
         nop
         addi  t2, t2, %lo(res) # Replace
 
-        li   a1,    0x0000ffff
+        #li   a1,    0x0000ffff
+        #Replaced pseudo-instruction with explicit instructions
+        lui   a1, 0x1           # Replace
+        nop
+        nop
+        nop
+        addi  a1, a1,-1         # Replace
+
+        nop
+        nop
+        nop
         and  t6,    t2, a1         # andi    $at, $2, 0xffff # -1 will sign extend (according to assembler), but 0xffff won't
         nop
         nop
@@ -333,6 +343,7 @@ telling:
         nop
         add  t2,    t3, t2         # addu    $2,$3,$2
         lw   t3, 48(fp)            # lw      $3,48($fp)
+        nop
         nop
         nop
         sw   t3,  0(t2)            # sw      $3,0($2)
@@ -461,6 +472,9 @@ next_edge:
         sw   ra, 28(sp)            # sw      $31,28($sp)
         sw   fp, 24(sp)            # sw      $fp,24($sp)
         add  fp,    x0, sp         # add     $fp,$zero,$sp
+        nop
+        nop
+        nop
         sw   t4, 32(fp)            # sw      $4,32($fp)
         j    waggish
         nop
@@ -510,6 +524,7 @@ induce:
         lw   t3, 32(fp)            # lw      $3,32($fp)
         nop
         nop
+        nop
         sw   t4,  4(t3)            # sw      $4,4($3)
         j    cynical
         nop
@@ -526,6 +541,7 @@ quarter:
         nop
         addi t3,    t2, 1          # addiu   $3,$2,1
         lw   t2, 32(fp)            # lw      $2,32($fp)
+        nop
         nop
         nop
         sw   t3,  4(t2)            # sw      $3,4($2)
