@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 00:17:08 on Nov 06,2025
+# Start time: 18:14:51 on Nov 20,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
@@ -43,12 +43,18 @@ Reading pref.tcl
 # Loading work.xorg2(dataflow)#1
 # Loading work.mux4t1_n(structural)#1
 # Loading work.mux4t1(dataflow)#1
+# Loading work.if_id(structural)#1
 # Loading work.decode(dataflow)#1
 # Loading work.control(dataflow)#1
 # Loading work.regfile(structural)#1
 # Loading work.decoder5t32(dataflow)#1
 # Loading work.mux32t1_n(dataflow)#1
 # Loading work.extender(dataflow)#1
+# Loading work.id_ex(structural)#1
+# Loading work.reg_n(structural)#2
+# Loading work.reg_n(structural)#3
+# Loading work.reg_n(structural)#4
+# Loading work.reg_n(structural)#5
 # Loading work.alu(structural)#1
 # Loading work.addisubi_n(structural)#1
 # Loading work.mux2t1_n(structural)#1
@@ -66,6 +72,8 @@ Reading pref.tcl
 # Loading work.shiftbinary(structure)#3
 # Loading work.shiftbinary(structure)#4
 # Loading work.shiftbinary(structure)#5
+# Loading work.ex_mem(structural)#1
+# Loading work.mem_wb(structural)#1
 # ** Note: (vsim-8900) Creating design debug database vsim.dbg.
 # do modelsim_framework.do
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
@@ -75,14 +83,12 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/IMem
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
-#    Time: 0 ns  Iteration: 1  Instance: /tb/MyRiscv/ALU_UNIT/SLT_UNIT
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 4  Instance: /tb/MyRiscv/DMem
-# ** Note: Data structure takes 60537968 bytes of memory
-#          Process time 0.49 seconds
+#    Time: 5 ns  Iteration: 3  Instance: /tb/MyRiscv/ALU_UNIT/SLT_UNIT
+# ** Note: Data structure takes 64093824 bytes of memory
+#          Process time 0.63 seconds
 #          stop
-#    Time: 32580 ns  Iteration: 1  Instance: /tb
-# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# Stopped at /home/connorwm/cpre381/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 00:17:11 on Nov 06,2025, Elapsed time: 0:00:03
-# Errors: 0, Warnings: 6
+#    Time: 86120 ns  Iteration: 1  Instance: /tb
+# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# Stopped at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# End time: 18:14:53 on Nov 20,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 5

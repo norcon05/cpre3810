@@ -26,10 +26,10 @@
 8 dataflow
 19
 9 structure
+1
+78 /home/connorwm/cpre381/Proj2/cpre3810-toolflow/containers/sim_container_0/work
 23
 5 slt_n
-1
-72 /home/connorwm/cpre381/cpre3810-toolflow/containers/sim_container_0/work
 21
 7 xorg2_n
 32
@@ -259,6 +259,62 @@
 1
 0
 32
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+2
+8
+1
+0
+5
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+3
+8
+1
+0
+4
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+4
+8
+1
+0
+3
+0
+0 0
+0
+0
+]
+[G
+1
+6
+7
+5
+8
+1
+0
+7
 0
 0 0
 0
