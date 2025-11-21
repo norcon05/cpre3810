@@ -137,6 +137,8 @@ mergesort:
 ms_return:
       lw   ra, 20(sp)
       addi sp, sp, 24
+      nop
+      nop
       jalr zero, 0(ra)
       nop
       nop
@@ -162,6 +164,9 @@ merge:
       addi t0, sp, 0          # temp buffer base
       mv   t1, a1             # i = left
 copy_loop:
+      nop
+      nop
+      nop
       bgt  t1, a3, copy_done
       nop
       nop
