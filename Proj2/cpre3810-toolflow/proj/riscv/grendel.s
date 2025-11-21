@@ -96,6 +96,8 @@ trucks:
         nop
         nop
         beq  t2,    x0, kick       # beq     $2,$0,kick
+        nop
+        nop
 
         lw   t4, 24(fp)            # lw      $4,24($fp)
                                    # ; addi    $k0, $k0,1# breakpoint
@@ -136,6 +138,8 @@ main_loop_control:
         nop
         nop
         beq  t2,    x0, hew        # beq     $2, $zero, hew # beq, j to simulate bne 
+        nop
+        nop
         j    main_loop_body
         nop
         nop
@@ -151,6 +155,9 @@ wave:
         nop
         nop
         addi t2,    t2, 1          # addiu   $2,$2,1
+        nop
+        nop
+        nop
         sw   t2, 28(fp)            # sw      $2,28($fp)
 welcome:
         lw   t2, 28(fp)            # lw      $2,28($fp)
@@ -177,6 +184,7 @@ welcome:
         lw   ra, 36(sp)            # lw      $31,36($sp)
         lw   fp, 32(sp)            # lw      $fp,32($sp)
         addi sp, sp, 40            # addiu   $sp,$sp,40
+        nop
         jr   ra                    # jr      $ra
         nop
         nop
@@ -354,6 +362,7 @@ telling:
         lw   ra, 44(sp)            # lw      $31,44($sp)
         lw   fp, 40(sp)            # lw      $fp,40($sp)
         addi sp,    sp, 48         # addiu   $sp,$sp,48
+        nop
         jr   ra                    # jr      $ra
         nop
         nop
