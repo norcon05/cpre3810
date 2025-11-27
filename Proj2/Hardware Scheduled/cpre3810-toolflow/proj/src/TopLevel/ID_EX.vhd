@@ -19,6 +19,8 @@ use IEEE.std_logic_1164.all;
 entity ID_EX is
   port (
     iCLK : in std_logic;
+    iFlush : in std_logic;
+    iStall : in std_logic;
     iRST : in std_logic;
 
     -- Datapath inputs
@@ -107,8 +109,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rs1_data,
       o_Q   => o_rs1_data
     );
@@ -117,8 +119,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rs2_data,
       o_Q   => o_rs2_data
     );
@@ -127,8 +129,8 @@ begin
     generic map(N => 5)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rs1,
       o_Q   => o_rs1
     );
@@ -137,8 +139,8 @@ begin
     generic map(N => 5)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rs2,
       o_Q   => o_rs2
     );
@@ -147,8 +149,8 @@ begin
     generic map(N => 5)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rd,
       o_Q   => o_rd
     );
@@ -157,8 +159,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_imm,
       o_Q   => o_imm
     );
@@ -167,8 +169,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_pc,
       o_Q   => o_pc
     );
@@ -181,8 +183,8 @@ begin
     generic map(N => 4)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_ALUOp,
       o_Q   => o_ALUOp
     );
@@ -191,8 +193,8 @@ begin
     generic map(N => 3)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_func3,
       o_Q   => o_func3
     );
@@ -201,8 +203,8 @@ begin
     generic map(N => 7)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_func7,
       o_Q   => o_func7
     );
@@ -211,8 +213,8 @@ begin
     generic map(N => 7)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_opcode,
       o_Q   => o_opcode
     );
@@ -222,8 +224,8 @@ begin
   ALUSRC_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_ALUSrc,
       o_Q   => o_ALUSrc
     );
@@ -231,8 +233,8 @@ begin
   SIGNED_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_signed,
       o_Q   => o_signed
     );
@@ -240,8 +242,8 @@ begin
   BRANCH_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_Branch,
       o_Q   => o_Branch
     );
@@ -249,8 +251,8 @@ begin
   JUMP_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_Jump,
       o_Q   => o_Jump
     );
@@ -258,8 +260,8 @@ begin
   AUIPC_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_auipc,
       o_Q   => o_auipc
     );
@@ -267,8 +269,8 @@ begin
   UIMM_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_upperIMM,
       o_Q   => o_upperIMM
     );
@@ -276,8 +278,8 @@ begin
   MEMWR_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_MemWr,
       o_Q   => o_MemWr
     );
@@ -285,8 +287,8 @@ begin
   MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_MemReg,
       o_Q   => o_MemReg
     );
@@ -294,8 +296,8 @@ begin
   REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_RegWr,
       o_Q   => o_RegWr
     );
@@ -303,8 +305,8 @@ begin
   HALT_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_Halt,
       o_Q   => o_Halt
     );

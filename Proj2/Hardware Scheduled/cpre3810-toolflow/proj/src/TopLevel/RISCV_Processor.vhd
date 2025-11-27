@@ -185,6 +185,8 @@ architecture structure of RISCV_Processor is
   component IF_ID is
     port (
       iCLK    : in  std_logic;
+      iFlush  : in  std_logic;
+      iStall  : in  std_logic;
       iRST    : in  std_logic;
 
       -- Inputs from IF stage
@@ -200,6 +202,8 @@ architecture structure of RISCV_Processor is
   component ID_EX is
     port (
       iCLK : in std_logic;
+      iFlush : in std_logic;
+      iStall : in std_logic;
       iRST : in std_logic;
 
       -- Datapath inputs
@@ -257,6 +261,8 @@ architecture structure of RISCV_Processor is
   component EX_MEM is
     port (
       iCLK : in std_logic;
+      iFlush : in std_logic;
+      iStall : in std_logic;
       iRST : in std_logic;
 
       -- Datapath inputs
@@ -294,6 +300,8 @@ architecture structure of RISCV_Processor is
   component MEM_WB is
     port (
       iCLK : in std_logic;
+      iFlush : in std_logic;
+      iStall : in std_logic;
       iRST : in std_logic;
 
       -- Datapath inputs
@@ -487,6 +495,8 @@ begin
   IF_ID_REG: IF_ID
     port map(
       iCLK   => iCLK,
+      iFlush => '0',
+      iStall => '0',
       iRST   => iRST,
       i_pc   => s_NextInstAddr,   -- PC going into IF/ID
       i_inst => s_Inst,           -- Instruction from IMEM
@@ -561,6 +571,8 @@ begin
   ID_EX_REG: ID_EX
     port map(
       iCLK => iCLK,
+      iFlush => '0',
+      iStall => '0',
       iRST => iRST,
 
       -- Datapath in
@@ -715,6 +727,8 @@ s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_a
   EX_MEM_REG: EX_MEM
     port map(
       iCLK => iCLK,
+      iFlush => '0',
+      iStall => '0',
       iRST => iRST,
 
       i_ALU_result => s_ALUResult,
@@ -767,6 +781,8 @@ s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_a
   MEM_WB_REG: MEM_WB
     port map(
       iCLK => iCLK,
+      iFlush => '0',
+      iStall => '0',
       iRST => iRST,
 
       i_MEM_data   => s_LoadData,

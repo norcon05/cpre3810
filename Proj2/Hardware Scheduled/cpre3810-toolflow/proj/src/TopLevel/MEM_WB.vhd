@@ -19,6 +19,8 @@ use IEEE.std_logic_1164.all;
 entity MEM_WB is
   port (
     iCLK : in std_logic;
+    iFLush : in std_logic;
+    iStall : in std_logic;
     iRST : in std_logic;
 
     -- Datapath inputs
@@ -83,8 +85,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_MEM_data,
       o_Q   => o_MEM_data
     );
@@ -93,8 +95,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_ALU_result,
       o_Q   => o_ALU_result
     );
@@ -103,8 +105,8 @@ begin
     generic map(N => 5)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_rd,
       o_Q   => o_rd
     );
@@ -113,8 +115,8 @@ begin
     generic map(N => 3)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_func3,
       o_Q   => o_func3
     );
@@ -123,8 +125,8 @@ begin
     generic map(N => 7)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_func7,
       o_Q   => o_func7
     );
@@ -133,8 +135,8 @@ begin
     generic map(N => 7)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_opcode,
       o_Q   => o_opcode
     );
@@ -146,8 +148,8 @@ begin
   MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_MemReg,
       o_Q   => o_MemReg
     );
@@ -155,8 +157,8 @@ begin
   REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_RegWr,
       o_Q   => o_RegWr
     );
@@ -164,8 +166,8 @@ begin
   HALT_REG: dffg
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,
       i_D   => i_Halt,
       o_Q   => o_Halt
     );

@@ -19,6 +19,8 @@ use IEEE.std_logic_1164.all;
 entity IF_ID is
   port (
     iCLK    : in  std_logic;
+    iStall  : in  std_logic;
+    iFlush  : in  std_logic;
     iRST    : in  std_logic;
 
     -- Inputs from IF stage
@@ -54,8 +56,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',        -- Always write IF/ID; no stalls in this design
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
       i_D   => i_pc,
       o_Q   => o_pc
     );
@@ -67,8 +69,8 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iRST,
-      i_WE  => '1',        -- Always write IF/ID; software handles hazards
+      i_RST => iFlush or iRST,
+      i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
       i_D   => i_inst,
       o_Q   => o_inst
     );
