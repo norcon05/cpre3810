@@ -26,6 +26,7 @@ entity pcLogic is
     i_rs1          : in std_logic_vector(31 downto 0);      -- Value from register rs1 (used for JALR)
     i_imm          : in std_logic_vector(31 downto 0);      -- 32-bit immediate from instruction (used in branches, JAL, JALR)
     i_current_PC   : in std_logic_vector(31 downto 0);      -- Current PC value (for calculating branch targets)
+    i_PC_STALL     : in std_logic;                          -- Stall signal for PC
     i_PC_SEL       : in std_logic_vector(1 downto 0);       -- PC Next Value Selection: 
 	                                                        -- 00: PC + 4         (Default)
                                                             -- 01: PC + imm       (Branch)
@@ -83,7 +84,7 @@ begin
     port map (
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE  => i_PC_WE ,
+      i_WE  => i_PC_WE and (not i_PC_STALL),  -- PC only updates if WE is high and not stalled
       i_D   => s_pc_next,
       o_Q   => s_pc
     );
