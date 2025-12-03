@@ -140,6 +140,33 @@ architecture structure of RISCV_Processor is
        o_auipc		: out std_logic);
     end component;
 
+  component HazardDetection is
+    port(
+       i_rs1	      : in std_logic_vector(4 downto 0); -- Source register 1 (What we are reading from)
+       i_rs2	      : in std_logic_vector(4 downto 0); -- Source register 2 (What we are reading from)
+       i_PC_SEL       : in std_logic_vector(1 downto 0); -- PC Next Value Selection: 
+                                                            -- 00: PC + 4         (Default)  - Do nothing
+                                                            -- 01: PC + imm       (Branch)   - Flush
+                                                            -- 10: PC + imm       (JAL)      - Flush
+                                                            -- 11: rs1 + imm      (JALR)     - Flush
+       i_IDEX_rd      : in std_logic_vector(4 downto 0); -- Destination register in IDEX stage (What we are writing to)
+       i_IDEX_RegWrite  : in std_logic;                  -- RegWrite signal in IDEX stage
+       i_EXMEM_rd     : in std_logic_vector(4 downto 0); -- Destination register in EXMEM stage (What we are writing to)
+       i_EXMEM_RegWrite : in std_logic;                  -- RegWrite signal in EXMEM stage
+       i_MEMWB_rd     : in std_logic_vector(4 downto 0); -- Destination register in MEMWB stage (What we are writing to)
+       i_MEMWB_RegWrite : in std_logic;                  -- RegWrite signal in MEMWB stage
+
+       o_IFID_stall : out std_logic;                     -- Stall signal for IFID register
+       o_IFID_flush : out std_logic;                     -- Flush signal for IFID register
+       o_IDEX_stall : out std_logic;                     -- Stall signal for IDEX register
+       o_IDEX_flush : out std_logic;                     -- Flush signal for IDEX register
+       o_EXMEM_stall : out std_logic;                    -- Stall signal for EXMEM register
+       o_EXMEM_flush : out std_logic;                    -- Flush signal for EXMEM register
+       o_MEMWB_stall : out std_logic;                    -- Stall signal for MEMWB register
+       o_MEMWB_flush : out std_logic;                    -- Flush signal for MEMWB register
+       o_PC_stall   : out std_logic);                    -- Stall signal for PC
+    end component;
+
   component extender is
     port (i_imm12bit  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
           i_imm20bit  : in  STD_LOGIC_VECTOR(19 downto 0);   -- 20-bit input
@@ -376,9 +403,14 @@ architecture structure of RISCV_Processor is
   signal s_PC_WE     : std_logic;
   signal s_PC_BA     : std_logic_vector(N-1 downto 0);
   signal s_four	     : std_logic_vector(N-1 downto 0);
+  signal s_PC_stall  : std_logic;
 
   -- Load Byte, Half-Word
   signal s_LoadData : std_logic_vector(N-1 downto 0);
+
+  -- IF/ID controls
+  signal s_IFID_stall   : std_logic;
+  signal s_IFID_flush   : std_logic;
 
   -- IF/ID outputs
   signal s_IFID_PC     : std_logic_vector(31 downto 0);
@@ -408,6 +440,8 @@ architecture structure of RISCV_Processor is
   signal s_IDEX_MemReg    : std_logic;
   signal s_IDEX_RegWr     : std_logic;
   signal s_IDEX_Halt      : std_logic;
+  signal s_IDEX_stall     : std_logic;
+  signal s_IDEX_flush     : std_logic; 
 
   -- EX/MEM outputs
   signal s_EXMEM_ALU_result : std_logic_vector(31 downto 0);
@@ -423,6 +457,8 @@ architecture structure of RISCV_Processor is
   signal s_EXMEM_MemReg     : std_logic;
   signal s_EXMEM_RegWr      : std_logic;
   signal s_EXMEM_Halt       : std_logic;
+  signal s_EXMEM_stall      : std_logic;
+  signal s_EXMEM_flush      : std_logic;
 
   -- MEM/WB outputs
   signal s_MEMWB_MEM_data   : std_logic_vector(31 downto 0);
@@ -436,6 +472,8 @@ architecture structure of RISCV_Processor is
   signal s_MEMWB_MemReg     : std_logic;
   signal s_MEMWB_RegWr      : std_logic;
   signal s_MEMWB_Halt       : std_logic;
+  signal s_MEMWB_stall      : std_logic;
+  signal s_MEMWB_flush      : std_logic;
 
 begin
 
@@ -488,7 +526,7 @@ begin
       i_rs1     => s_IDEX_rs1_data,
       i_imm     => s_IDEX_imm,
       i_current_PC => s_IDEX_pc,
-      i_PC_STALL  => '0',
+      i_PC_STALL  => s_PC_stall,
       i_PC_SEL  => s_PC_SEL,
       o_PC      => s_NextInstAddr
     );
@@ -497,8 +535,8 @@ begin
   IF_ID_REG: IF_ID
     port map(
       iCLK   => iCLK,
-      iFlush => '0',
-      iStall => '0',
+      iFlush => s_IFID_flush,
+      iStall => s_IFID_stall,
       iRST   => iRST,
       i_pc   => s_NextInstAddr,   -- PC going into IF/ID
       i_inst => s_Inst,           -- Instruction from IMEM
@@ -543,6 +581,28 @@ begin
       o_upperIMM => s_upperIMM,
       o_auipc	 => s_auipc
     );
+  
+  HAZARD_DETECTION: HazardDetection
+    port map(
+      i_rs1	        => s_rs1,
+      i_rs2	        => s_rs2,
+      i_PC_SEL       => s_PC_SEL,
+      i_IDEX_rd      => s_IDEX_rd,
+      i_IDEX_RegWrite  => s_IDEX_RegWr,
+      i_EXMEM_rd     => s_EXMEM_rd,
+      i_EXMEM_RegWrite => s_EXMEM_RegWr,
+      i_MEMWB_rd     => s_MEMWB_rd,
+      i_MEMWB_RegWrite => s_MEMWB_RegWr,
+      o_IFID_stall   => s_IFID_stall,
+      o_IFID_flush   => s_IFID_flush,
+      o_IDEX_stall   => s_IDEX_stall,
+      o_IDEX_flush   => s_IDEX_flush,
+      o_EXMEM_stall  => s_EXMEM_stall,
+      o_EXMEM_flush  => s_EXMEM_flush,
+      o_MEMWB_stall  => s_MEMWB_stall,
+      o_MEMWB_flush  => s_MEMWB_flush,
+      o_PC_stall     => s_PC_stall
+    );
 
   -- Register File
   RF: regFile
@@ -573,8 +633,8 @@ begin
   ID_EX_REG: ID_EX
     port map(
       iCLK => iCLK,
-      iFlush => '0',
-      iStall => '0',
+      iFlush => s_IDEX_flush,
+      iStall => s_IDEX_stall,
       iRST => iRST,
 
       -- Datapath in
@@ -729,8 +789,8 @@ s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_a
   EX_MEM_REG: EX_MEM
     port map(
       iCLK => iCLK,
-      iFlush => '0',
-      iStall => '0',
+      iFlush => s_EXMEM_flush,
+      iStall => s_EXMEM_stall,
       iRST => iRST,
 
       i_ALU_result => s_ALUResult,
@@ -783,8 +843,8 @@ s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_a
   MEM_WB_REG: MEM_WB
     port map(
       iCLK => iCLK,
-      iFlush => '0',
-      iStall => '0',
+      iFlush => s_MEMWB_flush,
+      iStall => s_MEMWB_stall,
       iRST => iRST,
 
       i_MEM_data   => s_LoadData,
