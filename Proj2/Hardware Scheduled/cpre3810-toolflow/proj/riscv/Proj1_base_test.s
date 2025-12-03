@@ -12,16 +12,7 @@ test_data:  .word  0x12345678, 0x00000000, 0x11111111, 0x22222222
 ###############################################################
 main:
       lui   sp, 0x80000
-      
-      #la    s0, test_data       # load base address of test_data
-      #Replaced pseudo-instruction with explicit instructions
-      lui s0, %hi(test_data) # Replace
-      nop
-      nop
-      nop
-      addi  s0, s0, %lo(test_data) # Replace
-
-
+      la    s0, test_data       # load base address of test_data
       addi  sp, sp, -32         # allocate stack space
       
       ###########################################################
@@ -29,9 +20,6 @@ main:
       ###########################################################
       addi  s1, zero, 10        # s1 = 10
       addi  s2, zero, 20        # s2 = 20
-      nop
-      nop
-      nop
       add   s3, s1, s2          # s3 = 30
       sub   s4, s2, s1          # s4 = 10
       
@@ -84,26 +72,20 @@ main:
       ###########################################################
       beq   s1, s1, branch_eq   # branch if equal
       nop
-      nop
       branch_eq:
             bne   s1, s2, branch_ne   # branch if not equal
-            nop
             nop
       branch_ne:
             blt   s1, s2, branch_lt   # branch if less than
             nop
-            nop
       branch_lt:
             bge   s2, s1, branch_ge   # branch if greater/equal
-            nop
             nop
       branch_ge:
             bltu  s1, s2, branch_ltu  # branch if less than (unsigned)
             nop
-            nop
       branch_ltu:
             bgeu  s2, s1, branch_geu  # branch if greater/equal (unsigned)
-            nop
             nop
       branch_geu:
       
@@ -111,8 +93,6 @@ main:
       # Jump and link tests
       ###########################################################
       jal   ra, test_function   # call test_function, store return in ra
-      nop
-      nop
       
       after_jal:
             ori   s11, zero, 0x123    # verify we returned correctly
@@ -122,8 +102,6 @@ main:
       ###########################################################
       addi  sp, sp, 32          # restore stack
       j     done
-      nop
-      nop
 
 ###############################################################
 # Subroutine to test JALR return
@@ -131,8 +109,6 @@ main:
 test_function:
       addi  t0, zero, 42        # some operation
       jalr  zero, 0(ra)         # return to caller
-      nop
-      nop
       
 ###############################################################
 # Program end
