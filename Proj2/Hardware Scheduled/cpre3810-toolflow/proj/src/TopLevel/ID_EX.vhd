@@ -107,6 +107,9 @@ architecture structural of ID_EX is
   signal s_imm_in      : std_logic_vector(31 downto 0);
   signal s_pc_in       : std_logic_vector(31 downto 0);
   signal s_aluop_in    : std_logic_vector(3 downto 0);
+  signal s_func3_in    : std_logic_vector(2 downto 0);
+  signal s_func7_in    : std_logic_vector(6 downto 0);
+  signal s_opcode_in   : std_logic_vector(6 downto 0);
   signal s_alusrc_in   : std_logic;
   signal s_signed_in   : std_logic;
   signal s_branch_in   : std_logic;
@@ -224,7 +227,7 @@ begin
       o_Q   => o_ALUOp
     );
 
-  s_rd_in <= (others => '0') when iFlush = '1' else i_rd;
+  s_func3_in <= (others => '0') when iFlush = '1' else i_rd;
 
   FUNC3_REG: reg_N
     generic map(N => 3)
@@ -260,7 +263,6 @@ begin
       o_Q   => o_opcode
     );
 
-  -- 1-bit controls now implemented with dffg
   s_alusrc_in <= '0' when iFlush = '1' else i_ALUSrc;
 
   ALUSRC_REG: dffg

@@ -172,7 +172,7 @@ begin
   -- Control registers
   -------------------------------------------------------------------
 
-  s_branch_in <= (others => '0') when iFlush = '1' else i_Branch;
+  s_branch_in <= '0' when iFlush = '1' else i_Branch;
 
   BRANCH_REG: dffg
     port map(
@@ -183,7 +183,7 @@ begin
       o_Q   => o_Branch
     );
 
-  s_memwr_in <= (others => '0') when iFlush = '1' else i_MemWr;
+  s_memwr_in <= '0' when iFlush = '1' else i_MemWr;
 
   MEMWR_REG: dffg
     port map(
@@ -194,7 +194,7 @@ begin
       o_Q   => o_MemWr
     );
 
-  s_memreg_in <= (others => '0') when iFlush = '1' else i_MemReg;
+  s_memreg_in <= '0' when iFlush = '1' else i_MemReg;
 
   MEMREG_REG: dffg
     port map(
@@ -205,7 +205,7 @@ begin
       o_Q   => o_MemReg
     );
 
-  s_regwr_in <= (others => '0') when iFlush = '1' else i_RegWr;
+  s_regwr_in <= '0' when iFlush = '1' else i_RegWr;
 
   REGWR_REG: dffg
     port map(
@@ -216,7 +216,7 @@ begin
       o_Q   => o_RegWr
     );
 
-  s_halt_in <= (others => '0') when iFlush = '1' else i_Halt;
+  s_halt_in <= '0' when iFlush = '1' else i_Halt;
 
   HALT_REG: dffg
     port map(
