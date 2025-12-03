@@ -63,6 +63,7 @@ architecture structural of EX_MEM is
     port(
       i_CLK : in std_logic;
       i_RST : in std_logic;
+      i_Flush : in std_logic;
       i_WE  : in std_logic;
       i_D   : in std_logic_vector(N-1 downto 0);
       o_Q   : out std_logic_vector(N-1 downto 0)
@@ -73,157 +74,134 @@ architecture structural of EX_MEM is
     port(
       i_CLK : in std_logic;
       i_RST : in std_logic;
+      i_Flush : in std_logic;
       i_WE  : in std_logic;
       i_D   : in std_logic;
       o_Q   : out std_logic
     );
   end component;
 
-  signal s_alu_result_in : std_logic_vector(31 downto 0);
-  signal s_rs2_data_in   : std_logic_vector(31 downto 0);
-  signal s_rd_in         : std_logic_vector(4 downto 0);
-  signal s_func3_in      : std_logic_vector(2 downto 0);
-  signal s_func7_in      : std_logic_vector(6 downto 0);
-  signal s_opcode_in     : std_logic_vector(6 downto 0);
-  signal s_branch_in     : std_logic;
-  signal s_memwr_in      : std_logic;
-  signal s_memreg_in     : std_logic;
-  signal s_regwr_in      : std_logic;
-  signal s_halt_in       : std_logic;
-
 begin
 
   -------------------------------------------------------------------
   -- Datapath registers
   -------------------------------------------------------------------
-  s_alu_result_in <= (others => '0') when iFlush = '1' else i_ALU_result;
-  
   ALU_RESULT_REG: reg_N
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_alu_result_in,
+      i_D   => i_ALU_result,
       o_Q   => o_ALU_result
     );
-
-  s_rs2_data_in <= (others => '0') when iFlush = '1' else i_rs2_data;
 
   RS2_DATA_REG: reg_N
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_rs2_data_in,
+      i_D   => i_rs2_data,
       o_Q   => o_rs2_data
     );
-
-  s_rd_in <= (others => '0') when iFlush = '1' else i_rd;
 
   RD_REG: reg_N
     generic map(N => 5)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_rd_in,
+      i_D   => i_rd,
       o_Q   => o_rd
     );
-
-  s_func3_in <= (others => '0') when iFlush = '1' else i_func3;
 
   FUNC3_REG: reg_N
     generic map(N => 3)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_func3_in,
+      i_D   => i_func3,
       o_Q   => o_func3
     );
   
-  s_func7_in <= (others => '0') when iFlush = '1' else i_func7;
-
   FUNC7_REG: reg_N
     generic map(N => 7) 
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_func7_in,
+      i_D   => i_func7,
       o_Q   => o_func7
     );
-  
-  s_opcode_in <= (others => '0') when iFlush = '1' else i_opcode;
 
   OPCODE_REG: reg_N
     generic map(N => 7) 
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_opcode_in,
+      i_D   => i_opcode,
       o_Q   => o_opcode
     );
 
   -------------------------------------------------------------------
   -- Control registers
   -------------------------------------------------------------------
-
-  s_branch_in <= '0' when iFlush = '1' else i_Branch;
-
   BRANCH_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_branch_in,
+      i_D   => i_Branch,
       o_Q   => o_Branch
     );
-
-  s_memwr_in <= '0' when iFlush = '1' else i_MemWr;
 
   MEMWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_memwr_in,
+      i_D   => i_MemWr,
       o_Q   => o_MemWr
     );
-
-  s_memreg_in <= '0' when iFlush = '1' else i_MemReg;
 
   MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_memreg_in,
+      i_D   => i_MemReg,
       o_Q   => o_MemReg
     );
-
-  s_regwr_in <= '0' when iFlush = '1' else i_RegWr;
 
   REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_regwr_in,
+      i_D   => i_RegWr,
       o_Q   => o_RegWr
     );
-
-  s_halt_in <= '0' when iFlush = '1' else i_Halt;
 
   HALT_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,
-      i_D   => s_halt_in,
+      i_D   => i_Halt,
       o_Q   => o_Halt
     );
 

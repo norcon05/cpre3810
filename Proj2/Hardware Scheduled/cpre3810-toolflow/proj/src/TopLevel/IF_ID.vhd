@@ -41,6 +41,7 @@ architecture structural of IF_ID is
     port(
       i_CLK : in  std_logic;
       i_RST : in  std_logic;
+      i_Flush : in std_logic;
       i_WE  : in  std_logic;
       i_D   : in  std_logic_vector(N-1 downto 0);
       o_Q   : out std_logic_vector(N-1 downto 0)
@@ -55,31 +56,28 @@ begin
   -------------------------------------------------------------------
   -- PC pipeline register
   -------------------------------------------------------------------
-  
-  s_pc_in <= (others => '0') when iFlush = '1' else i_pc;
-
   PC_REG: reg_N
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
-      i_D   => s_pc_in,
+      i_D   => i_pc,
       o_Q   => o_pc
     );
 
   -------------------------------------------------------------------
   -- Instruction pipeline register
   -------------------------------------------------------------------
-  s_inst_in <= (others => '0') when iFlush = '1' else i_inst;
-
   INST_REG: reg_N
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
+      i_Flush => iFlush,
       i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
-      i_D   => s_inst_in,
+      i_D   => i_inst,
       o_Q   => o_inst
     );
 

@@ -53,6 +53,7 @@ architecture structural of pcLogic is
     generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
 	port(i_CLK : in std_logic;                         -- Clock
          i_RST : in std_logic;                         -- Reset
+         i_Flush : in std_logic;                        -- Flush
          i_WE  : in std_logic;                         -- Write Enable
          i_D   : in std_logic_vector(31 downto 0);    -- Input data
          o_Q   : out std_logic_vector(31 downto 0));  -- Output data
@@ -84,6 +85,7 @@ begin
     port map (
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => i_PC_WE and (not i_PC_STALL),  -- PC only updates if WE is high and not stalled
       i_D   => s_pc_next,
       o_Q   => s_pc

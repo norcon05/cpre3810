@@ -37,6 +37,7 @@ architecture structural of regFile is
   generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32. 
 	port(i_CLK : in std_logic;                         -- Clock
          i_RST : in std_logic;                         -- Reset
+         i_Flush : in std_logic;                        -- Flush
          i_WE  : in std_logic;                         -- Write Enable
          i_D   : in std_logic_vector(N-1 downto 0);    -- Input data
          o_Q   : out std_logic_vector(N-1 downto 0));  -- Output data
@@ -200,6 +201,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we1,
       i_D   => i_rd_data,
       o_Q   => s_reg_out1
@@ -210,6 +212,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we2,
       i_D   => i_rd_data,
       o_Q   => s_reg_out2
@@ -220,6 +223,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we3,
       i_D   => i_rd_data,
       o_Q   => s_reg_out3
@@ -230,6 +234,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we4,
       i_D   => i_rd_data,
       o_Q   => s_reg_out4
@@ -240,6 +245,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we5,
       i_D   => i_rd_data,
       o_Q   => s_reg_out5
@@ -250,6 +256,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we6,
       i_D   => i_rd_data,
       o_Q   => s_reg_out6
@@ -260,6 +267,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we7,
       i_D   => i_rd_data,
       o_Q   => s_reg_out7
@@ -270,6 +278,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we8,
       i_D   => i_rd_data,
       o_Q   => s_reg_out8
@@ -280,6 +289,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we9,
       i_D   => i_rd_data,
       o_Q   => s_reg_out9
@@ -290,6 +300,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we10,
       i_D   => i_rd_data,
       o_Q   => s_reg_out10
@@ -300,6 +311,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we11,
       i_D   => i_rd_data,
       o_Q   => s_reg_out11
@@ -310,6 +322,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we12,
       i_D   => i_rd_data,
       o_Q   => s_reg_out12
@@ -320,6 +333,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we13,
       i_D   => i_rd_data,
       o_Q   => s_reg_out13
@@ -330,6 +344,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we14,
       i_D   => i_rd_data,
       o_Q   => s_reg_out14
@@ -340,6 +355,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we15,
       i_D   => i_rd_data,
       o_Q   => s_reg_out15
@@ -350,6 +366,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we16,
       i_D   => i_rd_data,
       o_Q   => s_reg_out16
@@ -360,6 +377,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we17,
       i_D   => i_rd_data,
       o_Q   => s_reg_out17
@@ -370,6 +388,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we18,
       i_D   => i_rd_data,
       o_Q   => s_reg_out18
@@ -380,6 +399,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we19,
       i_D   => i_rd_data,
       o_Q   => s_reg_out19
@@ -390,6 +410,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we20,
       i_D   => i_rd_data,
       o_Q   => s_reg_out20
@@ -400,6 +421,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we21,
       i_D   => i_rd_data,
       o_Q   => s_reg_out21
@@ -410,6 +432,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we22,
       i_D   => i_rd_data,
       o_Q   => s_reg_out22
@@ -420,6 +443,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we23,
       i_D   => i_rd_data,
       o_Q   => s_reg_out23
@@ -430,6 +454,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we24,
       i_D   => i_rd_data,
       o_Q   => s_reg_out24
@@ -440,6 +465,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we25,
       i_D   => i_rd_data,
       o_Q   => s_reg_out25
@@ -450,6 +476,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we26,
       i_D   => i_rd_data,
       o_Q   => s_reg_out26
@@ -460,6 +487,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we27,
       i_D   => i_rd_data,
       o_Q   => s_reg_out27
@@ -470,6 +498,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we28,
       i_D   => i_rd_data,
       o_Q   => s_reg_out28
@@ -480,6 +509,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we29,
       i_D   => i_rd_data,
       o_Q   => s_reg_out29
@@ -490,6 +520,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we30,
       i_D   => i_rd_data,
       o_Q   => s_reg_out30
@@ -500,6 +531,7 @@ begin
     port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
+      i_Flush => '0',
       i_WE  => s_we31,
       i_D   => i_rd_data,
       o_Q   => s_reg_out31
