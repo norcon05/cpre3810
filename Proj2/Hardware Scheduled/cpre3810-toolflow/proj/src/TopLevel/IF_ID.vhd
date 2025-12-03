@@ -56,9 +56,9 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iFlush or iRST,
+      i_RST => iRST,
       i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
-      i_D   => i_pc,
+      i_D   => (others => '0') when iFlush = '1' else i_pc,
       o_Q   => o_pc
     );
 
@@ -69,9 +69,9 @@ begin
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
-      i_RST => iFlush or iRST,
+      i_RST => iRST,
       i_WE  => not iStall,        -- Stall control for IF/ID pipeline register
-      i_D   => i_inst,
+      i_D   => (others => '0') when iFlush = '1' else i_inst,
       o_Q   => o_inst
     );
 
