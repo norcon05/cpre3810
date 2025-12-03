@@ -227,7 +227,7 @@ begin
       o_Q   => o_ALUOp
     );
 
-  s_func3_in <= (others => '0') when iFlush = '1' else i_rd;
+  s_func3_in <= (others => '0') when iFlush = '1' else i_func3;
 
   FUNC3_REG: reg_N
     generic map(N => 3)

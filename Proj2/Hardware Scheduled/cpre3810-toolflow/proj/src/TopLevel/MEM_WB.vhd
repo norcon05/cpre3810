@@ -49,16 +49,6 @@ entity MEM_WB is
     o_RegWr      : out std_logic;
     o_Halt       : out std_logic
   );
-
-  signal s_MEM_data_in   : std_logic_vector(31 downto 0);
-  signal s_ALU_result_in : std_logic_vector(31 downto 0);
-  signal s_rd_in         : std_logic_vector(4 downto 0);
-  signal s_func3_in     : std_logic_vector(2 downto 0);
-  signal s_func7_in     : std_logic_vector(6 downto 0);
-  signal s_opcode_in    : std_logic_vector(6 downto 0);
-  signal s_MemReg_in     : std_logic;
-  signal s_RegWr_in      : std_logic;
-  signal s_Halt_in       : std_logic;
 end entity;
 
 
@@ -84,6 +74,16 @@ architecture structural of MEM_WB is
       o_Q   : out std_logic
     );
   end component;
+
+  signal s_MEM_data_in   : std_logic_vector(31 downto 0);
+  signal s_ALU_result_in : std_logic_vector(31 downto 0);
+  signal s_rd_in         : std_logic_vector(4 downto 0);
+  signal s_func3_in      : std_logic_vector(2 downto 0);
+  signal s_func7_in      : std_logic_vector(6 downto 0);
+  signal s_opcode_in     : std_logic_vector(6 downto 0);
+  signal s_MemReg_in     : std_logic;
+  signal s_RegWr_in      : std_logic;
+  signal s_Halt_in       : std_logic;
 
 begin
 
