@@ -49,6 +49,16 @@ entity MEM_WB is
     o_RegWr      : out std_logic;
     o_Halt       : out std_logic
   );
+
+  signal s_MEM_data_in   : std_logic_vector(31 downto 0);
+  signal s_ALU_result_in : std_logic_vector(31 downto 0);
+  signal s_rd_in         : std_logic_vector(4 downto 0);
+  signal s_func3_in     : std_logic_vector(2 downto 0);
+  signal s_func7_in     : std_logic_vector(6 downto 0);
+  signal s_opcode_in    : std_logic_vector(6 downto 0);
+  signal s_MemReg_in     : std_logic;
+  signal s_RegWr_in      : std_logic;
+  signal s_Halt_in       : std_logic;
 end entity;
 
 
@@ -81,15 +91,19 @@ begin
   -- Datapath registers
   -------------------------------------------------------------------
 
+  s_MEM_data_in <= (others => '0') when iFlush = '1' else i_MEM_data;
+
   MEM_DATA_REG: reg_N
     generic map(N => 32)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_MEM_data,
+      i_D   => s_MEM_data_in,
       o_Q   => o_MEM_data
     );
+
+  s_ALU_result_in <= (others => '0') when iFlush = '1' else i_ALU_result;
 
   ALU_RESULT_REG: reg_N
     generic map(N => 32)
@@ -97,9 +111,11 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_ALU_result,
+      i_D   => s_ALU_result_in,
       o_Q   => o_ALU_result
     );
+
+  s_rd_in <= (others => '0') when iFlush = '1' else i_rd;
 
   RD_REG: reg_N
     generic map(N => 5)
@@ -107,19 +123,23 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_rd,
+      i_D   => s_rd_in,
       o_Q   => o_rd
     );
 
+  s_func3_in <= (others => '0') when iFlush = '1' else i_func3;
+  
   FUNC3_REG: reg_N
     generic map(N => 3)
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_func3,
+      i_D   => s_func3_in,
       o_Q   => o_func3
     );
+
+  s_func7_in <= (others => '0') when iFlush = '1' else i_func7;
 
   FUNC7_REG: reg_N
     generic map(N => 7)
@@ -127,9 +147,11 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_func7,
+      i_D   => s_func7_in,
       o_Q   => o_func7
     );
+
+  s_opcode_in <= (others => '0') when iFlush = '1' else i_opcode;
 
   OPCODE_REG: reg_N
     generic map(N => 7)
@@ -137,7 +159,7 @@ begin
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_opcode,
+      i_D   => s_opcode_in,
       o_Q   => o_opcode
     );
 
@@ -145,30 +167,36 @@ begin
   -- Control registers
   -------------------------------------------------------------------
 
+  s_MemReg_in <= '0' when iFlush = '1' else i_MemReg;
+
   MEMREG_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_MemReg,
+      i_D   => s_MemReg_in,
       o_Q   => o_MemReg
     );
+
+  s_RegWr_in <= '0' when iFlush = '1' else i_RegWr;
 
   REGWR_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_RegWr,
+      i_D   => s_RegWr_in,
       o_Q   => o_RegWr
     );
   
+  s_Halt_in <= '0' when iFlush = '1' else i_Halt;
+
   HALT_REG: dffg
     port map(
       i_CLK => iCLK,
       i_RST => iRST,
       i_WE  => not iStall,
-      i_D   => (others => '0') when iFlush = '1' else i_Halt,
+      i_D   => s_Halt_in,
       o_Q   => o_Halt
     );
 
