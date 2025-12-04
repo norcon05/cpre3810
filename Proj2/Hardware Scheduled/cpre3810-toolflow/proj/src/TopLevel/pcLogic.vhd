@@ -75,10 +75,13 @@ architecture structural of pcLogic is
   signal s_jalr_target_aligned : std_logic_vector(31 downto 0); -- Target address for JALR with LSB cleared (byte addressable memory)
   signal s_jalr_adjusted : std_logic_vector(31 downto 0);       -- 
   signal s_PC_BA         : std_logic_vector(31 downto 0) := x"FFC00000"; -- = -0x00400000 in 2’s complement  (PC base address)
+  signal s_Stall_PC      : std_logic; -- Used to stall the PC
 
   signal s_unused_carry        : std_logic;                     -- Holds the value of the carries (not used)
 
 begin
+  s_Stall_PC <= '1' when (i_PC_STALL = '1') and (i_PC_SEL = "00") else '0';
+
   -- PC register
   PC_Register : reg_N
     generic map (N => 32)
@@ -86,7 +89,7 @@ begin
       i_CLK => i_CLK,
       i_RST => i_RST,
       i_Flush => '0',
-      i_WE  => i_PC_WE and (not i_PC_STALL),  -- PC only updates if WE is high and not stalled
+      i_WE  => i_PC_WE and (not s_Stall_PC),  -- PC only updates if WE is high and not stalled
       i_D   => s_pc_next,
       o_Q   => s_pc
     );
