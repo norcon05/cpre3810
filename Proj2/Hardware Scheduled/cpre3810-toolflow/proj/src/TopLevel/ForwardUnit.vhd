@@ -83,6 +83,10 @@ begin
 
   ----------------------------------------------------
   -- ForwardB (2 bits)
+   -- Priority:
+  --   1. EX/MEM hazard → "10"
+  --   2. MEM/WB hazard → "01"
+  --   3. Otherwise     → "00"
   ----------------------------------------------------
   o_ForwardB <= 
         "10" when exmem_hazard_rs2 = '1' else

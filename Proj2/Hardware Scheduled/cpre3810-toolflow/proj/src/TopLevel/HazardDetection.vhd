@@ -32,64 +32,37 @@ entity HazardDetection is
    end HazardDetection;
 architecture dataflow of HazardDetection is
 
-    ----------------------------------------------------------------------
-    -- Detect RAW hazard with ANY stage because we do NOT have forwarding
-    ----------------------------------------------------------------------
-    signal hazard_IDEX  : std_logic;
-    signal hazard_EXMEM : std_logic;
-    signal hazard_MEMWB : std_logic;
-
-    signal hazard : std_logic;
-
-    ----------------------------------------------------------------------
-    -- Detect control hazard (branch, JAL, JALR)
-    ----------------------------------------------------------------------
-    signal flush_ctl : std_logic;
+    signal load_use_hazard : std_logic;
+    signal flush_ctl       : std_logic;
 
 begin
-    
+
     ----------------------------------------------------------------------
-    -- RAW hazard detection
+    -- Load-use hazard: only remaining data hazard with forwarding
     ----------------------------------------------------------------------
-    hazard_IDEX <= '1' when
-        i_IDEX_RegWrite = '1' and i_IDEX_rd /= "00000" and
+    load_use_hazard <= '1' when
+        i_IDEX_MemRead = '1' and
+        i_IDEX_rd /= "00000" and
         (i_IDEX_rd = i_rs1 or i_IDEX_rd = i_rs2)
     else '0';
 
-    hazard_EXMEM <= '1' when
-        i_EXMEM_RegWrite = '1' and i_EXMEM_rd /= "00000" and
-        (i_EXMEM_rd = i_rs1 or i_EXMEM_rd = i_rs2)
-    else '0';
-
-    hazard_MEMWB <= '1' when
-        i_MEMWB_RegWrite = '1' and i_MEMWB_rd /= "00000" and
-        (i_MEMWB_rd = i_rs1 or i_MEMWB_rd = i_rs2)
-    else '0';
-
-    -- Combined hazard flag
-    hazard <= hazard_IDEX or hazard_EXMEM or hazard_MEMWB;
-
-
     ----------------------------------------------------------------------
-    -- Control hazard (branch/JAL/JALR cause flush)
+    -- Control hazard (branch/JAL/JALR)
     ----------------------------------------------------------------------
     flush_ctl <= '1' when (i_PC_SEL = "01" or i_PC_SEL = "10" or i_PC_SEL = "11")
                  else '0';
 
     ----------------------------------------------------------------------
-    -- Stall/Flush outputs
+    -- Stall / Flush Outputs
     ----------------------------------------------------------------------
+    o_PC_stall   <= load_use_hazard;
+    o_IFID_stall <= load_use_hazard;
 
-    -- Stalls (only for data hazards, never for control hazards)
-    o_PC_stall   <= hazard;
-    o_IFID_stall <= hazard;
-    o_IDEX_stall <= '0';  -- ID/EX is flushed, not stalled
-
-    -- Flushes
     o_IFID_flush <= flush_ctl;
-    o_IDEX_flush <= flush_ctl or hazard;   -- bubble inserted on hazard or control
 
-    -- Downstream pipeline stages NOT stalled or flushed
+    o_IDEX_stall <= '0';
+    o_IDEX_flush <= flush_ctl or load_use_hazard;
+
     o_EXMEM_stall <= '0';
     o_EXMEM_flush <= '0';
     o_MEMWB_stall <= '0';
