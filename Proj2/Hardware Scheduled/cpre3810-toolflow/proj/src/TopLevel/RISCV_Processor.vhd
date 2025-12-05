@@ -167,6 +167,33 @@ architecture structure of RISCV_Processor is
        o_PC_stall   : out std_logic);                    -- Stall signal for PC
     end component;
 
+  component ForwardUnit is
+    port(
+    -- Current instruction source registers (ID/EX stage)
+    i_IDEX_rs1       : in std_logic_vector(4 downto 0);
+    i_IDEX_rs2       : in std_logic_vector(4 downto 0);
+
+    -- One stage ahead (EX/MEM)
+    i_EXMEM_rd       : in std_logic_vector(4 downto 0);
+    i_EXMEM_RegWrite : in std_logic;
+
+    -- Two stages ahead (MEM/WB)
+    i_MEMWB_rd       : in std_logic_vector(4 downto 0);
+    i_MEMWB_RegWrite : in std_logic;
+
+    -- Forwarding control outputs
+    o_ForwardA       : out std_logic_vector(1 downto 0);  -- Forwarding rs1 signal:
+                                                            -- 00: No Forwarding
+                                                            -- 01: Forward from MEM/WB
+                                                            -- 10: Forward from EX/MEM
+                                                            -- 11: XX
+    o_ForwardB       : out std_logic_vector(1 downto 0)); -- Forwarding rs2 signal
+                                                            -- 00: No Forwarding
+                                                            -- 01: Forward from MEM/WB
+                                                            -- 10: Forward from EX/MEM
+                                                            -- 11: XX
+  end component;
+
   component extender is
     port (i_imm12bit  : in  STD_LOGIC_VECTOR(11 downto 0);   -- 12-bit input
           i_imm20bit  : in  STD_LOGIC_VECTOR(19 downto 0);   -- 20-bit input
@@ -475,6 +502,21 @@ architecture structure of RISCV_Processor is
   signal s_MEMWB_stall      : std_logic;
   signal s_MEMWB_flush      : std_logic;
 
+  signal s_ForwardA       : std_logic_vector(1 downto 0); -- Forwarding rs1 signal
+                                                            -- 00: No Forwarding
+                                                            -- 01: Forward from MEM/WB
+                                                            -- 10: Forward from EX/MEM
+                                                            -- 11: XX
+  signal s_ForwardB       : std_logic_vector(1 downto 0); -- Forwarding rs2 signal
+                                                            -- 00: No Forwarding
+                                                            -- 01: Forward from MEM/WB
+                                                            -- 10: Forward from EX/MEM
+                                                            -- 11: XX
+
+  -- ALU Operand after forwarding
+  signal s_ALU_Op1       : std_logic_vector(N-1 downto 0);
+  signal s_ALU_Op2       : std_logic_vector(N-1 downto 0);
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -523,7 +565,7 @@ begin
       i_CLK     => iCLK,
       i_RST     => iRST,
       i_PC_WE   => s_PC_WE,
-      i_rs1     => s_IDEX_rs1_data,
+      i_rs1     => s_ALU_Op1,
       i_imm     => s_IDEX_imm,
       i_current_PC => s_IDEX_pc,
       i_PC_STALL  => s_PC_stall,
@@ -603,6 +645,19 @@ begin
       o_MEMWB_flush  => s_MEMWB_flush,
       o_PC_stall     => s_PC_stall
     );
+
+  FORWARD_UNIT: ForwardUnit
+    port map(
+      i_IDEX_rs1       => s_IDEX_rs1,
+      i_IDEX_rs2       => s_IDEX_rs2,
+      i_EXMEM_rd       => s_EXMEM_rd,
+      i_EXMEM_RegWrite => s_EXMEM_RegWr,
+      i_MEMWB_rd       => s_MEMWB_rd,
+      i_MEMWB_RegWrite => s_MEMWB_RegWr,
+      o_ForwardA       => s_ForwardA,
+      o_ForwardB       => s_ForwardB
+  );
+
 
   -- Register File
   RF: regFile
@@ -693,12 +748,22 @@ s_four <= x"00000004";
 s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_auipc = '1' else
     	 std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA) + unsigned(s_four)) when s_IDEX_Jump = '1' else
     	 s_IDEX_rs1_data;
+
+s_ALU_Op1 <= s_Op1                      when s_ForwardA = "00" else
+             s_EXMEM_ALU_result         when s_ForwardA = "10" else
+             s_RegWrData;   -- when "01"
+
+s_ALU_Op2 <= s_IDEX_rs2_data            when s_ForwardB = "00" else
+             s_EXMEM_ALU_result         when s_ForwardB = "10" else
+             s_RegWrData;   -- when "01"
+
+
   -- ALU
   ALU_UNIT: alu
     generic map(N => N)
     port map(
-      i_A      => s_Op1,
-      i_B      => s_IDEX_rs2_data,
+      i_A      => s_ALU_Op1,
+      i_B      => s_ALU_Op2,
       i_imm    => s_IDEX_imm,
       i_sign   => s_IDEX_signed,
       i_ALUOp  => s_IDEX_ALUOp,
