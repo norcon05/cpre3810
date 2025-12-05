@@ -14,6 +14,7 @@ entity HazardDetection is
                                                             -- 11: rs1 + imm      (JALR)     - Flush
        i_IDEX_rd      : in std_logic_vector(4 downto 0); -- Destination register in IDEX stage (What we are writing to)
        i_IDEX_RegWrite  : in std_logic;                  -- RegWrite signal in IDEX stage
+       i_IDEX_MemReg    : in std_logic;                  -- If IDEX instruction is a load (reading from memory)
        i_EXMEM_rd     : in std_logic_vector(4 downto 0); -- Destination register in EXMEM stage (What we are writing to)
        i_EXMEM_RegWrite : in std_logic;                  -- RegWrite signal in EXMEM stage
        i_MEMWB_rd     : in std_logic_vector(4 downto 0); -- Destination register in MEMWB stage (What we are writing to)
@@ -38,22 +39,29 @@ architecture dataflow of HazardDetection is
 begin
 
     ----------------------------------------------------------------------
-    -- Load-use hazard: only remaining data hazard with forwarding
+    -- Load-use hazard:
+    -- Using MemReg (MemToReg) instead of MemRead.
+    -- MemReg = '1' ONLY for load instructions, so this is safe.
     ----------------------------------------------------------------------
     load_use_hazard <= '1' when
-        i_IDEX_MemRead = '1' and
+        i_IDEX_MemReg = '1' and                     -- substitute for MemRead
         i_IDEX_rd /= "00000" and
         (i_IDEX_rd = i_rs1 or i_IDEX_rd = i_rs2)
-    else '0';
+    else
+        '0';
+
 
     ----------------------------------------------------------------------
-    -- Control hazard (branch/JAL/JALR)
+    -- Control hazard (branch / JAL / JALR)
     ----------------------------------------------------------------------
-    flush_ctl <= '1' when (i_PC_SEL = "01" or i_PC_SEL = "10" or i_PC_SEL = "11")
-                 else '0';
+    flush_ctl <= '1' when 
+        (i_PC_SEL = "01" or i_PC_SEL = "10" or i_PC_SEL = "11")
+    else 
+        '0';
+
 
     ----------------------------------------------------------------------
-    -- Stall / Flush Outputs
+    -- Stall / Flush outputs
     ----------------------------------------------------------------------
     o_PC_stall   <= load_use_hazard;
     o_IFID_stall <= load_use_hazard;
@@ -65,6 +73,7 @@ begin
 
     o_EXMEM_stall <= '0';
     o_EXMEM_flush <= '0';
+
     o_MEMWB_stall <= '0';
     o_MEMWB_flush <= '0';
 

@@ -151,6 +151,7 @@ architecture structure of RISCV_Processor is
                                                             -- 11: rs1 + imm      (JALR)     - Flush
        i_IDEX_rd      : in std_logic_vector(4 downto 0); -- Destination register in IDEX stage (What we are writing to)
        i_IDEX_RegWrite  : in std_logic;                  -- RegWrite signal in IDEX stage
+       i_IDEX_MemReg    : in std_logic;                  -- If IDEX instruction is a load (reading from memory)
        i_EXMEM_rd     : in std_logic_vector(4 downto 0); -- Destination register in EXMEM stage (What we are writing to)
        i_EXMEM_RegWrite : in std_logic;                  -- RegWrite signal in EXMEM stage
        i_MEMWB_rd     : in std_logic_vector(4 downto 0); -- Destination register in MEMWB stage (What we are writing to)
@@ -631,6 +632,7 @@ begin
       i_PC_SEL       => s_PC_SEL,
       i_IDEX_rd      => s_IDEX_rd,
       i_IDEX_RegWrite  => s_IDEX_RegWr,
+      i_IDEX_MemReg    => s_IDEX_MemReg,
       i_EXMEM_rd     => s_EXMEM_rd,
       i_EXMEM_RegWrite => s_EXMEM_RegWr,
       i_MEMWB_rd     => s_MEMWB_rd,
