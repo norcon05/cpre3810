@@ -153,7 +153,11 @@ architecture structural of regFile is
 	signal s_we30 : std_logic;                           -- Write enable value of register 30
 	signal s_we31 : std_logic;                           -- Write enable value of register 31
 
+  signal s_mux_rs1_out : std_logic_vector(31 downto 0);  -- Output of mux for rs1
+  signal s_mux_rs2_out : std_logic_vector(31 downto 0);  -- Output of mux for rs2
 
+  signal rs1_data_fwd : std_logic_vector(31 downto 0);  -- Forwarded data for rs1
+  signal rs2_data_fwd : std_logic_vector(31 downto 0);  -- Forwarded data for rs2
 begin
 
   decoder_inst: decoder5t32
@@ -572,7 +576,7 @@ begin
 			 i_D29 => s_reg_out29,
 			 i_D30 => s_reg_out30,
 			 i_D31 => s_reg_out31,
-			 o_O   => o_rs1_data);
+			 o_O   => s_mux_rs1_out);
 
   mux_rs2: mux32t1_N
     generic map(N => 32)
@@ -609,6 +613,18 @@ begin
 			 i_D29 => s_reg_out29,
 			 i_D30 => s_reg_out30,
 			 i_D31 => s_reg_out31,
-			 o_O   => o_rs2_data);
+			 o_O   => s_mux_rs2_out);
+
+  -- Handle forwarding for rs1 and rs2
+  rs1_data_fwd <= i_rd_data when (i_WE='1' and i_rd_addr=i_rs1_addr and i_rd_addr/="00000") 
+                 else s_mux_rs1_out;
+
+  rs2_data_fwd <= i_rd_data when (i_WE='1' and i_rd_addr=i_rs2_addr and i_rd_addr/="00000") 
+                 else s_mux_rs2_out;
+
+  --Update outputs
+  o_rs1_data <= rs1_data_fwd;
+  o_rs2_data <= rs2_data_fwd;
+
 			 
 end structural;
