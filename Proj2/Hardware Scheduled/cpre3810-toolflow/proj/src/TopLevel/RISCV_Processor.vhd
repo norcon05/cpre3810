@@ -515,8 +515,9 @@ architecture structure of RISCV_Processor is
                                                             -- 11: XX
 
   -- ALU Operand after forwarding
-  signal s_ALU_Op1       : std_logic_vector(N-1 downto 0);
-  signal s_ALU_Op2       : std_logic_vector(N-1 downto 0);
+  signal s_ALU_Op1       : std_logic_vector(31 downto 0);
+  signal s_ALU_Op2       : std_logic_vector(31 downto 0);
+  signal s_JALR_IN       : std_logic_vector(31 downto 0);
 
 begin
 
@@ -566,7 +567,7 @@ begin
       i_CLK     => iCLK,
       i_RST     => iRST,
       i_PC_WE   => s_PC_WE,
-      i_rs1     => s_ALU_Op1,
+      i_rs1     => s_JALR_IN ,
       i_imm     => s_IDEX_imm,
       i_current_PC => s_IDEX_pc,
       i_PC_STALL  => s_PC_stall,
@@ -757,6 +758,10 @@ s_ALU_Op1 <= s_Op1                      when s_ForwardA = "00" else
 
 s_ALU_Op2 <= s_IDEX_rs2_data            when s_ForwardB = "00" else
              s_EXMEM_ALU_result         when s_ForwardB = "10" else
+             s_RegWrData;   -- when "01"
+
+s_JALR_IN <= s_IDEX_rs1_data          when s_ForwardA = "00" else
+             s_EXMEM_ALU_result         when s_ForwardA = "10" else
              s_RegWrData;   -- when "01"
 
 
