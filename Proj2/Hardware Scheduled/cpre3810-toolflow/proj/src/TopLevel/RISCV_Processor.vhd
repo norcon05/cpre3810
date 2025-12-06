@@ -866,7 +866,7 @@ s_JALR_IN <= s_IDEX_rs1_data          when s_ForwardA = "00" else
       iRST => iRST,
 
       i_ALU_result => s_ALUResult,
-      i_rs2_data   => s_IDEX_rs2_data,
+      i_rs2_data   => s_ALU_Op2,
       i_rd         => s_IDEX_rd,
       i_func3      => s_IDEX_func3,
       i_func7      => s_IDEX_func7,
