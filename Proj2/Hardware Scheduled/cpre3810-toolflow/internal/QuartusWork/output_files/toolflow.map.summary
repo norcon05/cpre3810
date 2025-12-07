@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Thu Nov 20 19:37:43 2025
+Analysis & Synthesis Status : Successful - Sat Dec  6 21:59:52 2025
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Standard Edition
 Revision Name : toolflow
 Top-level Entity Name : RISCV_Processor
 Family : Cyclone IV E
-Total logic elements : 59,616
-    Total combinational functions : 25,739
-    Dedicated logic registers : 34,129
-Total registers : 34129
+Total logic elements : 115,508
+    Total combinational functions : 48,928
+    Dedicated logic registers : 66,938
+Total registers : 66938
 Total pins : 99
 Total virtual pins : 0
-Total memory bits : 32,768
+Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
