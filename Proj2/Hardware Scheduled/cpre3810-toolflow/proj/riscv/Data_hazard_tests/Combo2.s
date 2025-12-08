@@ -1,7 +1,8 @@
-.text
-.globl main
 .data
 C: .word 3
+
+.text
+.globl main
 
 main:
     la   x10, C

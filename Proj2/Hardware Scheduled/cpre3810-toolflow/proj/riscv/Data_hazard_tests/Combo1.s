@@ -1,7 +1,8 @@
-.text
-.globl main
 .data
 B: .word 8
+
+.text
+.globl main
 
 main:
     addi x1, x0, 5         # ALU producer

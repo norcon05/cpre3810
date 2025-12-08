@@ -1,7 +1,8 @@
-.text
-.globl main
 .data
 testdata: .word 0x00000005
+
+.text
+.globl main
 
 main:
     la   x10, testdata

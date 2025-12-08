@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2025.1_2 Compiler 2025.04 Apr  7 2025
-Start time: 19:35:28 on Nov 20,2025
-vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/RISCV_types.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/extender.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/adder_N.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/xorg2_N.vhd proj/src/TopLevel/reg_N.vhd proj/src/TopLevel/pcLogic.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/EX_MEM.vhd proj/src/TopLevel/Control.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/mux4t1_N.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/TopLevel/Decode.vhd proj/src/TopLevel/ID_EX.vhd proj/src/TopLevel/andg2_N.vhd proj/src/TopLevel/IF_ID.vhd proj/src/TopLevel/mux32t1_N.vhd proj/src/TopLevel/shiftBinary.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/invg_N.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/MEM_WB.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/org2_N.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/barrelShifter.vhd proj/src/TopLevel/alu.vhd proj/src/TopLevel/onesComp_N.vhd proj/src/TopLevel/mux4t1.vhd proj/src/TopLevel/addiSubi_N.vhd proj/src/TopLevel/adder.vhd proj/src/TopLevel/slt_N.vhd 
+Start time: 17:01:44 on Dec 08,2025
+vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd internal/testpy/tb.vhd proj/src/RISCV_types.vhd proj/src/TopLevel/mem.vhd proj/src/TopLevel/invg_N.vhd proj/src/TopLevel/andg2.vhd proj/src/TopLevel/invg.vhd proj/src/TopLevel/Decode.vhd proj/src/TopLevel/HazardDetection.vhd proj/src/TopLevel/EX_MEM.vhd proj/src/TopLevel/barrelShifter.vhd proj/src/TopLevel/ForwardUnit.vhd proj/src/TopLevel/adder.vhd proj/src/TopLevel/mux2t1_N.vhd proj/src/TopLevel/mux2t1.vhd proj/src/TopLevel/slt_N.vhd proj/src/TopLevel/andg2_N.vhd proj/src/TopLevel/addiSubi_N.vhd proj/src/TopLevel/reg_N.vhd proj/src/TopLevel/Control.vhd proj/src/TopLevel/mux4t1.vhd proj/src/TopLevel/RISCV_Processor.vhd proj/src/TopLevel/alu.vhd proj/src/TopLevel/mux4t1_N.vhd proj/src/TopLevel/decoder5t32.vhd proj/src/TopLevel/dffg.vhd proj/src/TopLevel/org2.vhd proj/src/TopLevel/xorg2_N.vhd proj/src/TopLevel/pcLogic.vhd proj/src/TopLevel/shiftBinary.vhd proj/src/TopLevel/regFile.vhd proj/src/TopLevel/MEM_WB.vhd proj/src/TopLevel/onesComp_N.vhd proj/src/TopLevel/xorg2.vhd proj/src/TopLevel/org2_N.vhd proj/src/TopLevel/extender.vhd proj/src/TopLevel/IF_ID.vhd proj/src/TopLevel/mux32t1_N.vhd proj/src/TopLevel/ID_EX.vhd proj/src/TopLevel/adder_N.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -16,77 +16,81 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/RISCV_types.vhd intern
 ** Warning: proj/src/RISCV_types.vhd(29): (vcom-1615) Existing package body 'RISCV_types(body)' at line 29 will be overwritten.
 -- Compiling package body RISCV_types
 -- Loading package RISCV_types
--- Compiling entity regFile
--- Compiling architecture structural of regFile
--- Compiling entity extender
--- Compiling architecture dataflow of extender
 -- Loading package NUMERIC_STD
--- Compiling entity mux2t1
--- Compiling architecture structure of mux2t1
--- Compiling entity adder_N
--- Compiling architecture structural of adder_N
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
--- Compiling entity xorg2_N
--- Compiling architecture structure of xorg2_N
+-- Compiling entity invg_N
+-- Compiling architecture structure of invg_N
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+-- Compiling entity Decode
+-- Compiling architecture Dataflow of Decode
+-- Compiling entity HazardDetection
+-- Compiling architecture dataflow of HazardDetection
+-- Compiling entity EX_MEM
+-- Compiling architecture structural of EX_MEM
+-- Compiling entity barrelShifter
+-- Compiling architecture structure of barrelShifter
+-- Compiling entity ForwardUnit
+-- Compiling architecture Dataflow of ForwardUnit
+-- Compiling entity adder
+-- Compiling architecture structure of adder
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+-- Compiling entity mux2t1
+-- Compiling architecture structure of mux2t1
+-- Compiling entity slt_N
+-- Compiling architecture dataflow of slt_N
+-- Compiling entity andg2_N
+-- Compiling architecture structure of andg2_N
+-- Compiling entity addiSubi_N
+-- Compiling architecture structural of addiSubi_N
 -- Compiling entity reg_N
 -- Compiling architecture structural of reg_N
--- Compiling entity pcLogic
--- Compiling architecture structural of pcLogic
+-- Compiling entity Control
+-- Compiling architecture dataflow of Control
+-- Compiling entity mux4t1
+-- Compiling architecture dataflow of mux4t1
 -- Loading package RISCV_types
 -- Compiling entity RISCV_Processor
 -- Compiling architecture structure of RISCV_Processor
--- Compiling entity EX_MEM
--- Compiling architecture structural of EX_MEM
--- Compiling entity Control
--- Compiling architecture dataflow of Control
--- Compiling entity org2
--- Compiling architecture dataflow of org2
--- Compiling entity dffg
--- Compiling architecture mixed of dffg
+-- Compiling entity alu
+-- Compiling architecture structural of alu
 -- Compiling entity mux4t1_N
 -- Compiling architecture structural of mux4t1_N
 -- Compiling entity decoder5t32
 -- Compiling architecture dataflow of decoder5t32
--- Compiling entity Decode
--- Compiling architecture Dataflow of Decode
--- Compiling entity ID_EX
--- Compiling architecture structural of ID_EX
--- Compiling entity andg2_N
--- Compiling architecture structure of andg2_N
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity xorg2_N
+-- Compiling architecture structure of xorg2_N
+-- Compiling entity pcLogic
+-- Compiling architecture structural of pcLogic
+-- Compiling entity shiftBinary
+-- Compiling architecture structure of shiftBinary
+-- Compiling entity regFile
+-- Compiling architecture structural of regFile
+-- Compiling entity MEM_WB
+-- Compiling architecture structural of MEM_WB
+-- Compiling entity onesComp_N
+-- Compiling architecture structural of onesComp_N
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+-- Compiling entity org2_N
+-- Compiling architecture structure of org2_N
+-- Compiling entity extender
+-- Compiling architecture dataflow of extender
 -- Compiling entity IF_ID
 -- Compiling architecture structural of IF_ID
 -- Compiling entity mux32t1_N
 -- Compiling architecture dataflow of mux32t1_N
--- Compiling entity shiftBinary
--- Compiling architecture structure of shiftBinary
--- Compiling entity xorg2
--- Compiling architecture dataflow of xorg2
--- Compiling entity invg_N
--- Compiling architecture structure of invg_N
--- Compiling entity mux2t1_N
--- Compiling architecture structural of mux2t1_N
--- Compiling entity MEM_WB
--- Compiling architecture structural of MEM_WB
--- Compiling entity andg2
--- Compiling architecture dataflow of andg2
--- Compiling entity org2_N
--- Compiling architecture structure of org2_N
--- Compiling entity invg
--- Compiling architecture dataflow of invg
--- Compiling entity barrelShifter
--- Compiling architecture structure of barrelShifter
--- Compiling entity alu
--- Compiling architecture structural of alu
--- Compiling entity onesComp_N
--- Compiling architecture structural of onesComp_N
--- Compiling entity mux4t1
--- Compiling architecture dataflow of mux4t1
--- Compiling entity addiSubi_N
--- Compiling architecture structural of addiSubi_N
--- Compiling entity adder
--- Compiling architecture structure of adder
--- Compiling entity slt_N
--- Compiling architecture dataflow of slt_N
-End time: 19:35:28 on Nov 20,2025, Elapsed time: 0:00:00
+-- Compiling entity ID_EX
+-- Compiling architecture structural of ID_EX
+-- Compiling entity adder_N
+-- Compiling architecture structural of adder_N
+End time: 17:01:44 on Dec 08,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 2

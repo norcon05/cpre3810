@@ -2,16 +2,20 @@
 .globl main
 
 main:
-    jal x1, A
-    addi x2, x0, 123        # flushed
+    la  x6, JUMPC
+    jal x1, JUMPA
+    addi x2, x0, 12        # flushed
 
-A:  beq x0, x0, B           # taken
-    addi x3, x0, 456        # flushed
+JUMPA:  
+    beq x0, x0, JUMPB       # taken
+    addi x3, x0, 34         # flushed
 
-B:  jalr x4, x1, 0          # jump again using x1 value
-    addi x5, x0, 777        # flushed
+JUMPB:  
+    jalr x4, x6, 0          # jump again using x6 value
+    addi x5, x0, 56         # flushed
 
-C:  nop                     # final landing zone
+JUMPC:  
+    nop                     # final landing zone
 end:
     wfi
 

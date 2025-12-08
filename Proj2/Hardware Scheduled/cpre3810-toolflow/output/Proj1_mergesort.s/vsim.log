@@ -3,12 +3,8 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 18:14:51 on Nov 20,2025
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vsim-8611) Generating debug db.
-# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
-# ** Note: (vopt-4301) Memory core inferred for signal 'ram' width=32, depth=1024, type=RAM at location proj/src/TopLevel/mem.vhd:35
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Start time: 17:01:54 on Dec 08,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim-64
 # //  Version 2025.1_2 linux_x86_64 Apr  7 2025
 # //
@@ -46,6 +42,8 @@ Reading pref.tcl
 # Loading work.if_id(structural)#1
 # Loading work.decode(dataflow)#1
 # Loading work.control(dataflow)#1
+# Loading work.hazarddetection(dataflow)#1
+# Loading work.forwardunit(dataflow)#1
 # Loading work.regfile(structural)#1
 # Loading work.decoder5t32(dataflow)#1
 # Loading work.mux32t1_n(dataflow)#1
@@ -74,7 +72,7 @@ Reading pref.tcl
 # Loading work.shiftbinary(structure)#5
 # Loading work.ex_mem(structural)#1
 # Loading work.mem_wb(structural)#1
-# ** Note: (vsim-8900) Creating design debug database vsim.dbg.
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
 # do modelsim_framework.do
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/ALU_UNIT/SLT_UNIT
@@ -84,11 +82,11 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/IMem
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 5 ns  Iteration: 3  Instance: /tb/MyRiscv/ALU_UNIT/SLT_UNIT
-# ** Note: Data structure takes 64093824 bytes of memory
-#          Process time 0.63 seconds
+# ** Note: Data structure takes 64003160 bytes of memory
+#          Process time 0.66 seconds
 #          stop
-#    Time: 86120 ns  Iteration: 1  Instance: /tb
-# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# Stopped at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 18:14:53 on Nov 20,2025, Elapsed time: 0:00:02
-# Errors: 0, Warnings: 5
+#    Time: 41840 ns  Iteration: 1  Instance: /tb
+# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/Proj2/Hardware Scheduled/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# Stopped at /home/connorwm/cpre381/Proj2/Hardware Scheduled/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# End time: 17:01:54 on Dec 08,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 4

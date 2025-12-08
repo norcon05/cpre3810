@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2025.1_2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 18:15:08 on Nov 20,2025
+# Start time: 17:01:46 on Dec 08,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
@@ -46,6 +46,8 @@ Reading pref.tcl
 # Loading work.if_id(structural)#1
 # Loading work.decode(dataflow)#1
 # Loading work.control(dataflow)#1
+# Loading work.hazarddetection(dataflow)#1
+# Loading work.forwardunit(dataflow)#1
 # Loading work.regfile(structural)#1
 # Loading work.decoder5t32(dataflow)#1
 # Loading work.mux32t1_n(dataflow)#1
@@ -84,11 +86,11 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyRiscv/IMem
 # ** Warning: NUMERIC_STD."<": metavalue detected, returning FALSE
 #    Time: 5 ns  Iteration: 3  Instance: /tb/MyRiscv/ALU_UNIT/SLT_UNIT
-# ** Note: Data structure takes 63831656 bytes of memory
+# ** Note: Data structure takes 64822432 bytes of memory
 #          Process time 0.11 seconds
 #          stop
-#    Time: 1500 ns  Iteration: 1  Instance: /tb
-# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# Stopped at /home/connorwm/cpre381/Proj2/cpre3810-toolflow/internal/testpy/tb.vhd line 150
-# End time: 18:15:10 on Nov 20,2025, Elapsed time: 0:00:02
+#    Time: 1340 ns  Iteration: 1  Instance: /tb
+# Break in Process P_DUMP_STATE at /home/connorwm/cpre381/Proj2/Hardware Scheduled/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# Stopped at /home/connorwm/cpre381/Proj2/Hardware Scheduled/cpre3810-toolflow/internal/testpy/tb.vhd line 150
+# End time: 17:01:48 on Dec 08,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 5

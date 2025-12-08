@@ -1,8 +1,9 @@
-.text
-.globl main
 .data
 A: .word 10
    .word 20
+   
+.text
+.globl main
 
 main:
     la   x10, A

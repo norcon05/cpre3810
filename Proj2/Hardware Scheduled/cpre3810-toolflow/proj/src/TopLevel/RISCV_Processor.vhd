@@ -752,7 +752,7 @@ s_Op1 <= std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA)) when s_IDEX_a
     	 std_logic_vector(unsigned(s_IDEX_pc) + unsigned(s_PC_BA) + unsigned(s_four)) when s_IDEX_Jump = '1' else
     	 s_IDEX_rs1_data;
 
-s_ALU_Op1 <= s_Op1                      when s_ForwardA = "00" else
+s_ALU_Op1 <= s_Op1                      when (s_ForwardA = "00") or (s_IDEX_Jump = '1') else
              s_EXMEM_ALU_result         when s_ForwardA = "10" else
              s_RegWrData;   -- when "01"
 
